@@ -11,7 +11,7 @@ body{
 
 /* HEADER */
 header{
-    background-color:#5DADE2; /* Biru Soft */
+    background-color:#5DADE2;
     color:white;
     padding:15px 40px;
     display:flex;
@@ -25,11 +25,17 @@ header{
     font-size:20px;
 }
 
-/* Menu Navigasi */
+/* Menu + Daftar di kanan */
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
 nav ul{
     list-style:none;
     display:flex;
-    gap:25px;
+    gap:20px;
     margin:0;
     padding:0;
 }
@@ -44,15 +50,8 @@ nav ul li a:hover{
     text-decoration:underline;
 }
 
-/* Bagian kanan header */
-.header-right{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
-/* Tombol Login */
-.login-btn{
+/* Tombol Daftar */
+.register-btn{
     background:white;
     color:#5DADE2;
     border:none;
@@ -62,7 +61,7 @@ nav ul li a:hover{
     font-weight:bold;
 }
 
-.login-btn:hover{
+.register-btn:hover{
     background:#eaf4fb;
 }
 
@@ -71,8 +70,8 @@ nav ul li a:hover{
     padding:30px;
 }
 
-/* Form Login */
-.login-box{
+/* Form Daftar */
+.register-box{
     display:none;
     position:absolute;
     right:40px;
@@ -85,14 +84,14 @@ nav ul li a:hover{
     width:280px;
 }
 
-.login-box input{
+.register-box input{
     width:100%;
     padding:6px;
     margin-top:5px;
     margin-bottom:10px;
 }
 
-.login-box button{
+.register-box button{
     width:100%;
     padding:8px;
     background:#5DADE2;
@@ -102,7 +101,7 @@ nav ul li a:hover{
     cursor:pointer;
 }
 
-.login-box button:hover{
+.register-box button:hover{
     background:#4aa3df;
 }
 </style>
@@ -115,24 +114,26 @@ nav ul li a:hover{
 
     <div class="logo">Salsa Library</div>
 
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Koleksi</a></li>
-            <li><a href="#">Layanan</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
-    </nav>
-
     <div class="header-right">
-        <button class="login-btn" onclick="showLogin()">Login</button>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Koleksi</a></li>
+                <li><a href="#">Layanan</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+
+        <button class="register-btn" onclick="showRegister()">Daftar</button>
+
     </div>
 
 </header>
 
-<!-- FORM LOGIN -->
-<div class="login-box" id="loginForm">
-    <form onsubmit="return login()">
+<!-- FORM DAFTAR -->
+<div class="register-box" id="registerForm">
+    <form onsubmit="return register()">
         
         <label>First Name</label>
         <input type="text" id="firstName" required>
@@ -146,7 +147,7 @@ nav ul li a:hover{
         <label>Nomor HP</label>
         <input type="tel" id="phone" required>
 
-        <button type="submit">Masuk</button>
+        <button type="submit">Daftar</button>
     </form>
 </div>
 
@@ -176,19 +177,19 @@ nav ul li a:hover{
 </div>
 
 <script>
-function showLogin(){
-    var form = document.getElementById("loginForm");
+function showRegister(){
+    var form = document.getElementById("registerForm");
     form.style.display = form.style.display === "block" ? "none" : "block";
 }
 
-function login(){
+function register(){
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
 
     if(firstName && lastName && email && phone){
-        alert("Login berhasil! Selamat datang, " + firstName + " " + lastName);
+        alert("Pendaftaran berhasil! Selamat datang, " + firstName + " " + lastName);
         return false;
     } else {
         alert("Semua data harus diisi!");
