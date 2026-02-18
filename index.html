@@ -11,22 +11,50 @@ body{
 
 /* HEADER */
 header{
-    background-color:#4CAF50;
+    background-color:#5DADE2; /* Biru Soft */
     color:white;
-    padding:15px 30px;
+    padding:15px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-header h2{
+/* Logo */
+.logo{
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* Menu Navigasi */
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
     margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+}
+
+nav ul li a:hover{
+    text-decoration:underline;
+}
+
+/* Bagian kanan header */
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
 }
 
 /* Tombol Login */
 .login-btn{
     background:white;
-    color:#4CAF50;
+    color:#5DADE2;
     border:none;
     padding:8px 15px;
     cursor:pointer;
@@ -35,7 +63,7 @@ header h2{
 }
 
 .login-btn:hover{
-    background:#e6e6e6;
+    background:#eaf4fb;
 }
 
 /* Konten */
@@ -47,8 +75,8 @@ header h2{
 .login-box{
     display:none;
     position:absolute;
-    right:30px;
-    top:70px;
+    right:40px;
+    top:75px;
     background:white;
     padding:20px;
     border:1px solid #ccc;
@@ -67,11 +95,15 @@ header h2{
 .login-box button{
     width:100%;
     padding:8px;
-    background:#4CAF50;
+    background:#5DADE2;
     color:white;
     border:none;
     border-radius:5px;
     cursor:pointer;
+}
+
+.login-box button:hover{
+    background:#4aa3df;
 }
 </style>
 
@@ -80,8 +112,22 @@ header h2{
 
 <!-- HEADER -->
 <header>
-    <h2>Salsa Library</h2>
-    <button class="login-btn" onclick="showLogin()">Login</button>
+
+    <div class="logo">Salsa Library</div>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Koleksi</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-right">
+        <button class="login-btn" onclick="showLogin()">Login</button>
+    </div>
+
 </header>
 
 <!-- FORM LOGIN -->
@@ -132,11 +178,7 @@ header h2{
 <script>
 function showLogin(){
     var form = document.getElementById("loginForm");
-    if(form.style.display === "block"){
-        form.style.display = "none";
-    } else {
-        form.style.display = "block";
-    }
+    form.style.display = form.style.display === "block" ? "none" : "block";
 }
 
 function login(){
