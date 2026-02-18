@@ -25,7 +25,7 @@ header{
     font-size:20px;
 }
 
-/* Menu + Daftar di kanan */
+/* Kanan header (menu + login) */
 .header-right{
     display:flex;
     align-items:center;
@@ -50,8 +50,8 @@ nav ul li a:hover{
     text-decoration:underline;
 }
 
-/* Tombol Daftar */
-.register-btn{
+/* Tombol Login */
+.login-btn{
     background:white;
     color:#5DADE2;
     border:none;
@@ -61,7 +61,7 @@ nav ul li a:hover{
     font-weight:bold;
 }
 
-.register-btn:hover{
+.login-btn:hover{
     background:#eaf4fb;
 }
 
@@ -70,8 +70,8 @@ nav ul li a:hover{
     padding:30px;
 }
 
-/* Form Daftar */
-.register-box{
+/* Form */
+.login-box{
     display:none;
     position:absolute;
     right:40px;
@@ -84,14 +84,14 @@ nav ul li a:hover{
     width:280px;
 }
 
-.register-box input{
+.login-box input{
     width:100%;
     padding:6px;
     margin-top:5px;
     margin-bottom:10px;
 }
 
-.register-box button{
+.login-box button{
     width:100%;
     padding:8px;
     background:#5DADE2;
@@ -100,22 +100,15 @@ nav ul li a:hover{
     border-radius:5px;
     cursor:pointer;
 }
-
-.register-box button:hover{
-    background:#4aa3df;
-}
 </style>
 
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-
     <div class="logo">Salsa Library</div>
 
     <div class="header-right">
-
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -125,33 +118,31 @@ nav ul li a:hover{
             </ul>
         </nav>
 
-        <button class="register-btn" onclick="showRegister()">Daftar</button>
-
+        <button class="login-btn" onclick="showLogin()">Login</button>
     </div>
-
 </header>
 
-<!-- FORM DAFTAR -->
-<div class="register-box" id="registerForm">
-    <form onsubmit="return register()">
+<!-- FORM LOGIN -->
+<div class="login-box" id="loginForm">
+    <form onsubmit="return login()">
         
         <label>First Name</label>
-        <input type="text" id="firstName" required>
+        <input type="text" required>
 
         <label>Last Name</label>
-        <input type="text" id="lastName" required>
+        <input type="text" required>
 
         <label>Email</label>
-        <input type="email" id="email" required>
+        <input type="email" required>
 
         <label>Nomor HP</label>
-        <input type="tel" id="phone" required>
+        <input type="tel" required>
 
+        <!-- Tombol diubah jadi Daftar -->
         <button type="submit">Daftar</button>
     </form>
 </div>
 
-<!-- KONTEN -->
 <div class="container">
     <h1>Selamat Datang di Salsa Library</h1>
 
@@ -171,30 +162,20 @@ nav ul li a:hover{
 
     <h2>Video Youtube</h2>
 
-    <iframe width="560" height="315" 
+    <iframe width="560" height="315"
     src="https://www.youtube.com/embed/dBVdtmHcUOI?si=d34TwUD0dUYWOk0z">
     </iframe>
 </div>
 
 <script>
-function showRegister(){
-    var form = document.getElementById("registerForm");
+function showLogin(){
+    var form = document.getElementById("loginForm");
     form.style.display = form.style.display === "block" ? "none" : "block";
 }
 
-function register(){
-    var firstName = document.getElementById("firstName").value;
-    var lastName = document.getElementById("lastName").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-
-    if(firstName && lastName && email && phone){
-        alert("Pendaftaran berhasil! Selamat datang, " + firstName + " " + lastName);
-        return false;
-    } else {
-        alert("Semua data harus diisi!");
-        return false;
-    }
+function login(){
+    alert("Data berhasil dikirim!");
+    return false;
 }
 </script>
 
