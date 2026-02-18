@@ -1,25 +1,183 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Salsa Library</title>
-</head>
+<title>Salsabilla Oktavia Lubis</title>
 
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header{
+    background-color:#5DADE2;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Logo */
+.logo{
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* Kanan header (menu + login) */
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+    margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+}
+
+nav ul li a:hover{
+    text-decoration:underline;
+}
+
+/* Tombol Login */
+.login-btn{
+    background:white;
+    color:#5DADE2;
+    border:none;
+    padding:8px 15px;
+    cursor:pointer;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.login-btn:hover{
+    background:#eaf4fb;
+}
+
+/* Konten */
+.container{
+    padding:30px;
+}
+
+/* Form */
+.login-box{
+    display:none;
+    position:absolute;
+    right:40px;
+    top:75px;
+    background:white;
+    padding:20px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    width:280px;
+}
+
+.login-box input{
+    width:100%;
+    padding:6px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.login-box button{
+    width:100%;
+    padding:8px;
+    background:#5DADE2;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
 <body>
 
-<header style="background-color:#5DADE2; padding:15px; text-align:right;">
-    <h2>Salsa Library</h2>
-    <nav>
-        <a href="#">Home</a> |
-        <a href="#">Koleksi</a> |
-        <a href="#">Layanan</a> |
-        <a href="#">About Us</a> |
-        <a href="#daftar">Login</a>
-    </nav>
+<header>
+    <div class="logo">Salsa Library</div>
+
+    <div class="header-right">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Koleksi</a></li>
+                <li><a href="#">Layanan</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+
+        <button class="login-btn" onclick="showLogin()">Login</button>
+    </div>
 </header>
 
-<h1>Selamat Datang</h1>
-<p>Ini adalah halaman Salsa Library.</p>
+<!-- FORM LOGIN -->
+<div class="login-box" id="loginForm">
+    <form onsubmit="return login()">
+        
+        <label>First Name</label>
+        <input type="text" required>
+
+        <label>Last Name</label>
+        <input type="text" required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Nomor HP</label>
+        <input type="tel" required>
+
+        <!-- Tombol diubah jadi Daftar -->
+        <button type="submit">Daftar</button>
+    </form>
+</div>
+
+<div class="container">
+    <h1>Selamat Datang di Salsa Library</h1>
+
+    <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
+
+    <p>
+        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">
+        Kunjungi Instagram Saya
+        </a>
+    </p>
+
+    <p>
+        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE">
+        Kunjungi CV Saya
+        </a>
+    </p>
+
+    <h2>Video Youtube</h2>
+
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/dBVdtmHcUOI?si=d34TwUD0dUYWOk0z">
+    </iframe>
+</div>
+
+<script>
+function showLogin(){
+    var form = document.getElementById("loginForm");
+    form.style.display = form.style.display === "block" ? "none" : "block";
+}
+
+function login(){
+    alert("Data berhasil dikirim!");
+    return false;
+}
+</script>
 
 </body>
 </html>
