@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<title>Salsabilla Oktavia Lubis</title>
+<meta charset="UTF-8">
+<title>Salsa Library</title>
 
 <style>
 body{
     margin:0;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 /* HEADER */
@@ -19,79 +20,60 @@ header{
     align-items:center;
 }
 
-/* Logo */
 .logo{
-    font-weight:bold;
     font-size:20px;
+    font-weight:bold;
 }
 
-/* Kanan header (menu + login) */
 .header-right{
     display:flex;
     align-items:center;
-    gap:25px;
+    gap:20px;
 }
 
 nav ul{
     list-style:none;
     display:flex;
-    gap:20px;
+    gap:15px;
     margin:0;
     padding:0;
 }
 
 nav ul li a{
-    text-decoration:none;
     color:white;
-    font-weight:500;
+    text-decoration:none;
 }
 
-nav ul li a:hover{
-    text-decoration:underline;
-}
-
-/* Tombol Login */
 .login-btn{
     background:white;
     color:#5DADE2;
     border:none;
-    padding:8px 15px;
+    padding:7px 12px;
     cursor:pointer;
     border-radius:5px;
     font-weight:bold;
 }
 
-.login-btn:hover{
-    background:#eaf4fb;
-}
-
-/* Konten */
-.container{
-    padding:30px;
-}
-
-/* Form */
-.login-box{
+/* FORM BOX */
+.form-box{
     display:none;
     position:absolute;
     right:40px;
     top:75px;
     background:white;
     padding:20px;
-    border:1px solid #ccc;
+    width:280px;
     border-radius:8px;
     box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    width:280px;
 }
 
-.login-box input{
+.form-box input{
     width:100%;
     padding:6px;
-    margin-top:5px;
     margin-bottom:10px;
 }
 
-.login-box button{
+.form-box button{
     width:100%;
     padding:8px;
     background:#5DADE2;
@@ -100,11 +82,16 @@ nav ul li a:hover{
     border-radius:5px;
     cursor:pointer;
 }
-</style>
 
+.container{
+    padding:30px;
+}
+</style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="logo">Salsa Library</div>
 
@@ -118,34 +105,54 @@ nav ul li a:hover{
             </ul>
         </nav>
 
-        <button class="login-btn" onclick="showLogin()">Login</button>
+        <button class="login-btn" onclick="toggleForm()">Login</button>
     </div>
 </header>
 
-<!-- FORM LOGIN -->
-<div class="login-box" id="loginForm">
-    <form onsubmit="return login()">
-        
-        <label>First Name</label>
-        <input type="text" required>
+<!-- FORM LOGIN & DAFTAR -->
+<div class="form-box" id="formBox">
 
-        <label>Last Name</label>
-        <input type="text" required>
+    <!-- LOGIN -->
+    <form id="loginForm" onsubmit="return login()">
+        <h3>Login</h3>
 
-        <label>Email</label>
-        <input type="email" required>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="tel" placeholder="No Handphone" required>
 
-        <label>Nomor HP</label>
-        <input type="tel" required>
+        <button type="submit">Login</button>
 
-        <!-- Tombol diubah jadi Daftar -->
-        <button type="submit">Daftar</button>
+        <p style="text-align:center;">
+            Belum punya akun?
+            <a href="#" onclick="showRegister()">Daftar</a>
+        </p>
     </form>
+
+    <!-- DAFTAR -->
+    <form id="registerForm" style="display:none;" onsubmit="return register()">
+        <h3>Daftar</h3>
+
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="No Handphone" required>
+        <input type="password" placeholder="Password" required>
+
+        <button type="submit">Daftar</button>
+
+        <p style="text-align:center;">
+            Sudah punya akun?
+            <a href="#" onclick="showLogin()">Login</a>
+        </p>
+    </form>
+
 </div>
 
+<!-- KONTEN -->
 <div class="container">
     <h1>Selamat Datang di Salsa Library</h1>
-
     <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
 
     <p>
@@ -163,18 +170,34 @@ nav ul li a:hover{
     <h2>Video Youtube</h2>
 
     <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/dBVdtmHcUOI?si=d34TwUD0dUYWOk0z">
-    </iframe>
+    src="https://www.youtube.com/embed/dBVdtmHcUOI"
+    allowfullscreen></iframe>
 </div>
 
 <script>
+function toggleForm(){
+    var box = document.getElementById("formBox");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+function showRegister(){
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("registerForm").style.display = "block";
+}
+
 function showLogin(){
-    var form = document.getElementById("loginForm");
-    form.style.display = form.style.display === "block" ? "none" : "block";
+    document.getElementById("registerForm").style.display = "none";
+    document.getElementById("loginForm").style.display = "block";
 }
 
 function login(){
-    alert("Data berhasil dikirim!");
+    alert("Login berhasil!");
+    return false;
+}
+
+function register(){
+    alert("Pendaftaran berhasil!");
+    showLogin();
     return false;
 }
 </script>
