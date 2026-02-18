@@ -10,25 +10,55 @@ body{
     font-family:Arial, sans-serif;
 }
 
-/* HEADER */
+/* HALAMAN LOGIN */
+.login-page{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#5DADE2;
+}
+
+.login-container{
+    background:white;
+    padding:30px;
+    width:320px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.login-container h2{
+    text-align:center;
+}
+
+.login-container input{
+    width:100%;
+    padding:8px;
+    margin-bottom:12px;
+}
+
+.login-container button{
+    width:100%;
+    padding:8px;
+    background:#5DADE2;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* HALAMAN HOME */
+.home-page{
+    display:none;
+}
+
 header{
-    background-color:#5DADE2;
+    background:#5DADE2;
     color:white;
     padding:15px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-}
-
-.logo{
-    font-size:20px;
-    font-weight:bold;
-}
-
-.header-right{
-    display:flex;
-    align-items:center;
-    gap:20px;
 }
 
 nav ul{
@@ -40,45 +70,15 @@ nav ul{
 }
 
 nav ul li a{
-    color:white;
     text-decoration:none;
+    color:white;
 }
 
-.login-btn{
+.logout-btn{
     background:white;
     color:#5DADE2;
     border:none;
-    padding:7px 12px;
-    cursor:pointer;
-    border-radius:5px;
-    font-weight:bold;
-}
-
-/* FORM BOX */
-.form-box{
-    display:none;
-    position:absolute;
-    right:40px;
-    top:75px;
-    background:white;
-    padding:20px;
-    width:280px;
-    border-radius:8px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-.form-box input{
-    width:100%;
-    padding:6px;
-    margin-bottom:10px;
-}
-
-.form-box button{
-    width:100%;
-    padding:8px;
-    background:#5DADE2;
-    color:white;
-    border:none;
+    padding:6px 12px;
     border-radius:5px;
     cursor:pointer;
 }
@@ -91,112 +91,128 @@ nav ul li a{
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <div class="logo">Salsa Library</div>
+<!-- LOGIN PAGE -->
+<div class="login-page" id="loginPage">
 
-    <div class="header-right">
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Koleksi</a></li>
-                <li><a href="#">Layanan</a></li>
-                <li><a href="#">About Us</a></li>
-            </ul>
-        </nav>
+    <div class="login-container">
+        <h2 id="formTitle">Login</h2>
 
-        <button class="login-btn" onclick="toggleForm()">Login</button>
+        <!-- LOGIN FORM -->
+        <form id="loginForm" onsubmit="return login()">
+            <input type="text" id="loginFirst" placeholder="First Name" required>
+            <input type="text" id="loginLast" placeholder="Last Name" required>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <input type="tel" id="loginPhone" placeholder="No Handphone" required>
+
+            <button type="submit">Login</button>
+
+            <p style="text-align:center;">
+                Belum punya akun?
+                <a href="#" onclick="showRegister()">Daftar</a>
+            </p>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="registerForm" style="display:none;" onsubmit="return register()">
+            <input type="text" id="regFirst" placeholder="First Name" required>
+            <input type="text" id="regLast" placeholder="Last Name" required>
+            <input type="email" id="regEmail" placeholder="Email" required>
+            <input type="tel" id="regPhone" placeholder="No Handphone" required>
+            <input type="password" id="regPassword" placeholder="Password" required>
+
+            <button type="submit">Daftar</button>
+
+            <p style="text-align:center;">
+                Sudah punya akun?
+                <a href="#" onclick="showLogin()">Login</a>
+            </p>
+        </form>
     </div>
-</header>
-
-<!-- FORM LOGIN & DAFTAR -->
-<div class="form-box" id="formBox">
-
-    <!-- LOGIN -->
-    <form id="loginForm" onsubmit="return login()">
-        <h3>Login</h3>
-
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="No Handphone" required>
-
-        <button type="submit">Login</button>
-
-        <p style="text-align:center;">
-            Belum punya akun?
-            <a href="#" onclick="showRegister()">Daftar</a>
-        </p>
-    </form>
-
-    <!-- DAFTAR -->
-    <form id="registerForm" style="display:none;" onsubmit="return register()">
-        <h3>Daftar</h3>
-
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="No Handphone" required>
-
-        <button type="submit">Daftar</button>
-
-        <p style="text-align:center;">
-            Sudah punya akun?
-            <a href="#" onclick="showLogin()">Login</a>
-        </p>
-    </form>
 
 </div>
 
-<!-- KONTEN -->
+<!-- HOME PAGE -->
+<div class="home-page" id="homePage">
+
+<header>
+    <div>Salsa Library</div>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Koleksi</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
+
 <div class="container">
     <h1>Selamat Datang di Salsa Library</h1>
     <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
 
-    <p>
-        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">
-        Kunjungi Instagram Saya
-        </a>
-    </p>
-
-    <p>
-        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE">
-        Kunjungi CV Saya
-        </a>
-    </p>
-
     <h2>Video Youtube</h2>
-
     <iframe width="560" height="315"
     src="https://www.youtube.com/embed/dBVdtmHcUOI"
     allowfullscreen></iframe>
 </div>
 
+</div>
+
 <script>
-function toggleForm(){
-    var box = document.getElementById("formBox");
-    box.style.display = box.style.display === "block" ? "none" : "block";
-}
+let userData = null;
 
 function showRegister(){
-    document.getElementById("loginForm").style.display = "none";
-    document.getElementById("registerForm").style.display = "block";
+    document.getElementById("loginForm").style.display="none";
+    document.getElementById("registerForm").style.display="block";
+    document.getElementById("formTitle").innerText="Daftar";
 }
 
 function showLogin(){
-    document.getElementById("registerForm").style.display = "none";
-    document.getElementById("loginForm").style.display = "block";
-}
-
-function login(){
-    alert("Login berhasil!");
-    return false;
+    document.getElementById("registerForm").style.display="none";
+    document.getElementById("loginForm").style.display="block";
+    document.getElementById("formTitle").innerText="Login";
 }
 
 function register(){
-    alert("Pendaftaran berhasil!");
+    userData = {
+        first: document.getElementById("regFirst").value,
+        last: document.getElementById("regLast").value,
+        email: document.getElementById("regEmail").value,
+        phone: document.getElementById("regPhone").value,
+        password: document.getElementById("regPassword").value
+    };
+
+    alert("Pendaftaran berhasil! Silakan login.");
     showLogin();
     return false;
+}
+
+function login(){
+    if(!userData){
+        alert("Silakan daftar terlebih dahulu!");
+        return false;
+    }
+
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
+
+    if(email === userData.email && password === userData.password){
+        document.getElementById("loginPage").style.display="none";
+        document.getElementById("homePage").style.display="block";
+    }else{
+        alert("Email atau password salah!");
+    }
+
+    return false;
+}
+
+function logout(){
+    document.getElementById("homePage").style.display="none";
+    document.getElementById("loginPage").style.display="flex";
 }
 </script>
 
