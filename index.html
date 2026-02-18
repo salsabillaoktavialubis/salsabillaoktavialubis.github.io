@@ -86,18 +86,6 @@ nav ul li a{
 .container{
     padding:30px;
 }
-
-section{
-    margin-bottom:40px;
-}
-
-textarea{
-    padding:10px;
-}
-
-hr{
-    margin:30px 0;
-}
 </style>
 </head>
 
@@ -150,10 +138,10 @@ hr{
 
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#koleksi">Koleksi</a></li>
-            <li><a href="#layanan">Layanan</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Koleksi</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li><a href="#">About Us</a></li>
         </ul>
     </nav>
 
@@ -161,42 +149,13 @@ hr{
 </header>
 
 <div class="container">
+    <h1>Selamat Datang di Salsa Library</h1>
+    <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
 
-    <section id="home">
-        <h1>Selamat Datang di Salsa Library</h1>
-        <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
-    </section>
-
-    <hr>
-
-    <section id="koleksi">
-        <h2>Koleksi</h2>
-        <p>Kami menyediakan berbagai koleksi buku digital, jurnal, dan referensi akademik.</p>
-    </section>
-
-    <hr>
-
-    <section id="layanan">
-        <h2>Layanan</h2>
-        <p>Layanan peminjaman buku, akses e-book, dan konsultasi literasi informasi.</p>
-    </section>
-
-    <hr>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <h3>Hubungi Saya</h3>
-
-        <p><strong>No. WhatsApp:</strong> 0812-3456-7890</p>
-        <p><strong>Instagram:</strong> @salsalibrary</p>
-        <p><strong>Email:</strong> salsalibrary@gmail.com</p>
-
-        <h3>Kotak Saran</h3>
-        <textarea id="saran" rows="5" style="width:100%;" placeholder="Tulis saran Anda di sini..."></textarea>
-        <br><br>
-        <button onclick="kirimSaran()">Kirim Saran</button>
-    </section>
-
+    <h2>Video Youtube</h2>
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/dBVdtmHcUOI"
+    allowfullscreen></iframe>
 </div>
 
 </div>
@@ -264,17 +223,6 @@ function logout(){
     localStorage.removeItem("isLoggedIn");
     document.getElementById("homePage").style.display="none";
     document.getElementById("loginPage").style.display="flex";
-}
-
-function kirimSaran(){
-    var isi = document.getElementById("saran").value;
-
-    if(isi.trim() === ""){
-        alert("Silakan isi kotak saran terlebih dahulu.");
-    }else{
-        alert("Terima kasih atas saran Anda!");
-        document.getElementById("saran").value = "";
-    }
 }
 </script>
 
