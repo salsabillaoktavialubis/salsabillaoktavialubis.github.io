@@ -5,20 +5,72 @@
 
 <style>
 body{
+    margin:0;
     font-family: Arial, sans-serif;
 }
 
-.login-box{
-    display:none;
-    margin-top:15px;
-    padding:15px;
-    border:1px solid #ccc;
-    width:300px;
-    border-radius:8px;
+/* HEADER */
+header{
+    background-color:#4CAF50;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-button{
+header h2{
+    margin:0;
+}
+
+/* Tombol Login */
+.login-btn{
+    background:white;
+    color:#4CAF50;
+    border:none;
     padding:8px 15px;
+    cursor:pointer;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.login-btn:hover{
+    background:#e6e6e6;
+}
+
+/* Konten */
+.container{
+    padding:30px;
+}
+
+/* Form Login */
+.login-box{
+    display:none;
+    position:absolute;
+    right:30px;
+    top:70px;
+    background:white;
+    padding:20px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    width:280px;
+}
+
+.login-box input{
+    width:100%;
+    padding:6px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.login-box button{
+    width:100%;
+    padding:8px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:5px;
     cursor:pointer;
 }
 </style>
@@ -26,56 +78,65 @@ button{
 </head>
 <body>
 
-<h1>Selamat Datang di Salsa Library</h1>
+<!-- HEADER -->
+<header>
+    <h2>Salsa Library</h2>
+    <button class="login-btn" onclick="showLogin()">Login</button>
+</header>
 
-<p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
-
-<p>
-<a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">
-Kunjungi Instagram Saya
-</a>
-</p>
-
-<p>
-<a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE">
-Kunjungi CV Saya
-</a>
-</p>
-
-<h2>Video Youtube</h2>
-
-<iframe width="560" height="315" 
-src="https://www.youtube.com/embed/dBVdtmHcUOI?si=d34TwUD0dUYWOk0z">
-</iframe>
-
-<hr>
-
-<h2>Login Member</h2>
-
-<button onclick="showLogin()">Login</button>
-
+<!-- FORM LOGIN -->
 <div class="login-box" id="loginForm">
     <form onsubmit="return login()">
         
-        <label>First Name:</label><br>
-        <input type="text" id="firstName" required><br><br>
+        <label>First Name</label>
+        <input type="text" id="firstName" required>
 
-        <label>Last Name:</label><br>
-        <input type="text" id="lastName" required><br><br>
+        <label>Last Name</label>
+        <input type="text" id="lastName" required>
 
-        <label>Email:</label><br>
-        <input type="email" id="email" required><br><br>
+        <label>Email</label>
+        <input type="email" id="email" required>
 
-        <label>Nomor HP:</label><br>
-        <input type="tel" id="phone" required><br><br>
+        <label>Nomor HP</label>
+        <input type="tel" id="phone" required>
 
         <button type="submit">Masuk</button>
     </form>
 </div>
 
+<!-- KONTEN -->
+<div class="container">
+    <h1>Selamat Datang di Salsa Library</h1>
+
+    <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
+
+    <p>
+        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">
+        Kunjungi Instagram Saya
+        </a>
+    </p>
+
+    <p>
+        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE">
+        Kunjungi CV Saya
+        </a>
+    </p>
+
+    <h2>Video Youtube</h2>
+
+    <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/dBVdtmHcUOI?si=d34TwUD0dUYWOk0z">
+    </iframe>
+</div>
+
 <script>
 function showLogin(){
-    document.getElementById("loginForm").style.display = "block";
+    var form = document.getElementById("loginForm");
+    if(form.style.display === "block"){
+        form.style.display = "none";
+    } else {
+        form.style.display = "block";
+    }
 }
 
 function login(){
