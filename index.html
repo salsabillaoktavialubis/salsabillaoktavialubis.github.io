@@ -10,7 +10,7 @@ body{
     font-family:Arial, sans-serif;
 }
 
-/* ================= LOGIN PAGE ================= */
+/* HALAMAN LOGIN */
 .login-page{
     height:100vh;
     display:flex;
@@ -19,7 +19,7 @@ body{
     background:#5DADE2;
 }
 
-.login-box{
+.login-container{
     background:white;
     padding:30px;
     width:320px;
@@ -27,17 +27,17 @@ body{
     box-shadow:0 8px 20px rgba(0,0,0,0.2);
 }
 
-.login-box h2{
+.login-container h2{
     text-align:center;
 }
 
-.login-box input{
+.login-container input{
     width:100%;
     padding:8px;
     margin-bottom:12px;
 }
 
-.login-box button{
+.login-container button{
     width:100%;
     padding:8px;
     background:#5DADE2;
@@ -47,7 +47,7 @@ body{
     cursor:pointer;
 }
 
-/* ================= HOME PAGE ================= */
+/* HALAMAN HOME */
 .home-page{
     display:none;
 }
@@ -91,9 +91,10 @@ nav ul li a{
 
 <body>
 
-<!-- ================= LOGIN ================= -->
+<!-- LOGIN PAGE -->
 <div class="login-page" id="loginPage">
-    <div class="login-box">
+
+    <div class="login-container">
         <h2 id="formTitle">Login</h2>
 
         <!-- LOGIN FORM -->
@@ -128,9 +129,10 @@ nav ul li a{
             </p>
         </form>
     </div>
+
 </div>
 
-<!-- ================= HOME ================= -->
+<!-- HOME PAGE -->
 <div class="home-page" id="homePage">
 
 <header>
@@ -161,11 +163,7 @@ nav ul li a{
 </div>
 
 <script>
-window.onload = function(){
-    if(localStorage.getItem("isLoggedIn") === "true"){
-        showHome();
-    }
-}
+let userData = null;
 
 function showRegister(){
     document.getElementById("loginForm").style.display="none";
@@ -180,33 +178,31 @@ function showLogin(){
 }
 
 function register(){
-    const user = {
-        first: regFirst.value,
-        last: regLast.value,
-        email: regEmail.value,
-        phone: regPhone.value,
-        password: regPassword.value
+    userData = {
+        first: document.getElementById("regFirst").value,
+        last: document.getElementById("regLast").value,
+        email: document.getElementById("regEmail").value,
+        phone: document.getElementById("regPhone").value,
+        password: document.getElementById("regPassword").value
     };
 
-    localStorage.setItem("userData", JSON.stringify(user));
     alert("Pendaftaran berhasil! Silakan login.");
     showLogin();
     return false;
 }
 
 function login(){
-    const storedUser = JSON.parse(localStorage.getItem("userData"));
-
-    if(!storedUser){
+    if(!userData){
         alert("Silakan daftar terlebih dahulu!");
         return false;
     }
 
-    if(loginEmail.value === storedUser.email &&
-       loginPassword.value === storedUser.password){
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
 
-        localStorage.setItem("isLoggedIn", "true");
-        showHome();
+    if(email === userData.email && password === userData.password){
+        document.getElementById("loginPage").style.display="none";
+        document.getElementById("homePage").style.display="block";
     }else{
         alert("Email atau password salah!");
     }
@@ -214,13 +210,7 @@ function login(){
     return false;
 }
 
-function showHome(){
-    document.getElementById("loginPage").style.display="none";
-    document.getElementById("homePage").style.display="block";
-}
-
 function logout(){
-    localStorage.removeItem("isLoggedIn");
     document.getElementById("homePage").style.display="none";
     document.getElementById("loginPage").style.display="flex";
 }
