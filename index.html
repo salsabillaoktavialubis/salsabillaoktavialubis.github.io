@@ -72,6 +72,7 @@ nav ul{
 nav ul li a{
     text-decoration:none;
     color:white;
+    cursor:pointer;
 }
 
 .logout-btn{
@@ -87,19 +88,21 @@ nav ul li a{
     padding:30px;
 }
 
-.container a{
-    color:#5DADE2;
-    font-weight:bold;
-    text-decoration:none;
+.section{
+    display:none;
 }
 
-.container a:hover{
-    text-decoration:underline;
+.section.active{
+    display:block;
 }
 
-iframe{
-    margin-top:15px;
+textarea{
+    width:100%;
+    height:100px;
+    padding:8px;
+    margin-top:10px;
 }
+
 </style>
 </head>
 
@@ -111,7 +114,6 @@ iframe{
     <div class="login-container">
         <h2 id="formTitle">Login</h2>
 
-        <!-- LOGIN FORM -->
         <form id="loginForm" onsubmit="return login()">
             <input type="text" id="loginFirst" placeholder="First Name" required>
             <input type="text" id="loginLast" placeholder="Last Name" required>
@@ -127,7 +129,6 @@ iframe{
             </p>
         </form>
 
-        <!-- REGISTER FORM -->
         <form id="registerForm" style="display:none;" onsubmit="return register()">
             <input type="text" id="regFirst" placeholder="First Name" required>
             <input type="text" id="regLast" placeholder="Last Name" required>
@@ -154,10 +155,10 @@ iframe{
 
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Koleksi</a></li>
-            <li><a href="#">Layanan</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a onclick="showSection('home')">Home</a></li>
+            <li><a onclick="showSection('koleksi')">Koleksi</a></li>
+            <li><a onclick="showSection('layanan')">Layanan</a></li>
+            <li><a onclick="showSection('about')">About Us</a></li>
         </ul>
     </nav>
 
@@ -165,30 +166,54 @@ iframe{
 </header>
 
 <div class="container">
-    <h1>Selamat Datang di Salsa Library</h1>
-    <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
 
-    <!-- Tambahan Instagram -->
-    <p>
-        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
-            Kunjungi Instagram Saya
-        </a>
-    </p>
+    <!-- HOME -->
+    <div id="home" class="section active">
+        <h1>Selamat Datang di Salsa Library</h1>
+        <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
 
-    <!-- Tambahan CV -->
-    <p>
-        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
-            Kunjungi CV Saya
-        </a>
-    </p>
+        <p>
+            <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
+                Kunjungi Instagram Saya
+            </a>
+        </p>
 
-    <h2>Video Youtube</h2>
-    <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/dBVdtmHcUOI"
-    allowfullscreen></iframe>
+        <p>
+            <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
+                Kunjungi CV Saya
+            </a>
+        </p>
+
+        <h2>Video Youtube</h2>
+        <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/dBVdtmHcUOI"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- KOLEKSI -->
+    <div id="koleksi" class="section">
+        <h2>Koleksi Buku</h2>
+        <p>Berisi koleksi buku digital dan referensi pembelajaran.</p>
+    </div>
+
+    <!-- LAYANAN -->
+    <div id="layanan" class="section">
+        <h2>Layanan</h2>
+        <p>Peminjaman buku digital dan akses materi online.</p>
+    </div>
+
+    <!-- ABOUT US -->
+    <div id="about" class="section">
+        <h2>Hubungi Saya</h2>
+        <p><strong>No. Whatsapp:</strong> 08xxxxxxxxxx</p>
+        <p><strong>Instagram:</strong> @salsabilla_okt13</p>
+        <p><strong>Email:</strong> salsalibrary@email.com</p>
+
+        <h3>Kotak Komentar</h3>
+        <textarea placeholder="Tulis komentar Anda di sini..."></textarea>
+    </div>
 
 </div>
-
 </div>
 
 <script>
@@ -208,10 +233,7 @@ function showLogin(){
 
 function register(){
     userData = {
-        first: document.getElementById("regFirst").value,
-        last: document.getElementById("regLast").value,
         email: document.getElementById("regEmail").value,
-        phone: document.getElementById("regPhone").value,
         password: document.getElementById("regPassword").value
     };
 
@@ -242,6 +264,12 @@ function login(){
 function logout(){
     document.getElementById("homePage").style.display="none";
     document.getElementById("loginPage").style.display="flex";
+}
+
+function showSection(id){
+    let sections = document.querySelectorAll(".section");
+    sections.forEach(section => section.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 </script>
 
