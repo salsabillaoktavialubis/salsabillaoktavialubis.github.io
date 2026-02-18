@@ -88,21 +88,17 @@ nav ul li a{
     padding:30px;
 }
 
-.section{
+.about-section{
     display:none;
+    padding:30px;
 }
 
-.section.active{
-    display:block;
-}
-
-textarea{
+.about-section textarea{
     width:100%;
     height:100px;
-    padding:8px;
     margin-top:10px;
+    padding:8px;
 }
-
 </style>
 </head>
 
@@ -120,12 +116,11 @@ textarea{
             <input type="email" id="loginEmail" placeholder="Email" required>
             <input type="password" id="loginPassword" placeholder="Password" required>
             <input type="tel" id="loginPhone" placeholder="No Handphone" required>
-
             <button type="submit">Login</button>
 
             <p style="text-align:center;">
                 Belum punya akun?
-                <a href="#" onclick="showRegister()">Daftar</a>
+                <a onclick="showRegister()">Daftar</a>
             </p>
         </form>
 
@@ -135,16 +130,14 @@ textarea{
             <input type="email" id="regEmail" placeholder="Email" required>
             <input type="tel" id="regPhone" placeholder="No Handphone" required>
             <input type="password" id="regPassword" placeholder="Password" required>
-
             <button type="submit">Daftar</button>
 
             <p style="text-align:center;">
                 Sudah punya akun?
-                <a href="#" onclick="showLogin()">Login</a>
+                <a onclick="showLogin()">Login</a>
             </p>
         </form>
     </div>
-
 </div>
 
 <!-- HOME PAGE -->
@@ -155,65 +148,50 @@ textarea{
 
     <nav>
         <ul>
-            <li><a onclick="showSection('home')">Home</a></li>
-            <li><a onclick="showSection('koleksi')">Koleksi</a></li>
-            <li><a onclick="showSection('layanan')">Layanan</a></li>
-            <li><a onclick="showSection('about')">About Us</a></li>
+            <li><a onclick="showHome()">Home</a></li>
+            <li><a>Koleksi</a></li>
+            <li><a>Layanan</a></li>
+            <li><a onclick="showAbout()">About Us</a></li>
         </ul>
     </nav>
 
     <button class="logout-btn" onclick="logout()">Logout</button>
 </header>
 
-<div class="container">
+<!-- HOME CONTENT -->
+<div class="container" id="homeContent">
+    <h1>Selamat Datang di Salsa Library</h1>
+    <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
 
-    <!-- HOME -->
-    <div id="home" class="section active">
-        <h1>Selamat Datang di Salsa Library</h1>
-        <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
+    <p>
+        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
+            Kunjungi Instagram Saya
+        </a>
+    </p>
 
-        <p>
-            <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
-                Kunjungi Instagram Saya
-            </a>
-        </p>
+    <p>
+        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
+            Kunjungi CV Saya
+        </a>
+    </p>
 
-        <p>
-            <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
-                Kunjungi CV Saya
-            </a>
-        </p>
-
-        <h2>Video Youtube</h2>
-        <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/dBVdtmHcUOI"
-        allowfullscreen></iframe>
-    </div>
-
-    <!-- KOLEKSI -->
-    <div id="koleksi" class="section">
-        <h2>Koleksi Buku</h2>
-        <p>Berisi koleksi buku digital dan referensi pembelajaran.</p>
-    </div>
-
-    <!-- LAYANAN -->
-    <div id="layanan" class="section">
-        <h2>Layanan</h2>
-        <p>Peminjaman buku digital dan akses materi online.</p>
-    </div>
-
-    <!-- ABOUT US -->
-    <div id="about" class="section">
-        <h2>Hubungi Saya</h2>
-        <p><strong>No. Whatsapp:</strong> 08xxxxxxxxxx</p>
-        <p><strong>Instagram:</strong> @salsabilla_okt13</p>
-        <p><strong>Email:</strong> salsalibrary@email.com</p>
-
-        <h3>Kotak Komentar</h3>
-        <textarea placeholder="Tulis komentar Anda di sini..."></textarea>
-    </div>
-
+    <h2>Video Youtube</h2>
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/dBVdtmHcUOI"
+    allowfullscreen></iframe>
 </div>
+
+<!-- ABOUT US CONTENT -->
+<div class="about-section" id="aboutContent">
+    <h2>Hubungi Saya</h2>
+    <p><strong>No. WhatsApp:</strong> <a href="https://wa.me/6281264089312">Klik Whattsapp saya</a></p>
+    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">Klik untuk Instagram saya</a></p>
+    <p><strong>Email:</strong> salsabillokt13a@email.com</p>
+
+    <h3>Kotak Komentar</h3>
+    <textarea placeholder="Tulis komentar Anda di sini..."></textarea>
+</div>
+
 </div>
 
 <script>
@@ -233,10 +211,12 @@ function showLogin(){
 
 function register(){
     userData = {
+        first: document.getElementById("regFirst").value,
+        last: document.getElementById("regLast").value,
         email: document.getElementById("regEmail").value,
+        phone: document.getElementById("regPhone").value,
         password: document.getElementById("regPassword").value
     };
-
     alert("Pendaftaran berhasil! Silakan login.");
     showLogin();
     return false;
@@ -257,7 +237,6 @@ function login(){
     }else{
         alert("Email atau password salah!");
     }
-
     return false;
 }
 
@@ -266,10 +245,14 @@ function logout(){
     document.getElementById("loginPage").style.display="flex";
 }
 
-function showSection(id){
-    let sections = document.querySelectorAll(".section");
-    sections.forEach(section => section.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
+function showAbout(){
+    document.getElementById("homeContent").style.display="none";
+    document.getElementById("aboutContent").style.display="block";
+}
+
+function showHome(){
+    document.getElementById("aboutContent").style.display="none";
+    document.getElementById("homeContent").style.display="block";
 }
 </script>
 
