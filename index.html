@@ -1,22 +1,113 @@
+Baik 👍 sekarang saya gabungkan **kode awal yang kamu buat** dengan tambahan tombol dan form login (First Name, Last Name, Email, Nomor HP) menjadi satu file HTML lengkap.
+
+Silakan ganti seluruh kode kamu dengan ini:
+
+```html
+<!DOCTYPE html>
 <html>
 <head>
 <title>Salsabilla Oktavia Lubis</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+}
+
+.login-box{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    border:1px solid #ccc;
+    width:300px;
+    border-radius:8px;
+}
+
+button{
+    padding:8px 15px;
+    cursor:pointer;
+}
+</style>
+
 </head>
 <body>
+
 <h1>Selamat Datang di Salsa Library</h1>
+
 <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran.</p>
+
 <p>
 <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">
 Kunjungi Instagram Saya
 </a>
 </p>
+
 <p>
 <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE">
 Kunjungi CV Saya
 </a>
 </p>
+
 <h2>Video Youtube</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dBVdtmHcUOI?si=d34TwUD0dUYWOk0z">
+
+<iframe width="560" height="315" 
+src="https://www.youtube.com/embed/dBVdtmHcUOI?si=d34TwUD0dUYWOk0z">
 </iframe>
+
+<hr>
+
+<h2>Login Member</h2>
+
+<button onclick="showLogin()">Login</button>
+
+<div class="login-box" id="loginForm">
+    <form onsubmit="return login()">
+        
+        <label>First Name:</label><br>
+        <input type="text" id="firstName" required><br><br>
+
+        <label>Last Name:</label><br>
+        <input type="text" id="lastName" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" id="email" required><br><br>
+
+        <label>Nomor HP:</label><br>
+        <input type="tel" id="phone" required><br><br>
+
+        <button type="submit">Masuk</button>
+    </form>
+</div>
+
+<script>
+function showLogin(){
+    document.getElementById("loginForm").style.display = "block";
+}
+
+function login(){
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+
+    if(firstName && lastName && email && phone){
+        alert("Login berhasil! Selamat datang, " + firstName + " " + lastName);
+        return false;
+    } else {
+        alert("Semua data harus diisi!");
+        return false;
+    }
+}
+</script>
+
 </body>
 </html>
+```
+
+Sekarang:
+
+* Semua kode awal kamu tetap ada ✅
+* Ditambahkan tombol login ✅
+* Form berisi First Name, Last Name, Email, Nomor HP ✅
+* Ada validasi sederhana ✅
+
+Kalau kamu mau dibuat lebih profesional (misalnya setelah login langsung masuk ke halaman baru atau menampilkan nama di header), bilang saja nanti saya upgrade lagi ✨
