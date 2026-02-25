@@ -2,74 +2,88 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Salsa Library</title>
+<title>Salsa Library - Perpustakaan Sekolah Dasar</title>
 
 <style>
 body{
     margin:0;
-    font-family:'Comic Sans MS', cursive;
-    background: linear-gradient(135deg, #FFE29F, #FFA99F, #A1C4FD);
+    font-family: 'Segoe UI', sans-serif;
+    background:#f4f9ff;
 }
 
-/* HALAMAN LOGIN */
+/* ================= LOGIN ================= */
+
 .login-page{
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
 }
 
 .login-container{
     background:white;
-    padding:35px;
-    width:350px;
-    border-radius:25px;
-    box-shadow:0 15px 30px rgba(0,0,0,0.2);
-    border:6px solid #FFD93D;
+    padding:40px;
+    width:380px;
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
 }
 
 .login-container h2{
     text-align:center;
-    color:#FF6B6B;
+    margin-bottom:20px;
+    color:#2c3e50;
 }
 
 .login-container input{
     width:100%;
-    padding:10px;
-    margin-bottom:12px;
-    border-radius:12px;
-    border:2px solid #6BCB77;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:14px;
 }
 
 .login-container button{
     width:100%;
     padding:12px;
-    background:#4D96FF;
+    background:#3498db;
     color:white;
     border:none;
-    border-radius:20px;
+    border-radius:8px;
+    font-size:16px;
     cursor:pointer;
-    font-weight:bold;
+    transition:0.3s;
 }
 
-/* HOME */
+.login-container button:hover{
+    background:#2c80b4;
+}
+
+/* ================= HOME ================= */
+
 .home-page{
     display:none;
 }
 
 header{
-    background:linear-gradient(90deg,#FF6B6B,#4D96FF);
+    background:#2c3e50;
     color:white;
-    padding:15px 40px;
+    padding:15px 50px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
+header div{
+    font-size:20px;
+    font-weight:bold;
+}
+
 nav ul{
     list-style:none;
     display:flex;
-    gap:20px;
+    gap:25px;
     margin:0;
     padding:0;
 }
@@ -77,86 +91,106 @@ nav ul{
 nav ul li a{
     text-decoration:none;
     color:white;
-    font-weight:bold;
+    font-weight:500;
     cursor:pointer;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00f2fe;
 }
 
 .logout-btn{
     background:white;
-    color:#FF6B6B;
+    color:#2c3e50;
     border:none;
     padding:8px 15px;
-    border-radius:15px;
+    border-radius:6px;
     cursor:pointer;
-    font-weight:bold;
 }
+
+/* HERO SECTION */
 
 .container{
-    padding:40px;
-    text-align:center;
+    padding:60px 80px;
 }
 
-.container h1{
-    color:#4D96FF;
-}
-
-/* KOLEKSI */
-.koleksi-container{
+.hero{
     display:flex;
-    justify-content:center;
-    gap:30px;
-    margin-top:30px;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
-.buku{
+.hero-text{
+    max-width:500px;
+}
+
+.hero-text h1{
+    font-size:36px;
+    color:#2c3e50;
+}
+
+.hero-text p{
+    font-size:18px;
+    color:#555;
+    margin-top:15px;
+}
+
+.hero-image img{
+    width:350px;
+}
+
+/* INFO CARD */
+
+.info-cards{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
     background:white;
-    padding:20px;
-    width:180px;
-    border-radius:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
     transition:0.3s;
-    animation:goyang 2s infinite alternate;
 }
 
-.buku img{
-    width:100%;
-    border-radius:10px;
+.card:hover{
+    transform:translateY(-5px);
 }
 
-.buku h3{
-    color:#FF6B6B;
-}
-
-@keyframes goyang{
-    from{ transform:rotate(-3deg); }
-    to{ transform:rotate(3deg); }
+.card h3{
+    margin-bottom:10px;
+    color:#3498db;
 }
 
 /* ABOUT */
+
 .about-section{
     display:none;
-    padding:40px;
-    background:#FFF3B0;
+    padding:60px 80px;
+    background:#ecf5ff;
+}
+
+.about-section h2{
+    color:#2c3e50;
 }
 
 .about-section textarea{
     width:100%;
     height:120px;
-    margin-top:10px;
     padding:12px;
-    border-radius:15px;
-    border:2px solid #4D96FF;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
 
-.kirim-btn{
-    margin-top:10px;
-    padding:10px 20px;
-    border:none;
-    border-radius:15px;
-    background:#4D96FF;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
+/* VIDEO */
+iframe{
+    margin-top:30px;
+    border-radius:12px;
 }
 </style>
 </head>
@@ -166,7 +200,7 @@ nav ul li a{
 <!-- LOGIN PAGE -->
 <div class="login-page" id="loginPage">
     <div class="login-container">
-        <h2 id="formTitle">Login</h2>
+        <h2 id="formTitle">Login Perpustakaan</h2>
 
         <form id="loginForm" onsubmit="return login()">
             <input type="text" id="loginFirst" placeholder="First Name" required>
@@ -175,6 +209,7 @@ nav ul li a{
             <input type="password" id="loginPassword" placeholder="Password" required>
             <input type="tel" id="loginPhone" placeholder="No Handphone" required>
             <button type="submit">Login</button>
+
             <p style="text-align:center;">
                 Belum punya akun?
                 <a onclick="showRegister()">Daftar</a>
@@ -188,6 +223,7 @@ nav ul li a{
             <input type="tel" id="regPhone" placeholder="No Handphone" required>
             <input type="password" id="regPassword" placeholder="Password" required>
             <button type="submit">Daftar</button>
+
             <p style="text-align:center;">
                 Sudah punya akun?
                 <a onclick="showLogin()">Login</a>
@@ -200,7 +236,8 @@ nav ul li a{
 <div class="home-page" id="homePage">
 
 <header>
-    <div>📚 Salsa Library</div>
+    <div>📚 Salsa Library SD</div>
+
     <nav>
         <ul>
             <li><a onclick="showHome()">Home</a></li>
@@ -209,57 +246,54 @@ nav ul li a{
             <li><a onclick="showAbout()">About Us</a></li>
         </ul>
     </nav>
+
     <button class="logout-btn" onclick="logout()">Logout</button>
 </header>
 
 <div class="container" id="homeContent">
-    <h1>Selamat Datang di Salsa Library</h1>
-    <p>Perpustakaan digital untuk mendukung literasi anak SD.</p>
 
-    <!-- KOLEKSI TAMBAHAN -->
-    <div class="koleksi-container">
-        <div class="buku">
-            <img src="https://i.imgur.com/8Km9tLL.jpg">
-            <h3>Dongeng Nusantara</h3>
-            <p>Buku cerita rakyat Indonesia.</p>
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Selamat Datang di Perpustakaan SD</h1>
+            <p>Membaca adalah jendela dunia. Mari tingkatkan literasi dan semangat belajar bersama Salsa Library.</p>
         </div>
-
-        <div class="buku">
-            <img src="https://i.imgur.com/4YQZ4.jpg">
-            <h3>Belajar Matematika</h3>
-            <p>Latihan seru matematika SD.</p>
-        </div>
-
-        <div class="buku">
-            <img src="https://i.imgur.com/VxK9Y.jpg">
-            <h3>Ilmu Pengetahuan Alam</h3>
-            <p>Mengenal alam dengan menyenangkan.</p>
+        <div class="hero-image">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
         </div>
     </div>
 
-    <h2>Video Youtube</h2>
+    <div class="info-cards">
+        <div class="card">
+            <h3>Koleksi Buku</h3>
+            <p>Buku cerita anak, pelajaran, dongeng, dan ensiklopedia.</p>
+        </div>
+
+        <div class="card">
+            <h3>Layanan Peminjaman</h3>
+            <p>Siswa dapat meminjam dan mengembalikan buku dengan mudah.</p>
+        </div>
+
+        <div class="card">
+            <h3>Literasi Digital</h3>
+            <p>Mendukung pembelajaran berbasis teknologi dan video edukasi.</p>
+        </div>
+    </div>
+
+    <h2>Video Edukasi</h2>
     <iframe width="560" height="315"
     src="https://www.youtube.com/embed/dBVdtmHcUOI"
     allowfullscreen></iframe>
+
 </div>
 
-<!-- ABOUT -->
 <div class="about-section" id="aboutContent">
     <h2>Hubungi Saya</h2>
     <p><strong>No. WhatsApp:</strong> <a href="https://wa.me/6281264089312">Klik Whatsapp saya</a></p>
-
-    <p><strong>Instagram:</strong> 
-        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
-        Kunjungi Instagram Saya</a></p>
-
-    <p><strong>CV:</strong> 
-        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
-        Lihat CV Saya</a></p>
+    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">Klik untuk Instagram saya</a></p>
+    <p><strong>Email:</strong> salsabillokt13a@email.com</p>
 
     <h3>Kotak Komentar</h3>
-    <textarea id="pesan" placeholder="Tulis pesan Anda di sini..."></textarea>
-    <br>
-    <button class="kirim-btn" onclick="kirimPesan()">Kirim Pesan</button>
+    <textarea placeholder="Tulis komentar Anda di sini..."></textarea>
 </div>
 
 </div>
@@ -323,16 +357,6 @@ function showAbout(){
 function showHome(){
     document.getElementById("aboutContent").style.display="none";
     document.getElementById("homeContent").style.display="block";
-}
-
-function kirimPesan(){
-    let isi = document.getElementById("pesan").value;
-    if(isi.trim() === ""){
-        alert("Pesan tidak boleh kosong!");
-    }else{
-        alert("Pesan berhasil dikirim!");
-        document.getElementById("pesan").value="";
-    }
 }
 </script>
 
