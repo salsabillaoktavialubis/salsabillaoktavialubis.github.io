@@ -11,6 +11,15 @@ body{
     background:#fdf6ec;
 }
 
+/* BACKGROUND HOME */
+.home-bg{
+    background:linear-gradient(rgba(253,246,236,0.9),
+              rgba(253,246,236,0.9)),
+              url('https://images.unsplash.com/photo-1556911220-bff31c812dba');
+    background-size:cover;
+    background-position:center;
+}
+
 /* LOGIN */
 .login-page{
     height:100vh;
@@ -46,10 +55,22 @@ body{
 /* NAVBAR */
 .navbar{
     background:#2f4f6f;
-    padding:15px;
+    padding:15px 40px;
     display:flex;
     justify-content:space-between;
+    align-items:center;
     color:white;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+}
+
+.logo img{
+    width:40px;
 }
 
 .navbar a{
@@ -61,8 +82,14 @@ body{
 
 /* SECTION */
 .section{
-    padding:50px;
+    padding:60px;
     text-align:center;
+    animation:fade 0.5s ease-in-out;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 /* KOLEKSI */
@@ -119,7 +146,7 @@ body{
 
 /* ABOUT */
 .about-container{
-    max-width:900px;
+    max-width:1000px;
     margin:auto;
     background:white;
     padding:40px;
@@ -136,14 +163,14 @@ body{
 
 .about-card{
     background:#fdf6ec;
-    padding:20px;
+    padding:25px;
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    transition:0.3s;
+    text-align:left;
 }
 
-.about-card:hover{
-    transform:translateY(-5px);
+.about-card h3{
+    color:#2f4f6f;
 }
 
 .instagram-btn{
@@ -156,8 +183,10 @@ body{
     margin-top:10px;
 }
 
+/* MESSAGE */
 .message-box{
-    margin-top:30px;
+    margin-top:40px;
+    text-align:left;
 }
 
 .message-box input,
@@ -176,6 +205,15 @@ body{
     color:white;
     border:none;
     border-radius:8px;
+}
+
+/* FOOTER */
+.footer{
+    background:#2f4f6f;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
 }
 </style>
 
@@ -209,7 +247,10 @@ function login(){
 <div id="mainPage" style="display:none;">
 
     <div class="navbar">
-        <div>Perpustakaan Tata Boga</div>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+            Perpustakaan Tata Boga
+        </div>
         <div>
             <a onclick="showPage('home')">Home</a>
             <a onclick="showPage('about')">About Us</a>
@@ -217,7 +258,7 @@ function login(){
     </div>
 
     <!-- HOME -->
-    <div id="home" class="section">
+    <div id="home" class="section home-bg">
         <h2>Selamat Datang di Perpustakaan Tata Boga</h2>
         <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
 
@@ -226,12 +267,10 @@ function login(){
                 <h4>Buku Resep Nusantara</h4>
                 <p>Resep tradisional Indonesia.</p>
             </div>
-
             <div class="koleksi">
                 <h4>Teknik Dasar Memasak</h4>
                 <p>Panduan teknik memasak.</p>
             </div>
-
             <div class="koleksi">
                 <h4>Manajemen Dapur</h4>
                 <p>Pengelolaan dapur profesional.</p>
@@ -241,22 +280,15 @@ function login(){
         <div class="video-section">
             <h2>Video Edukasi</h2>
             <div class="video-grid">
-
                 <div class="video-card">
-                    <h4>Teknik Memotong</h4>
                     <iframe src="https://www.youtube.com/embed/dBVdtmHcUOI" allowfullscreen></iframe>
                 </div>
-
                 <div class="video-card">
-                    <h4>Pengolahan Makanan</h4>
                     <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" allowfullscreen></iframe>
                 </div>
-
                 <div class="video-card">
-                    <h4>Sanitasi Dapur</h4>
                     <iframe src="https://www.youtube.com/embed/lY2yjAdbvdQ" allowfullscreen></iframe>
                 </div>
-
             </div>
         </div>
     </div>
@@ -273,17 +305,14 @@ function login(){
                     <h3>Curriculum Vitae</h3>
                     <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
                     <p><b>Jurusan:</b> Tata Boga</p>
+                    <p><b>Pendidikan:</b> SMK Jurusan Tata Boga</p>
                     <p><b>Email:</b> emailkamu@gmail.com</p>
-                </div>
-
-                <div class="about-card">
-                    <h3>Contact</h3>
-                    <p>📞 08xxxxxxxxxx</p>
-                    <p>📧 emailkamu@gmail.com</p>
+                    <p><b>No HP:</b> 08xxxxxxxxxx</p>
                 </div>
 
                 <div class="about-card">
                     <h3>Instagram</h3>
+                    <p>Kunjungi akun Instagram saya:</p>
                     <a href="https://instagram.com" target="_blank" class="instagram-btn">
                         Kunjungi Instagram
                     </a>
@@ -300,6 +329,10 @@ function login(){
             </div>
 
         </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Perpustakaan Tata Boga | SMK Tata Boga
     </div>
 
 </div>
