@@ -8,43 +8,7 @@
 body{
     margin:0;
     font-family:'Comic Sans MS', cursive;
-    background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
-    overflow-x:hidden;
-}
-
-/* ANIMASI AWAN */
-.cloud{
-    position:absolute;
-    top:50px;
-    width:150px;
-    animation:moveCloud 25s linear infinite;
-}
-
-.cloud2{
-    top:120px;
-    width:120px;
-    animation:moveCloud 35s linear infinite;
-}
-
-@keyframes moveCloud{
-    from{ left:-200px; }
-    to{ left:100%; }
-}
-
-/* ANIMASI ANAK SD */
-.child{
-    position:fixed;
-    bottom:0;
-    width:120px;
-    animation:bounce 2s infinite;
-}
-
-.child.left{ left:20px; }
-.child.right{ right:20px; }
-
-@keyframes bounce{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-20px); }
+    background: linear-gradient(135deg, #FFE29F, #FFA99F, #A1C4FD);
 }
 
 /* HALAMAN LOGIN */
@@ -57,40 +21,44 @@ body{
 
 .login-container{
     background:white;
-    padding:30px;
+    padding:35px;
     width:350px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-    border:5px solid #FFD93D;
+    border-radius:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    border:6px solid #FFD93D;
 }
 
 .login-container h2{
     text-align:center;
     color:#FF6B6B;
+    font-size:28px;
 }
 
 .login-container input{
     width:100%;
     padding:10px;
     margin-bottom:12px;
-    border-radius:10px;
+    border-radius:12px;
     border:2px solid #6BCB77;
+    font-size:14px;
 }
 
 .login-container button{
     width:100%;
-    padding:10px;
+    padding:12px;
     background:#4D96FF;
     color:white;
     border:none;
-    border-radius:15px;
+    border-radius:20px;
     cursor:pointer;
     font-size:16px;
+    font-weight:bold;
     transition:0.3s;
 }
 
 .login-container button:hover{
     background:#FF6B6B;
+    transform:scale(1.05);
 }
 
 /* HALAMAN HOME */
@@ -99,12 +67,17 @@ body{
 }
 
 header{
-    background:#FF6B6B;
+    background:linear-gradient(90deg,#FF6B6B,#4D96FF);
     color:white;
     padding:15px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+}
+
+header div{
+    font-size:20px;
+    font-weight:bold;
 }
 
 nav ul{
@@ -132,52 +105,65 @@ nav ul li a:hover{
     color:#FF6B6B;
     border:none;
     padding:8px 15px;
-    border-radius:10px;
+    border-radius:15px;
     cursor:pointer;
     font-weight:bold;
 }
 
 .container{
-    padding:40px;
+    padding:50px;
     text-align:center;
 }
 
 .container h1{
+    color:#4D96FF;
+    font-size:32px;
+}
+
+.container p{
+    font-size:18px;
+}
+
+.container a{
+    text-decoration:none;
+    font-weight:bold;
+    color:#FF6B6B;
+}
+
+.container a:hover{
     color:#4D96FF;
 }
 
 .container iframe{
     border-radius:20px;
     margin-top:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* ABOUT */
 .about-section{
     display:none;
-    padding:40px;
+    padding:50px;
     background:#FFF3B0;
+}
+
+.about-section h2{
+    color:#FF6B6B;
 }
 
 .about-section textarea{
     width:100%;
     height:120px;
     margin-top:10px;
-    padding:10px;
+    padding:12px;
     border-radius:15px;
     border:2px solid #4D96FF;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
-
-<!-- AWAN BERGERAK -->
-<img src="https://i.imgur.com/V4RclNb.png" class="cloud">
-<img src="https://i.imgur.com/V4RclNb.png" class="cloud cloud2">
-
-<!-- ANAK SD BERGERAK -->
-<img src="https://i.imgur.com/1Xq9BiS.png" class="child left">
-<img src="https://i.imgur.com/1Xq9BiS.png" class="child right">
 
 <!-- LOGIN PAGE -->
 <div class="login-page" id="loginPage">
@@ -233,7 +219,6 @@ nav ul li a:hover{
     <button class="logout-btn" onclick="logout()">Logout</button>
 </header>
 
-<!-- HOME CONTENT -->
 <div class="container" id="homeContent">
     <h1>Selamat Datang di Salsa Library</h1>
     <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran anak SD.</p>
@@ -256,7 +241,6 @@ nav ul li a:hover{
     allowfullscreen></iframe>
 </div>
 
-<!-- ABOUT US CONTENT -->
 <div class="about-section" id="aboutContent">
     <h2>Hubungi Saya</h2>
     <p><strong>No. WhatsApp:</strong> <a href="https://wa.me/6281264089312">Klik Whatsapp saya</a></p>
