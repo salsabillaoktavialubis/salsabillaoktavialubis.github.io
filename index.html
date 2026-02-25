@@ -11,7 +11,7 @@ body{
     background: linear-gradient(135deg, #FFE29F, #FFA99F, #A1C4FD);
 }
 
-/* HALAMAN LOGIN */
+/* LOGIN */
 .login-page{
     height:100vh;
     display:flex;
@@ -115,7 +115,7 @@ nav ul li a{
     border-radius:20px;
     box-shadow:0 10px 20px rgba(0,0,0,0.2);
     transition:0.3s;
-    animation:goyang 2s infinite alternate;
+    animation:goyang360 4s linear infinite;
 }
 
 .buku img{
@@ -127,9 +127,9 @@ nav ul li a{
     color:#FF6B6B;
 }
 
-@keyframes goyang{
-    from{ transform:rotate(-3deg); }
-    to{ transform:rotate(3deg); }
+@keyframes goyang360{
+    from{ transform:rotateY(0deg); }
+    to{ transform:rotateY(360deg); }
 }
 
 /* ABOUT */
@@ -216,24 +216,20 @@ nav ul li a{
     <h1>Selamat Datang di Salsa Library</h1>
     <p>Perpustakaan digital untuk mendukung literasi anak SD.</p>
 
-    <!-- KOLEKSI TAMBAHAN -->
     <div class="koleksi-container">
-        <div class="buku">
+        <div class="buku" onclick="bukaDetail('Dongeng Nusantara','Cerita rakyat penuh pesan moral untuk anak SD.')">
             <img src="https://i.imgur.com/8Km9tLL.jpg">
             <h3>Dongeng Nusantara</h3>
-            <p>Buku cerita rakyat Indonesia.</p>
         </div>
 
-        <div class="buku">
-            <img src="https://i.imgur.com/4YQZ4.jpg">
+        <div class="buku" onclick="bukaDetail('Belajar Matematika','Latihan matematika seru dan mudah dipahami.')">
+            <img src="https://i.imgur.com/8Km9tLL.jpg">
             <h3>Belajar Matematika</h3>
-            <p>Latihan seru matematika SD.</p>
         </div>
 
-        <div class="buku">
-            <img src="https://i.imgur.com/VxK9Y.jpg">
-            <h3>Ilmu Pengetahuan Alam</h3>
-            <p>Mengenal alam dengan menyenangkan.</p>
+        <div class="buku" onclick="bukaDetail('Ilmu Pengetahuan Alam','Belajar mengenal alam dengan menyenangkan.')">
+            <img src="https://i.imgur.com/8Km9tLL.jpg">
+            <h3>IPA SD</h3>
         </div>
     </div>
 
@@ -246,22 +242,33 @@ nav ul li a{
 <!-- ABOUT -->
 <div class="about-section" id="aboutContent">
     <h2>Hubungi Saya</h2>
-    <p><strong>No. WhatsApp:</strong> <a href="https://wa.me/6281264089312">Klik Whatsapp saya</a></p>
+
+    <p><strong>WhatsApp:</strong> 
+    <a href="https://wa.me/6281264089312">Klik Whatsapp</a></p>
 
     <p><strong>Instagram:</strong> 
-        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
-        Kunjungi Instagram Saya</a></p>
+    <a href="https://www.instagram.com/salsabilla_okt13" target="_blank">Kunjungi Instagram</a></p>
 
     <p><strong>CV:</strong> 
-        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
-        Lihat CV Saya</a></p>
+    <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">Lihat CV</a></p>
 
-    <h3>Kotak Komentar</h3>
-    <textarea id="pesan" placeholder="Tulis pesan Anda di sini..."></textarea>
+    <h3>Kotak Pesan</h3>
+    <textarea id="pesan" placeholder="Tulis pesan Anda..."></textarea>
     <br>
     <button class="kirim-btn" onclick="kirimPesan()">Kirim Pesan</button>
 </div>
 
+</div>
+
+<!-- MODAL DETAIL -->
+<div id="modalBuku" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+    <div style="background:white; padding:30px; border-radius:20px; width:350px; text-align:center;">
+        <h2 id="judulBuku" style="color:#FF6B6B;"></h2>
+        <p id="isiBuku"></p>
+        <button onclick="tutupDetail()" style="margin-top:15px; padding:8px 20px; border:none; border-radius:15px; background:#4D96FF; color:white; font-weight:bold;">
+            Tutup
+        </button>
+    </div>
 </div>
 
 <script>
@@ -281,29 +288,26 @@ function showLogin(){
 
 function register(){
     userData = {
-        first: document.getElementById("regFirst").value,
-        last: document.getElementById("regLast").value,
-        email: document.getElementById("regEmail").value,
-        phone: document.getElementById("regPhone").value,
-        password: document.getElementById("regPassword").value
+        first: regFirst.value,
+        last: regLast.value,
+        email: regEmail.value,
+        phone: regPhone.value,
+        password: regPassword.value
     };
-    alert("Pendaftaran berhasil! Silakan login.");
+    alert("Pendaftaran berhasil!");
     showLogin();
     return false;
 }
 
 function login(){
     if(!userData){
-        alert("Silakan daftar terlebih dahulu!");
+        alert("Silakan daftar dulu!");
         return false;
     }
 
-    let email = document.getElementById("loginEmail").value;
-    let password = document.getElementById("loginPassword").value;
-
-    if(email === userData.email && password === userData.password){
-        document.getElementById("loginPage").style.display="none";
-        document.getElementById("homePage").style.display="block";
+    if(loginEmail.value === userData.email && loginPassword.value === userData.password){
+        loginPage.style.display="none";
+        homePage.style.display="block";
     }else{
         alert("Email atau password salah!");
     }
@@ -311,28 +315,37 @@ function login(){
 }
 
 function logout(){
-    document.getElementById("homePage").style.display="none";
-    document.getElementById("loginPage").style.display="flex";
+    homePage.style.display="none";
+    loginPage.style.display="flex";
 }
 
 function showAbout(){
-    document.getElementById("homeContent").style.display="none";
-    document.getElementById("aboutContent").style.display="block";
+    homeContent.style.display="none";
+    aboutContent.style.display="block";
 }
 
 function showHome(){
-    document.getElementById("aboutContent").style.display="none";
-    document.getElementById("homeContent").style.display="block";
+    aboutContent.style.display="none";
+    homeContent.style.display="block";
 }
 
 function kirimPesan(){
-    let isi = document.getElementById("pesan").value;
-    if(isi.trim() === ""){
+    if(pesan.value.trim() === ""){
         alert("Pesan tidak boleh kosong!");
     }else{
         alert("Pesan berhasil dikirim!");
-        document.getElementById("pesan").value="";
+        pesan.value="";
     }
+}
+
+function bukaDetail(judul, isi){
+    judulBuku.innerText = judul;
+    isiBuku.innerText = isi;
+    modalBuku.style.display="flex";
+}
+
+function tutupDetail(){
+    modalBuku.style.display="none";
 }
 </script>
 
