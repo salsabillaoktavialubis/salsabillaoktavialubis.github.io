@@ -2,13 +2,13 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Salsa Library - Perpustakaan Sekolah Dasar</title>
+<title>Perpustakaan Sekolah Tata Boga</title>
 
 <style>
 body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
-    background:#f4f9ff;
+    background:#fff8f2;
 }
 
 /* ================= LOGIN ================= */
@@ -18,7 +18,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    background:linear-gradient(135deg,#ff9966,#ff5e62);
 }
 
 .login-container{
@@ -32,7 +32,7 @@ body{
 .login-container h2{
     text-align:center;
     margin-bottom:20px;
-    color:#2c3e50;
+    color:#8B4513;
 }
 
 .login-container input{
@@ -47,7 +47,7 @@ body{
 .login-container button{
     width:100%;
     padding:12px;
-    background:#3498db;
+    background:#d35400;
     color:white;
     border:none;
     border-radius:8px;
@@ -57,7 +57,7 @@ body{
 }
 
 .login-container button:hover{
-    background:#2c80b4;
+    background:#a84300;
 }
 
 /* ================= HOME ================= */
@@ -67,7 +67,7 @@ body{
 }
 
 header{
-    background:#2c3e50;
+    background:#8B4513;
     color:white;
     padding:15px 50px;
     display:flex;
@@ -97,19 +97,19 @@ nav ul li a{
 }
 
 nav ul li a:hover{
-    color:#00f2fe;
+    color:#ffd6c2;
 }
 
 .logout-btn{
     background:white;
-    color:#2c3e50;
+    color:#8B4513;
     border:none;
     padding:8px 15px;
     border-radius:6px;
     cursor:pointer;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .container{
     padding:60px 80px;
@@ -128,7 +128,7 @@ nav ul li a:hover{
 
 .hero-text h1{
     font-size:36px;
-    color:#2c3e50;
+    color:#8B4513;
 }
 
 .hero-text p{
@@ -164,7 +164,7 @@ nav ul li a:hover{
 
 .card h3{
     margin-bottom:10px;
-    color:#3498db;
+    color:#d35400;
 }
 
 /* ABOUT */
@@ -172,11 +172,11 @@ nav ul li a:hover{
 .about-section{
     display:none;
     padding:60px 80px;
-    background:#ecf5ff;
+    background:#fff1e6;
 }
 
 .about-section h2{
-    color:#2c3e50;
+    color:#8B4513;
 }
 
 .about-section textarea{
@@ -187,7 +187,6 @@ nav ul li a:hover{
     border:1px solid #ccc;
 }
 
-/* VIDEO */
 iframe{
     margin-top:30px;
     border-radius:12px;
@@ -200,7 +199,7 @@ iframe{
 <!-- LOGIN PAGE -->
 <div class="login-page" id="loginPage">
     <div class="login-container">
-        <h2 id="formTitle">Login Perpustakaan</h2>
+        <h2 id="formTitle">Login Perpustakaan Tata Boga</h2>
 
         <form id="loginForm" onsubmit="return login()">
             <input type="text" id="loginFirst" placeholder="First Name" required>
@@ -236,7 +235,7 @@ iframe{
 <div class="home-page" id="homePage">
 
 <header>
-    <div>📚 Salsa Library SD</div>
+    <div>🍳 Perpustakaan Sekolah Tata Boga</div>
 
     <nav>
         <ul>
@@ -254,32 +253,32 @@ iframe{
 
     <div class="hero">
         <div class="hero-text">
-            <h1>Selamat Datang di Perpustakaan SD</h1>
-            <p>Membaca adalah jendela dunia. Mari tingkatkan literasi dan semangat belajar bersama Salsa Library.</p>
+            <h1>Selamat Datang di Perpustakaan Tata Boga</h1>
+            <p>Temukan berbagai buku resep, teknik memasak, dan manajemen kuliner untuk meningkatkan keterampilan Anda di dunia tata boga.</p>
         </div>
         <div class="hero-image">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png">
         </div>
     </div>
 
     <div class="info-cards">
         <div class="card">
-            <h3>Koleksi Buku</h3>
-            <p>Buku cerita anak, pelajaran, dongeng, dan ensiklopedia.</p>
+            <h3>Buku Resep</h3>
+            <p>Koleksi resep nusantara dan internasional lengkap.</p>
         </div>
 
         <div class="card">
-            <h3>Layanan Peminjaman</h3>
-            <p>Siswa dapat meminjam dan mengembalikan buku dengan mudah.</p>
+            <h3>Teknik Memasak</h3>
+            <p>Panduan teknik dasar hingga profesional di dunia kuliner.</p>
         </div>
 
         <div class="card">
-            <h3>Literasi Digital</h3>
-            <p>Mendukung pembelajaran berbasis teknologi dan video edukasi.</p>
+            <h3>Manajemen Kuliner</h3>
+            <p>Belajar bisnis restoran, catering, dan kewirausahaan boga.</p>
         </div>
     </div>
 
-    <h2>Video Edukasi</h2>
+    <h2>Video Edukasi Kuliner</h2>
     <iframe width="560" height="315"
     src="https://www.youtube.com/embed/dBVdtmHcUOI"
     allowfullscreen></iframe>
