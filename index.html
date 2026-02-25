@@ -2,76 +2,104 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Salsa Library - Perpustakaan Anak SD</title>
+<title>Salsa Library</title>
 
 <style>
 body{
     margin:0;
-    font-family:'Comic Sans MS', Arial, sans-serif;
-    background:#fdf6e3;
+    font-family:'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+    overflow-x:hidden;
 }
 
-/* ================= LOGIN PAGE ================= */
+/* ANIMASI AWAN */
+.cloud{
+    position:absolute;
+    top:50px;
+    width:150px;
+    animation:moveCloud 25s linear infinite;
+}
+
+.cloud2{
+    top:120px;
+    width:120px;
+    animation:moveCloud 35s linear infinite;
+}
+
+@keyframes moveCloud{
+    from{ left:-200px; }
+    to{ left:100%; }
+}
+
+/* ANIMASI ANAK SD */
+.child{
+    position:fixed;
+    bottom:0;
+    width:120px;
+    animation:bounce 2s infinite;
+}
+
+.child.left{ left:20px; }
+.child.right{ right:20px; }
+
+@keyframes bounce{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-20px); }
+}
+
+/* HALAMAN LOGIN */
 .login-page{
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
 }
 
 .login-container{
     background:white;
     padding:30px;
-    width:320px;
+    width:350px;
     border-radius:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-    border:4px dashed #5DADE2;
-    animation: floatCard 3s ease-in-out infinite;
-}
-
-@keyframes floatCard{
-    0%{ transform: translateY(0px);}
-    50%{ transform: translateY(-8px);}
-    100%{ transform: translateY(0px);}
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    border:5px solid #FFD93D;
 }
 
 .login-container h2{
     text-align:center;
-    color:#FF6F61;
+    color:#FF6B6B;
 }
 
 .login-container input{
     width:100%;
-    padding:8px;
+    padding:10px;
     margin-bottom:12px;
     border-radius:10px;
-    border:2px solid #4FACFE;
+    border:2px solid #6BCB77;
 }
 
 .login-container button{
     width:100%;
     padding:10px;
-    background: linear-gradient(45deg, #FF9A9E, #FAD0C4);
+    background:#4D96FF;
     color:white;
     border:none;
-    border-radius:10px;
+    border-radius:15px;
     cursor:pointer;
-    font-weight:bold;
+    font-size:16px;
     transition:0.3s;
 }
 
 .login-container button:hover{
-    transform:scale(1.05);
+    background:#FF6B6B;
 }
 
-/* ================= HOME PAGE ================= */
+/* HALAMAN HOME */
 .home-page{
     display:none;
 }
 
 header{
-    background: linear-gradient(90deg, #4FACFE, #00F2FE);
+    background:#FF6B6B;
     color:white;
     padding:15px 40px;
     display:flex;
@@ -82,7 +110,7 @@ header{
 nav ul{
     list-style:none;
     display:flex;
-    gap:15px;
+    gap:20px;
     margin:0;
     padding:0;
 }
@@ -90,92 +118,70 @@ nav ul{
 nav ul li a{
     text-decoration:none;
     color:white;
+    font-weight:bold;
     cursor:pointer;
-    padding:5px 10px;
+    transition:0.3s;
 }
 
 nav ul li a:hover{
-    background:white;
-    color:#4FACFE;
-    border-radius:10px;
+    color:#FFD93D;
 }
 
 .logout-btn{
     background:white;
-    color:#5DADE2;
+    color:#FF6B6B;
     border:none;
-    padding:6px 12px;
+    padding:8px 15px;
     border-radius:10px;
     cursor:pointer;
+    font-weight:bold;
 }
 
-/* ================= CONTENT ================= */
 .container{
-    padding:30px;
-    background:#FFF8DC;
-    border-radius:20px;
-    margin:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-.container h1{
-    color:#FF6F61;
-    font-size:36px;
+    padding:40px;
     text-align:center;
 }
 
+.container h1{
+    color:#4D96FF;
+}
+
+.container iframe{
+    border-radius:20px;
+    margin-top:20px;
+}
+
+/* ABOUT */
 .about-section{
     display:none;
-    padding:30px;
-    background:#E0F7FA;
-    border-radius:20px;
-    margin:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    padding:40px;
+    background:#FFF3B0;
 }
 
 .about-section textarea{
     width:100%;
-    height:100px;
+    height:120px;
     margin-top:10px;
-    padding:8px;
+    padding:10px;
     border-radius:15px;
-    border:2px solid #4FACFE;
-}
-
-/* ================= KARTU BUKU ================= */
-.book-section{
-    display:flex;
-    gap:20px;
-    margin-top:20px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.book-card{
-    background:white;
-    width:170px;
-    padding:15px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 6px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.book-card:hover{
-    transform:scale(1.08);
-}
-
-.book-card img{
-    width:80px;
-    margin-bottom:10px;
+    border:2px solid #4D96FF;
 }
 </style>
 </head>
 
 <body>
 
+<!-- AWAN BERGERAK -->
+<img src="https://i.imgur.com/V4RclNb.png" class="cloud">
+<img src="https://i.imgur.com/V4RclNb.png" class="cloud cloud2">
+
+<!-- ANAK SD BERGERAK -->
+<img src="https://i.imgur.com/1Xq9BiS.png" class="child left">
+<img src="https://i.imgur.com/1Xq9BiS.png" class="child right">
+
 <!-- LOGIN PAGE -->
 <div class="login-page" id="loginPage">
+
     <div class="login-container">
         <h2 id="formTitle">Login</h2>
 
@@ -186,6 +192,7 @@ nav ul li a:hover{
             <input type="password" id="loginPassword" placeholder="Password" required>
             <input type="tel" id="loginPhone" placeholder="No Handphone" required>
             <button type="submit">Login</button>
+
             <p style="text-align:center;">
                 Belum punya akun?
                 <a onclick="showRegister()">Daftar</a>
@@ -199,6 +206,7 @@ nav ul li a:hover{
             <input type="tel" id="regPhone" placeholder="No Handphone" required>
             <input type="password" id="regPassword" placeholder="Password" required>
             <button type="submit">Daftar</button>
+
             <p style="text-align:center;">
                 Sudah punya akun?
                 <a onclick="showLogin()">Login</a>
@@ -211,7 +219,8 @@ nav ul li a:hover{
 <div class="home-page" id="homePage">
 
 <header>
-    <div>📚 Salsa Library SD</div>
+    <div>📚 Salsa Library</div>
+
     <nav>
         <ul>
             <li><a onclick="showHome()">Home</a></li>
@@ -220,47 +229,38 @@ nav ul li a:hover{
             <li><a onclick="showAbout()">About Us</a></li>
         </ul>
     </nav>
+
     <button class="logout-btn" onclick="logout()">Logout</button>
 </header>
 
 <!-- HOME CONTENT -->
 <div class="container" id="homeContent">
-    <h1>Selamat Datang di Perpustakaan Anak SD 🎈</h1>
-    <p>Tempat membaca yang seru, menyenangkan, dan penuh cerita menarik!</p>
+    <h1>Selamat Datang di Salsa Library</h1>
+    <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran anak SD.</p>
 
-    <h2>Koleksi Buku Anak SD</h2>
+    <p>
+        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
+            Kunjungi Instagram Saya
+        </a>
+    </p>
 
-    <div class="book-section">
-        <div class="book-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-            <h4>Cerita Dongeng</h4>
-            <p>Buku cerita bergambar menarik.</p>
-        </div>
+    <p>
+        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
+            Kunjungi CV Saya
+        </a>
+    </p>
 
-        <div class="book-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png">
-            <h4>Matematika</h4>
-            <p>Belajar berhitung seru.</p>
-        </div>
-
-        <div class="book-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
-            <h4>IPA</h4>
-            <p>Belajar sains menyenangkan.</p>
-        </div>
-
-        <div class="book-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png">
-            <h4>Bahasa Indonesia</h4>
-            <p>Membaca dan menulis.</p>
-        </div>
-    </div>
+    <h2>Video Youtube</h2>
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/dBVdtmHcUOI"
+    allowfullscreen></iframe>
 </div>
 
 <!-- ABOUT US CONTENT -->
 <div class="about-section" id="aboutContent">
     <h2>Hubungi Saya</h2>
-    <p><strong>No. WhatsApp:</strong> <a href="https://wa.me/6281264089312">Klik WhatsApp saya</a></p>
+    <p><strong>No. WhatsApp:</strong> <a href="https://wa.me/6281264089312">Klik Whatsapp saya</a></p>
+    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">Klik untuk Instagram saya</a></p>
     <p><strong>Email:</strong> salsabillokt13a@email.com</p>
 
     <h3>Kotak Komentar</h3>
