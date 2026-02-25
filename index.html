@@ -31,7 +31,6 @@ body{
 .login-container h2{
     text-align:center;
     color:#FF6B6B;
-    font-size:28px;
 }
 
 .login-container input{
@@ -40,7 +39,6 @@ body{
     margin-bottom:12px;
     border-radius:12px;
     border:2px solid #6BCB77;
-    font-size:14px;
 }
 
 .login-container button{
@@ -51,17 +49,10 @@ body{
     border:none;
     border-radius:20px;
     cursor:pointer;
-    font-size:16px;
     font-weight:bold;
-    transition:0.3s;
 }
 
-.login-container button:hover{
-    background:#FF6B6B;
-    transform:scale(1.05);
-}
-
-/* HALAMAN HOME */
+/* HOME */
 .home-page{
     display:none;
 }
@@ -73,11 +64,6 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-}
-
-header div{
-    font-size:20px;
-    font-weight:bold;
 }
 
 nav ul{
@@ -93,11 +79,6 @@ nav ul li a{
     color:white;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#FFD93D;
 }
 
 .logout-btn{
@@ -111,44 +92,51 @@ nav ul li a:hover{
 }
 
 .container{
-    padding:50px;
+    padding:40px;
     text-align:center;
 }
 
 .container h1{
     color:#4D96FF;
-    font-size:32px;
 }
 
-.container p{
-    font-size:18px;
+/* KOLEKSI */
+.koleksi-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:30px;
 }
 
-.container a{
-    text-decoration:none;
-    font-weight:bold;
+.buku{
+    background:white;
+    padding:20px;
+    width:180px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transition:0.3s;
+    animation:goyang 2s infinite alternate;
+}
+
+.buku img{
+    width:100%;
+    border-radius:10px;
+}
+
+.buku h3{
     color:#FF6B6B;
 }
 
-.container a:hover{
-    color:#4D96FF;
-}
-
-.container iframe{
-    border-radius:20px;
-    margin-top:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+@keyframes goyang{
+    from{ transform:rotate(-3deg); }
+    to{ transform:rotate(3deg); }
 }
 
 /* ABOUT */
 .about-section{
     display:none;
-    padding:50px;
+    padding:40px;
     background:#FFF3B0;
-}
-
-.about-section h2{
-    color:#FF6B6B;
 }
 
 .about-section textarea{
@@ -158,7 +146,17 @@ nav ul li a:hover{
     padding:12px;
     border-radius:15px;
     border:2px solid #4D96FF;
-    font-size:14px;
+}
+
+.kirim-btn{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:15px;
+    background:#4D96FF;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 </style>
 </head>
@@ -167,7 +165,6 @@ nav ul li a:hover{
 
 <!-- LOGIN PAGE -->
 <div class="login-page" id="loginPage">
-
     <div class="login-container">
         <h2 id="formTitle">Login</h2>
 
@@ -178,7 +175,6 @@ nav ul li a:hover{
             <input type="password" id="loginPassword" placeholder="Password" required>
             <input type="tel" id="loginPhone" placeholder="No Handphone" required>
             <button type="submit">Login</button>
-
             <p style="text-align:center;">
                 Belum punya akun?
                 <a onclick="showRegister()">Daftar</a>
@@ -192,7 +188,6 @@ nav ul li a:hover{
             <input type="tel" id="regPhone" placeholder="No Handphone" required>
             <input type="password" id="regPassword" placeholder="Password" required>
             <button type="submit">Daftar</button>
-
             <p style="text-align:center;">
                 Sudah punya akun?
                 <a onclick="showLogin()">Login</a>
@@ -206,7 +201,6 @@ nav ul li a:hover{
 
 <header>
     <div>📚 Salsa Library</div>
-
     <nav>
         <ul>
             <li><a onclick="showHome()">Home</a></li>
@@ -215,25 +209,33 @@ nav ul li a:hover{
             <li><a onclick="showAbout()">About Us</a></li>
         </ul>
     </nav>
-
     <button class="logout-btn" onclick="logout()">Logout</button>
 </header>
 
 <div class="container" id="homeContent">
     <h1>Selamat Datang di Salsa Library</h1>
-    <p>Salsa Library adalah perpustakaan digital sederhana yang mendukung kegiatan literasi dan pembelajaran anak SD.</p>
+    <p>Perpustakaan digital untuk mendukung literasi anak SD.</p>
 
-    <p>
-        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
-            Kunjungi Instagram Saya
-        </a>
-    </p>
+    <!-- KOLEKSI TAMBAHAN -->
+    <div class="koleksi-container">
+        <div class="buku">
+            <img src="https://i.imgur.com/8Km9tLL.jpg">
+            <h3>Dongeng Nusantara</h3>
+            <p>Buku cerita rakyat Indonesia.</p>
+        </div>
 
-    <p>
-        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
-            Kunjungi CV Saya
-        </a>
-    </p>
+        <div class="buku">
+            <img src="https://i.imgur.com/4YQZ4.jpg">
+            <h3>Belajar Matematika</h3>
+            <p>Latihan seru matematika SD.</p>
+        </div>
+
+        <div class="buku">
+            <img src="https://i.imgur.com/VxK9Y.jpg">
+            <h3>Ilmu Pengetahuan Alam</h3>
+            <p>Mengenal alam dengan menyenangkan.</p>
+        </div>
+    </div>
 
     <h2>Video Youtube</h2>
     <iframe width="560" height="315"
@@ -241,14 +243,23 @@ nav ul li a:hover{
     allowfullscreen></iframe>
 </div>
 
+<!-- ABOUT -->
 <div class="about-section" id="aboutContent">
     <h2>Hubungi Saya</h2>
     <p><strong>No. WhatsApp:</strong> <a href="https://wa.me/6281264089312">Klik Whatsapp saya</a></p>
-    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==">Klik untuk Instagram saya</a></p>
-    <p><strong>Email:</strong> salsabillokt13a@email.com</p>
+
+    <p><strong>Instagram:</strong> 
+        <a href="https://www.instagram.com/salsabilla_okt13?igsh=MTNxOHpkOTgwMGRwcA==" target="_blank">
+        Kunjungi Instagram Saya</a></p>
+
+    <p><strong>CV:</strong> 
+        <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank">
+        Lihat CV Saya</a></p>
 
     <h3>Kotak Komentar</h3>
-    <textarea placeholder="Tulis komentar Anda di sini..."></textarea>
+    <textarea id="pesan" placeholder="Tulis pesan Anda di sini..."></textarea>
+    <br>
+    <button class="kirim-btn" onclick="kirimPesan()">Kirim Pesan</button>
 </div>
 
 </div>
@@ -312,6 +323,16 @@ function showAbout(){
 function showHome(){
     document.getElementById("aboutContent").style.display="none";
     document.getElementById("homeContent").style.display="block";
+}
+
+function kirimPesan(){
+    let isi = document.getElementById("pesan").value;
+    if(isi.trim() === ""){
+        alert("Pesan tidak boleh kosong!");
+    }else{
+        alert("Pesan berhasil dikirim!");
+        document.getElementById("pesan").value="";
+    }
 }
 </script>
 
