@@ -173,7 +173,16 @@ body{
     color:#2f4f6f;
 }
 
-.cv-btn,
+.cv-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#2f4f6f;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
 .instagram-btn{
     display:inline-block;
     padding:10px 20px;
@@ -261,15 +270,11 @@ function login(){
         </div>
     </div>
 
-    <!-- HOME -->
+    <!-- HOME (ASLI TETAP) -->
     <div id="home" class="section home-bg">
         <h2>Selamat Datang di Perpustakaan Tata Boga</h2>
         <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
-    </div>
 
-    <!-- KOLEKSI PAGE -->
-    <div id="koleksiPage" class="section" style="display:none;">
-        <h2>Daftar Koleksi Buku</h2>
         <div class="koleksi-container">
             <div class="koleksi">
                 <h4>Buku Resep Nusantara</h4>
@@ -284,9 +289,30 @@ function login(){
                 <p>Pengelolaan dapur profesional.</p>
             </div>
         </div>
+
+        <div class="video-section">
+            <h2>Video Edukasi</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dBVdtmHcUOI" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/lY2yjAdbvdQ" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- LAYANAN PAGE -->
+    <!-- KOLEKSI BARU -->
+    <div id="koleksiPage" class="section" style="display:none;">
+        <h2>Halaman Koleksi Lengkap</h2>
+        <p>Berikut daftar koleksi buku yang tersedia di perpustakaan.</p>
+    </div>
+
+    <!-- LAYANAN BARU -->
     <div id="layananPage" class="section" style="display:none;">
         <h2>Layanan Perpustakaan</h2>
         <p>Peminjaman Buku</p>
@@ -295,11 +321,55 @@ function login(){
         <p>Akses Video Edukasi</p>
     </div>
 
-    <!-- ABOUT -->
+    <!-- ABOUT (100% ASLI PUNYA KAMU) -->
     <div id="about" class="section" style="display:none;">
         <div class="about-container">
+
             <h2>About Us</h2>
-            <p>Website Perpustakaan Tata Boga dibuat sebagai media informasi dan sumber referensi pembelajaran kuliner.</p>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+                    <h3>Curriculum Vitae</h3>
+                    <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
+                    <p><b>Jurusan:</b> Tata Boga</p>
+                    <p><b>Pendidikan:</b> SMK Tata Boga</p>
+                    <p><b>Email:</b> emailkamu@gmail.com</p>
+                    <p><b>No HP:</b> 08xxxxxxxxxx</p>
+                    <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+
+                    <p><strong>CV:</strong></p>
+                    <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" 
+                       target="_blank" 
+                       class="cv-btn">
+                       Lihat CV
+                    </a>
+                </div>
+
+                <div class="about-card">
+                    <h3>Contact</h3>
+                    <p>📞 08xxxxxxxxxx</p>
+                    <p>📧 emailkamu@gmail.com</p>
+                    <p>📍 Indonesia</p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Instagram</h3>
+                    <a href="https://instagram.com" target="_blank" class="instagram-btn">
+                        Kunjungi Instagram
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="message-box">
+                <h3>Kirim Pesan</h3>
+                <input type="text" placeholder="Nama Anda">
+                <input type="email" placeholder="Email Anda">
+                <textarea rows="4" placeholder="Tulis pesan anda..."></textarea>
+                <button onclick="alert('Pesan berhasil dikirim!')">Kirim Pesan</button>
+            </div>
+
         </div>
     </div>
 
