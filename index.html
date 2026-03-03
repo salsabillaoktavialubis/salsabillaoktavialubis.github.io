@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title> Lentera Perpustakaan Tata Boga</title>
+<title>Lentera Perpustakaan Tata Boga</title>
 
 <style>
 body{
@@ -144,7 +144,7 @@ body{
     border-radius:10px;
 }
 
-/* ABOUT */
+/* ABOUT & PROFIL */
 .about-container{
     max-width:1000px;
     margin:auto;
@@ -228,7 +228,7 @@ body{
 
 <script>
 function showPage(page){
-    const pages = ["home","about","koleksiPage","layananPage"];
+    const pages = ["home","about","koleksiPage","layananPage","profilPage"];
     pages.forEach(function(p){
         document.getElementById(p).style.display="none";
     });
@@ -266,11 +266,12 @@ function login(){
             <a onclick="showPage('home')">Home</a>
             <a onclick="showPage('koleksiPage')">Koleksi</a>
             <a onclick="showPage('layananPage')">Layanan</a>
+            <a onclick="showPage('profilPage')">Profil</a>
             <a onclick="showPage('about')">About Us</a>
         </div>
     </div>
 
-    <!-- HOME (ASLI TETAP) -->
+    <!-- HOME -->
     <div id="home" class="section home-bg">
         <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
         <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
@@ -306,49 +307,34 @@ function login(){
         </div>
     </div>
 
-    <!-- KOLEKSI BARU -->
-    <div id="koleksiPage" class="section" style="display:none;">
-        <h2>Halaman Koleksi Lengkap</h2>
-        <p>Berikut daftar koleksi buku yang tersedia di perpustakaan.</p>
+    <!-- PROFIL -->
+    <div id="profilPage" class="section" style="display:none;">
+        <div class="about-container">
+            <h2>Profil Pengelola</h2>
+            <div class="about-card">
+                <h3>Curriculum Vitae</h3>
+                <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
+                <p><b>Email:</b> salsabillaok13@gmail.com</p>
+                <p><b>No HP:</b> 081264089312</p>
+                <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+                <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank" class="cv-btn">
+                    Lihat CV Lengkap
+                </a>
+            </div>
+        </div>
     </div>
 
-    <!-- LAYANAN BARU -->
-    <div id="layananPage" class="section" style="display:none;">
-        <h2>Layanan Perpustakaan</h2>
-        <p>Peminjaman Buku</p>
-        <p>Pengembalian Buku</p>
-        <p>Perpanjangan Masa Pinjam</p>
-        <p>Akses Video Edukasi</p>
-    </div>
-
-    <!-- ABOUT (100% ASLI PUNYA KAMU) -->
+    <!-- ABOUT -->
     <div id="about" class="section" style="display:none;">
         <div class="about-container">
-
             <h2>About Us</h2>
 
             <div class="about-grid">
-
-                <div class="about-card">
-                    <h3>Curriculum Vitae</h3>
-                    <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
-                    <p><b>Email:</b> salsabillaok13@gmail.com</p>
-                    <p><b>No HP:</b> 081264089312</p>
-                    <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
-
-                    <p><strong>CV:</strong></p>
-                    <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" 
-                       target="_blank" 
-                       class="cv-btn">
-                       Lihat CV
-                    </a>
-                </div>
-
                 <div class="about-card">
                     <h3>Contact</h3>
                     <p>📞 081264089312</p>
                     <p>📧 salsabillaokt13@gmail.com</p>
-                    <p>📍 Jl. Pukat 1 </p>
+                    <p>📍 Jl. Pukat 1</p>
                 </div>
 
                 <div class="about-card">
@@ -357,7 +343,6 @@ function login(){
                         Kunjungi Instagram
                     </a>
                 </div>
-
             </div>
 
             <div class="message-box">
@@ -367,7 +352,6 @@ function login(){
                 <textarea rows="4" placeholder="Tulis pesan anda..."></textarea>
                 <button onclick="alert('Pesan berhasil dikirim!')">Kirim Pesan</button>
             </div>
-
         </div>
     </div>
 
