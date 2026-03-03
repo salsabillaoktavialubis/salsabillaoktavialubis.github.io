@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Lentera Perpustakaan Tata Boga</title>
+<title> Lentera Perpustakaan Tata Boga</title>
 
 <style>
 body{
@@ -80,15 +80,16 @@ body{
     cursor:pointer;
 }
 
-.navbar a:hover{
-    text-decoration:underline;
-}
-
 /* SECTION */
 .section{
     padding:60px;
     text-align:center;
-    display:none;
+    animation:fade 0.5s ease-in-out;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 /* KOLEKSI */
@@ -103,40 +104,14 @@ body{
 .koleksi{
     background:white;
     padding:20px;
-    width:220px;
+    width:200px;
     border-radius:20px;
     box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transition:0.8s;
 }
 
-.koleksi img{
-    width:100%;
-    border-radius:15px;
-    margin-bottom:10px;
-}
-
-/* VIDEO */
-.video-section{
-    margin-top:60px;
-}
-
-.video-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-    margin-top:30px;
-}
-
-.video-card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-.video-card iframe{
-    width:100%;
-    height:200px;
-    border-radius:10px;
+.koleksi:hover{
+    transform:rotateY(360deg);
 }
 
 /* ABOUT */
@@ -164,42 +139,21 @@ body{
     text-align:left;
 }
 
-.cv-btn, .instagram-btn{
-    display:inline-block;
+.about-card h3{
+    color:#2f4f6f;
+}
+
+/* JAM DIGITAL */
+.jam-box{
+    font-size:22px;
+    font-weight:bold;
     margin-top:10px;
-    padding:8px 15px;
-    background:#2f4f6f;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
 }
 
-.message-box{
-    margin-top:40px;
-    text-align:left;
-}
-
-.message-box input,
-.message-box textarea{
-    width:100%;
-    padding:10px;
+.status-buka{
     margin-top:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
+    font-weight:bold;
 }
-
-.message-box button{
-    margin-top:15px;
-    padding:10px 20px;
-    background:#2f4f6f;
-    color:white;
-    border:none;
-    border-radius:8px;
-}
-
-/* STATUS */
-.buka{ color:green; font-weight:bold; }
-.tutup{ color:red; font-weight:bold; }
 
 /* FOOTER */
 .footer{
@@ -213,19 +167,16 @@ body{
 
 <script>
 function showPage(page){
-    const pages = ["home","koleksiPage","layananPage","profilPage","adminPage","about"];
+    const pages = ["home","about","koleksiPage","layananPage","profilPage","adminPage"];
     pages.forEach(function(p){
-        const el = document.getElementById(p);
-        if(el){ el.style.display="none"; }
+        document.getElementById(p).style.display="none";
     });
-    const active = document.getElementById(page);
-    if(active){ active.style.display="block"; }
+    document.getElementById(page).style.display="block";
 }
 
 function login(){
     document.getElementById("loginPage").style.display="none";
     document.getElementById("mainPage").style.display="block";
-    showPage("home");
 }
 
 /* JAM DIGITAL */
@@ -241,29 +192,29 @@ function updateJam(){
         (menit<10?"0":"")+menit + ":" +
         (detik<10?"0":"")+detik;
 
-    const jamEl = document.getElementById("jamDigital");
-    const statusEl = document.getElementById("statusBuka");
+    document.getElementById("jamDigital").innerHTML = waktu;
 
-    if(jamEl && statusEl){
-        jamEl.innerHTML = waktu;
+    let status = "";
 
-        if(jam >=8 && jam <15 && hari>=1 && hari<=5){
-            statusEl.innerHTML="Perpustakaan Sedang BUKA";
-            statusEl.className="buka";
-        } else if(jam>=8 && jam<12 && hari==6){
-            statusEl.innerHTML="Perpustakaan Sedang BUKA";
-            statusEl.className="buka";
-        } else{
-            statusEl.innerHTML="Perpustakaan Sedang TUTUP";
-            statusEl.className="tutup";
-        }
+    if(jam >= 8 && jam < 15 && hari >=1 && hari <=5){
+        status = "Perpustakaan Sedang BUKA";
+        document.getElementById("statusBuka").style.color="green";
+    } else if(jam >=8 && jam <12 && hari == 6){
+        status = "Perpustakaan Sedang BUKA";
+        document.getElementById("statusBuka").style.color="green";
+    } else {
+        status = "Perpustakaan Sedang TUTUP";
+        document.getElementById("statusBuka").style.color="red";
     }
+
+    document.getElementById("statusBuka").innerHTML = status;
 }
+
 setInterval(updateJam,1000);
 </script>
 
 </head>
-<body onload="updateJam()">
+<body>
 
 <!-- LOGIN -->
 <div class="login-page" id="loginPage">
@@ -275,78 +226,57 @@ setInterval(updateJam,1000);
     </div>
 </div>
 
+<!-- MAIN -->
 <div id="mainPage" style="display:none;">
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
-        Lentera Perpustakaan Tata Boga
-    </div>
-    <div>
-        <a onclick="showPage('home')">Home</a>
-        <a onclick="showPage('koleksiPage')">Koleksi</a>
-        <a onclick="showPage('layananPage')">Layanan</a>
-        <a onclick="showPage('profilPage')">Profil</a>
-        <a onclick="showPage('adminPage')">Admin</a>
-        <a onclick="showPage('about')">About Us</a>
-    </div>
-</div>
-
-<!-- HOME -->
-<div id="home" class="section home-bg">
-    <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
-    <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
-
-    <div class="koleksi-container">
-        <div class="koleksi">
-            <h4>Buku Resep Nusantara</h4>
-            <p>Resep tradisional Indonesia.</p>
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+            Lentera Perpustakaan Tata Boga
         </div>
-        <div class="koleksi">
-            <h4>Teknik Dasar Memasak</h4>
-            <p>Panduan teknik memasak.</p>
-        </div>
-        <div class="koleksi">
-            <h4>Manajemen Dapur</h4>
-            <p>Pengelolaan dapur profesional.</p>
+        <div>
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('koleksiPage')">Koleksi</a>
+            <a onclick="showPage('layananPage')">Layanan</a>
+            <a onclick="showPage('profilPage')">Profil</a>
+            <a onclick="showPage('adminPage')">Admin</a>
+            <a onclick="showPage('about')">About Us</a>
         </div>
     </div>
 
-    <div class="video-section">
-        <h2>Video Edukasi</h2>
-        <div class="video-grid">
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/dBVdtmHcUOI" allowfullscreen></iframe>
+    <!-- LAYANAN + JAM -->
+    <div id="layananPage" class="section" style="display:none;">
+        <h2>Jam Kunjungan Perpustakaan</h2>
+
+        <div class="about-container">
+
+            <div class="about-card">
+                <h3>Senin - Jumat</h3>
+                <p>08.00 WIB - 15.00 WIB</p>
             </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" allowfullscreen></iframe>
+
+            <div class="about-card">
+                <h3>Sabtu</h3>
+                <p>08.00 WIB - 12.00 WIB</p>
             </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/lY2yjAdbvdQ" allowfullscreen></iframe>
+
+            <div class="about-card">
+                <h3>Minggu & Libur Nasional</h3>
+                <p>Tutup</p>
             </div>
+
+            <div class="about-card">
+                <h3>Jam Sekarang</h3>
+                <div id="jamDigital" class="jam-box"></div>
+                <div id="statusBuka" class="status-buka"></div>
+            </div>
+
         </div>
     </div>
-</div>
 
-<!-- LAYANAN -->
-<div id="layananPage" class="section">
-    <h2>Jam Kunjungan Perpustakaan</h2>
-    <div class="koleksi-container">
-        <div class="koleksi"><h4>Senin - Jumat</h4><p>08.00 - 15.00 WIB</p></div>
-        <div class="koleksi"><h4>Sabtu</h4><p>08.00 - 12.00 WIB</p></div>
-        <div class="koleksi"><h4>Minggu & Libur</h4><p>Tutup</p></div>
-        <div class="koleksi">
-            <h4>Waktu Sekarang</h4>
-            <p id="jamDigital"></p>
-            <p id="statusBuka"></p>
-        </div>
+    <div class="footer">
+        © 2026 Lentera Perpustakaan Tata Boga
     </div>
-</div>
-
-<div class="footer">
-© 2026 Lentera Perpustakaan Tata Boga | SMK Tata Boga
-</div>
 
 </div>
 
