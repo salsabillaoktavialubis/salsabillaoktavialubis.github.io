@@ -3,306 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lentera Perpustakaan Tata Boga</title>
+<title>Perpustakaan Tata Boga Premium</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#fdf6ec;
+background:linear-gradient(rgba(60,40,20,0.6),rgba(60,40,20,0.6)),
+url("https://images.unsplash.com/photo-1495521821757-a1efb6729352") no-repeat center center fixed;
+background-size:cover;
+color:#4e342e;
 }
 
 /* NAVBAR */
-nav{
-    background:#2c5d8a;
-    padding:15px;
-    text-align:center;
+.navbar{
+background:#6d4c41;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
-nav a{
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:bold;
-    cursor:pointer;
+.navbar button{
+background:#8d6e63;
+color:white;
+border:none;
+padding:8px 20px;
+border-radius:25px;
+cursor:pointer;
+transition:0.3s;
 }
 
-nav a:hover{
-    text-decoration:underline;
+.navbar button:hover{
+background:#d7ccc8;
+color:#4e342e;
 }
 
 /* SECTION */
 .section{
-    padding:40px;
-    display:none;
+display:none;
+padding:60px 20px;
+animation:fade 0.5s ease-in-out;
 }
 
-.home-bg{
-    background:#fdf6ec;
+.active{display:block;}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-/* KOLEKSI */
-.koleksi-container{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:20px;
+.container{
+max-width:900px;
+margin:auto;
+background:rgba(255,248,240,0.95);
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+text-align:center;
 }
 
-.koleksi{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    width:250px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
-/* VIDEO */
-.video-section{
-    margin-top:40px;
-    text-align:center;
+button.submit{
+margin-top:20px;
+width:100%;
+padding:12px;
+background:#6d4c41;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
 }
 
-.video-grid{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    justify-content:center;
+button.submit:hover{background:#8d6e63;}
+
+.table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
 }
 
-.video-card{
-    width:320px;
-    background:white;
-    padding:10px;
-    border-radius:10px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+.table th,.table td{
+border:1px solid #ccc;
+padding:8px;
+font-size:14px;
 }
 
-/* ABOUT */
-.about-container{
-    max-width:1000px;
-    margin:auto;
-}
-
-.about-grid{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.about-card{
-    flex:1;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
-
-.cv-btn, .instagram-btn{
-    display:inline-block;
-    background:#2c5d8a;
-    color:white;
-    padding:10px 15px;
-    border-radius:5px;
-    text-decoration:none;
-    margin-top:10px;
-}
-
-.cv-btn:hover, .instagram-btn:hover{
-    background:#1e3f5f;
-}
-
-/* MESSAGE BOX */
-.message-box{
-    margin-top:30px;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
-
-.message-box input,
-.message-box textarea{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    border-radius:5px;
-    border:1px solid #ccc;
-}
-
-.message-box button{
-    margin-top:15px;
-    padding:10px 15px;
-    background:#2c5d8a;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.message-box button:hover{
-    background:#1e3f5f;
-}
-
-/* FOOTER */
 .footer{
-    text-align:center;
-    padding:15px;
-    background:#2c5d8a;
-    color:white;
+text-align:center;
+padding:15px;
+background:#6d4c41;
+color:white;
+margin-top:30px;
 }
 </style>
 </head>
-
 <body>
 
-<nav>
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('koleksiPage')">Koleksi</a>
-    <a onclick="showSection('layananPage')">Layanan</a>
-    <a onclick="showSection('profil')">Profil</a>
-    <a onclick="showSection('admin')">Admin</a>
-    <a onclick="showSection('about us')">About Us</a>
-</nav>
+<div class="navbar">
+<button onclick="show('home')">Home</button>
+<button onclick="show('daftar')">Daftar</button>
+<button onclick="show('admin')" id="adminBtn" style="display:none;">Admin</button>
+<button onclick="show('login')" id="loginBtn">Login</button>
+<button onclick="logout()" id="logoutBtn" style="display:none;">Logout</button>
+</div>
 
 <!-- HOME -->
-<div id="home" class="section home-bg">
-    <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
-    <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
-
-    <div class="koleksi-container">
-        <div class="koleksi">
-            <h4>Buku Resep Nusantara</h4>
-            <p>Resep tradisional Indonesia.</p>
-        </div>
-        <div class="koleksi">
-            <h4>Teknik Dasar Memasak</h4>
-            <p>Panduan teknik memasak.</p>
-        </div>
-        <div class="koleksi">
-            <h4>Manajemen Dapur</h4>
-            <p>Pengelolaan dapur profesional.</p>
-        </div>
-    </div>
-
-    <div class="video-section">
-        <h2>Video Edukasi</h2>
-        <div class="video-grid">
-
-            <div class="video-card">
-                <iframe width="100%" height="250"
-                    src="https://www.youtube.com/embed/dBVdtmHcUOI"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="video-card">
-                <iframe width="100%" height="250"
-                    src="https://www.youtube.com/embed/4aZr5hZXP_s"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="video-card">
-                <iframe width="100%" height="250"
-                    src="https://www.youtube.com/embed/lY2yjAdbvdQ"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-        </div>
-    </div>
+<div id="home" class="section active">
+<div class="container">
+<h2>🍰 Perpustakaan Tata Boga</h2>
+<p>Perpustakaan bidang kuliner yang mendukung pembelajaran resep, teknik memasak, dan manajemen usaha boga.</p>
+</div>
 </div>
 
-<!-- KOLEKSI -->
-<div id="koleksiPage" class="section">
-    <h2>Halaman Koleksi Lengkap</h2>
-    <p>Berikut daftar koleksi buku yang tersedia di perpustakaan.</p>
+<!-- DAFTAR -->
+<div id="daftar" class="section">
+<div class="container">
+<h2>Form Pendaftaran Anggota</h2>
+<input type="text" id="nama" placeholder="Nama Lengkap">
+<input type="text" id="kelas" placeholder="Kelas">
+<input type="email" id="email" placeholder="Email">
+<button class="submit" onclick="daftar()">Daftar</button>
+</div>
 </div>
 
-<!-- LAYANAN -->
-<div id="layananPage" class="section">
-    <h2>Layanan Perpustakaan</h2>
-    <p>Peminjaman Buku</p>
-    <p>Pengembalian Buku</p>
-    <p>Perpanjangan Masa Pinjam</p>
-    <p>Akses Video Edukasi</p>
+<!-- LOGIN -->
+<div id="login" class="section">
+<div class="container">
+<h2>Login Admin</h2>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button class="submit" onclick="login()">Login</button>
 </div>
-
-<!-- PROFIL -->
-<div id="layananPage" class="section">
-    <h2>VISI</h2>
-    <p>MISI</p>
 </div>
 
 <!-- ADMIN -->
 <div id="admin" class="section">
-    <div class="about-container">
-        <h2>Admin</h2>
-
-        <div class="about-grid">
-
-            <div class="about-card">
-                <h3>Curriculum Vitae</h3>
-                <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
-                <p><b>Email:</b> salsabillaok13@gmail.com</p>
-                <p><b>No HP:</b> 081264089312</p>
-                <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
-
-                <p><strong>CV:</strong></p>
-                <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE"
-                   target="_blank"
-                   class="cv-btn">
-                   Lihat CV
-                </a>
-            </div>
-
-            <div class="about-card">
-                <h3>Contact</h3>
-                <p>📞 081264089312</p>
-                <p>📧 salsabillaokt13@gmail.com</p>
-                <p>📍 Jl. Pukat 1</p>
-            </div>
-
-            <div class="about-card">
-                <h3>Instagram</h3>
-                <a href="https://instagram.com" target="_blank" class="instagram-btn">
-                    Kunjungi Instagram
-                </a>
-            </div>
-
-        </div>
-
-        <div class="message-box">
-            <h3>Kirim Pesan</h3>
-            <input type="text" placeholder="Nama Anda">
-            <input type="email" placeholder="Email Anda">
-            <textarea rows="4" placeholder="Tulis pesan anda..."></textarea>
-            <button onclick="alert('Pesan berhasil dikirim!')">Kirim Pesan</button>
-        </div>
-
-    </div>
+<div class="container">
+<h2>Dashboard Admin</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Nama</th>
+<th>Kelas</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody id="dataTable"></tbody>
+</table>
+</div>
 </div>
 
-<div class="footer">
-    © 2026 Lentera Perpustakaan Tata Boga | SMK Tata Boga
-</div>
+<div class="footer">© 2026 Perpustakaan Tata Boga Premium</div>
 
 <script>
-function showSection(sectionId){
-    document.querySelectorAll('.section').forEach(section=>{
-        section.style.display="none";
-    });
-    document.getElementById(sectionId).style.display="block";
+function show(id){
+document.querySelectorAll('.section').forEach(sec=>sec.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 
-window.onload = function(){
-    showSection('home');
+function daftar(){
+let nama=document.getElementById('nama').value;
+let kelas=document.getElementById('kelas').value;
+let email=document.getElementById('email').value;
+
+if(nama && kelas && email){
+let data=JSON.parse(localStorage.getItem('anggota'))||[];
+data.push({nama,kelas,email});
+localStorage.setItem('anggota',JSON.stringify(data));
+alert("Pendaftaran berhasil!");
+document.getElementById('nama').value="";
+document.getElementById('kelas').value="";
+document.getElementById('email').value="";
+}
+}
+
+function login(){
+let user=document.getElementById('username').value;
+let pass=document.getElementById('password').value;
+
+if(user==="admin" && pass==="1234"){
+alert("Login berhasil!");
+document.getElementById("loginBtn").style.display="none";
+document.getElementById("logoutBtn").style.display="inline-block";
+document.getElementById("adminBtn").style.display="inline-block";
+show("admin");
+loadData();
+}else{
+alert("Username atau password salah!");
+}
+}
+
+function logout(){
+alert("Logout berhasil");
+document.getElementById("loginBtn").style.display="inline-block";
+document.getElementById("logoutBtn").style.display="none";
+document.getElementById("adminBtn").style.display="none";
+show("home");
+}
+
+function loadData(){
+let data=JSON.parse(localStorage.getItem('anggota'))||[];
+let table=document.getElementById("dataTable");
+table.innerHTML="";
+data.forEach(item=>{
+table.innerHTML+=`<tr>
+<td>${item.nama}</td>
+<td>${item.kelas}</td>
+<td>${item.email}</td>
+</tr>`;
+});
 }
 </script>
 
