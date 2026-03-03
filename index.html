@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title> Lentera Perpustakaan Tata Boga</title>
+<title>Lentera Perpustakaan Tata Boga</title>
 
 <style>
 body{
@@ -144,7 +144,7 @@ body{
     border-radius:10px;
 }
 
-/* ABOUT */
+/* ABOUT & ADMIN STYLE */
 .about-container{
     max-width:1000px;
     margin:auto;
@@ -181,42 +181,10 @@ body{
     color:white;
     text-decoration:none;
     border-radius:8px;
-}
-
-.instagram-btn{
-    display:inline-block;
-    padding:10px 20px;
-    background:#2f4f6f;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    margin-top:10px;
-}
-
-.message-box{
-    margin-top:40px;
-    text-align:left;
-}
-
-.message-box input,
-.message-box textarea{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-
-.message-box button{
-    margin-top:15px;
-    padding:10px 20px;
-    background:#2f4f6f;
-    color:white;
     border:none;
-    border-radius:8px;
+    cursor:pointer;
 }
 
-/* FOOTER */
 .footer{
     background:#2f4f6f;
     color:white;
@@ -228,7 +196,7 @@ body{
 
 <script>
 function showPage(page){
-    const pages = ["home","about","koleksiPage","layananPage"];
+    const pages = ["home","about","koleksiPage","layananPage","profilPage","adminPage"];
     pages.forEach(function(p){
         document.getElementById(p).style.display="none";
     });
@@ -266,53 +234,25 @@ function login(){
             <a onclick="showPage('home')">Home</a>
             <a onclick="showPage('koleksiPage')">Koleksi</a>
             <a onclick="showPage('layananPage')">Layanan</a>
+            <a onclick="showPage('profilPage')">Profil</a>
+            <a onclick="showPage('adminPage')">Admin</a>
             <a onclick="showPage('about')">About Us</a>
         </div>
     </div>
 
-    <!-- HOME (ASLI TETAP) -->
+    <!-- HOME -->
     <div id="home" class="section home-bg">
         <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
         <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
-
-        <div class="koleksi-container">
-            <div class="koleksi">
-                <h4>Buku Resep Nusantara</h4>
-                <p>Resep tradisional Indonesia.</p>
-            </div>
-            <div class="koleksi">
-                <h4>Teknik Dasar Memasak</h4>
-                <p>Panduan teknik memasak.</p>
-            </div>
-            <div class="koleksi">
-                <h4>Manajemen Dapur</h4>
-                <p>Pengelolaan dapur profesional.</p>
-            </div>
-        </div>
-
-        <div class="video-section">
-            <h2>Video Edukasi</h2>
-            <div class="video-grid">
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/dBVdtmHcUOI" allowfullscreen></iframe>
-                </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" allowfullscreen></iframe>
-                </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/lY2yjAdbvdQ" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- KOLEKSI BARU -->
+    <!-- KOLEKSI -->
     <div id="koleksiPage" class="section" style="display:none;">
         <h2>Halaman Koleksi Lengkap</h2>
         <p>Berikut daftar koleksi buku yang tersedia di perpustakaan.</p>
     </div>
 
-    <!-- LAYANAN BARU -->
+    <!-- LAYANAN -->
     <div id="layananPage" class="section" style="display:none;">
         <h2>Layanan Perpustakaan</h2>
         <p>Peminjaman Buku</p>
@@ -321,54 +261,61 @@ function login(){
         <p>Akses Video Edukasi</p>
     </div>
 
-    <!-- ABOUT (100% ASLI PUNYA KAMU) -->
-    <div id="about" class="section" style="display:none;">
+    <!-- PROFIL -->
+    <div id="profilPage" class="section" style="display:none;">
+        <h2>Profil Perpustakaan</h2>
+        <p>Lentera Perpustakaan Tata Boga merupakan perpustakaan digital bidang kuliner.</p>
+
+        <div class="koleksi-container">
+            <div class="koleksi">
+                <h4>Visi</h4>
+                <p>Menjadi pusat literasi kuliner inovatif.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Misi</h4>
+                <p>Menyediakan sumber belajar berkualitas.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Tujuan</h4>
+                <p>Mendukung kompetensi siswa SMK Tata Boga.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div id="adminPage" class="section" style="display:none;">
+        <h2>Halaman Admin</h2>
+
         <div class="about-container">
 
-            <h2>About Us</h2>
-
-            <div class="about-grid">
-
-                <div class="about-card">
-                    <h3>Curriculum Vitae</h3>
-                    <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
-                    <p><b>Email:</b> salsabillaok13@gmail.com</p>
-                    <p><b>No HP:</b> 081264089312</p>
-                    <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
-
-                    <p><strong>CV:</strong></p>
-                    <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" 
-                       target="_blank" 
-                       class="cv-btn">
-                       Lihat CV
-                    </a>
-                </div>
-
-                <div class="about-card">
-                    <h3>Contact</h3>
-                    <p>📞 081264089312</p>
-                    <p>📧 salsabillaokt13@gmail.com</p>
-                    <p>📍 Jl. Pukat 1 </p>
-                </div>
-
-                <div class="about-card">
-                    <h3>Instagram</h3>
-                    <a href="https://instagram.com" target="_blank" class="instagram-btn">
-                        Kunjungi Instagram
-                    </a>
-                </div>
-
+            <div class="about-card">
+                <h3>Kelola Buku</h3>
+                <button class="cv-btn" onclick="alert('Fitur dalam pengembangan')">
+                    Kelola Buku
+                </button>
             </div>
 
-            <div class="message-box">
-                <h3>Kirim Pesan</h3>
-                <input type="text" placeholder="Nama Anda">
-                <input type="email" placeholder="Email Anda">
-                <textarea rows="4" placeholder="Tulis pesan anda..."></textarea>
-                <button onclick="alert('Pesan berhasil dikirim!')">Kirim Pesan</button>
+            <div class="about-card">
+                <h3>Kelola Video</h3>
+                <button class="cv-btn" onclick="alert('Fitur dalam pengembangan')">
+                    Kelola Video
+                </button>
+            </div>
+
+            <div class="about-card">
+                <h3>Data Anggota</h3>
+                <button class="cv-btn" onclick="alert('Fitur dalam pengembangan')">
+                    Lihat Data
+                </button>
             </div>
 
         </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="section" style="display:none;">
+        <h2>About Us</h2>
+        <p>Dikembangkan oleh Salsabilla Oktavia Lubis.</p>
     </div>
 
     <div class="footer">
