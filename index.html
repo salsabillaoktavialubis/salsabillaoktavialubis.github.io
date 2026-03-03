@@ -62,6 +62,28 @@ body{
     color:white;
 }
 
+/* MENU MODEL GAMBAR */
+.menu-links{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.menu-links a{
+    background:#e0e0e0;
+    color:#000;
+    padding:10px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.menu-links a:hover{
+    background:#cfcfcf;
+}
+
 .logo{
     display:flex;
     align-items:center;
@@ -71,13 +93,6 @@ body{
 
 .logo img{
     width:40px;
-}
-
-.navbar a{
-    color:white;
-    margin-left:20px;
-    text-decoration:none;
-    cursor:pointer;
 }
 
 /* SECTION */
@@ -262,15 +277,17 @@ function login(){
             <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
             Lentera Perpustakaan Tata Boga
         </div>
-        <div>
-            <a onclick="showPage('home')">Home</a>
-            <a onclick="showPage('koleksiPage')">Koleksi</a>
-            <a onclick="showPage('layananPage')">Layanan</a>
-            <a onclick="showPage('about')">About Us</a>
+
+        <div class="menu-links">
+            <a href="#home" onclick="showPage('home')">Home</a>
+            <a href="#koleksiPage" onclick="showPage('koleksiPage')">Koleksi</a>
+            <a href="#layananPage" onclick="showPage('layananPage')">Hubungi</a>
+            <a href="#about" onclick="showPage('about')">Profil</a>
+            <a href="#loginPage">Login</a>
+            <a href="#">Logout</a>
         </div>
     </div>
-
-    <!-- HOME (ASLI TETAP) -->
+        <!-- HOME (ASLI TETAP) -->
     <div id="home" class="section home-bg">
         <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
         <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
