@@ -2,211 +2,242 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lentera Perpustakaan Tata Boga</title>
+<title> Lentera Perpustakaan Tata Boga</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-
 body{
-background:linear-gradient(rgba(60,40,20,0.6), rgba(60,40,20,0.6)),
-url("https://images.unsplash.com/photo-1495521821757-a1efb6729352") no-repeat center center fixed;
-background-size:cover;
-color:#4e342e;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fdf6ec;
+}
+
+/* BACKGROUND HOME */
+.home-bg{
+    background:linear-gradient(rgba(253,246,236,0.9),
+              rgba(253,246,236,0.9)),
+              url('https://images.unsplash.com/photo-1556911220-bff31c812dba');
+    background-size:cover;
+    background-position:center;
 }
 
 /* LOGIN */
 .login-page{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#3e2723;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#2f4f6f;
 }
 
-.login-box{
-background:white;
-padding:40px;
-border-radius:20px;
-width:300px;
-text-align:center;
+.login-container{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    width:300px;
+    text-align:center;
 }
 
-.login-box input{
-width:100%;
-padding:10px;
-margin-top:10px;
-border-radius:8px;
-border:1px solid #ccc;
+.login-container input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
 }
 
-.login-box button{
-margin-top:15px;
-padding:10px;
-width:100%;
-background:#6d4c41;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
+.login-container button{
+    padding:10px;
+    width:100%;
+    background:#2f4f6f;
+    color:white;
+    border:none;
+    border-radius:8px;
 }
 
 /* NAVBAR */
 .navbar{
-background:#6d4c41;
-padding:15px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+    background:#2f4f6f;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+}
+
+.logo img{
+    width:40px;
 }
 
 .navbar a{
-color:white;
-text-decoration:none;
-padding:8px 18px;
-background:#8d6e63;
-border-radius:20px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.navbar a:hover{
-background:#d7ccc8;
-color:#4e342e;
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    cursor:pointer;
 }
 
 /* SECTION */
 .section{
-display:none;
-padding:60px 20px;
-animation:fade 0.6s ease-in-out;
+    padding:60px;
+    text-align:center;
+    animation:fade 0.5s ease-in-out;
 }
-
-.active{display:block;}
 
 @keyframes fade{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-.container{
-max-width:1000px;
-margin:auto;
-background:rgba(255,248,240,0.95);
-padding:50px;
-border-radius:20px;
-box-shadow:0 15px 35px rgba(0,0,0,0.4);
+/* KOLEKSI */
+.koleksi-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:30px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
+.koleksi{
+    background:white;
+    padding:20px;
+    width:200px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transition:0.8s;
 }
 
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-position:relative;
+.koleksi:hover{
+    transform:rotateY(360deg);
 }
 
-.card button{
-margin-top:10px;
-background:#b71c1c;
+/* VIDEO */
+.video-section{
+    margin-top:60px;
 }
 
-/* FORM */
-input, textarea{
-width:100%;
-padding:10px;
-margin-top:10px;
-border-radius:8px;
-border:1px solid #ccc;
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    margin-top:30px;
 }
 
-button{
-margin-top:15px;
-padding:10px;
-background:#6d4c41;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
+.video-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.video-card:hover{
+    transform:translateY(-5px);
+}
+
+.video-card iframe{
+    width:100%;
+    height:200px;
+    border-radius:10px;
+}
+
+/* ABOUT */
+.about-container{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:30px;
+}
+
+.about-card{
+    background:#fdf6ec;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    text-align:left;
+}
+
+.about-card h3{
+    color:#2f4f6f;
+}
+
+.cv-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#2f4f6f;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+.instagram-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:#2f4f6f;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+.message-box{
+    margin-top:40px;
+    text-align:left;
+}
+
+.message-box input,
+.message-box textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.message-box button{
+    margin-top:15px;
+    padding:10px 20px;
+    background:#2f4f6f;
+    color:white;
+    border:none;
+    border-radius:8px;
 }
 
 /* FOOTER */
 .footer{
-text-align:center;
-padding:20px;
-background:#6d4c41;
-color:white;
+    background:#2f4f6f;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
 }
 </style>
 
 <script>
-let books = [
-{title:"Resep Nusantara", desc:"Kumpulan resep tradisional Indonesia."},
-{title:"Teknik Memasak Modern", desc:"Teknik plating & pengolahan profesional."},
-{title:"Manajemen Dapur", desc:"Pengelolaan dapur & bisnis kuliner."}
-];
+function showPage(page){
+    const pages = ["home","about","koleksiPage","layananPage"];
+    pages.forEach(function(p){
+        document.getElementById(p).style.display="none";
+    });
+    document.getElementById(page).style.display="block";
+}
 
 function login(){
-let user=document.getElementById("username").value;
-let pass=document.getElementById("password").value;
-
-if(user==="admin" && pass==="1234"){
-document.getElementById("loginPage").style.display="none";
-document.getElementById("mainPage").style.display="block";
-renderBooks();
-}else{
-alert("Username atau Password salah!");
-}
-}
-
-function showSection(id){
-document.querySelectorAll('.section').forEach(sec=>{
-sec.classList.remove('active');
-});
-document.getElementById(id).classList.add('active');
-}
-
-function renderBooks(){
-let container=document.getElementById("bookList");
-container.innerHTML="";
-books.forEach((book,index)=>{
-container.innerHTML+=`
-<div class="card">
-<h3>${book.title}</h3>
-<p>${book.desc}</p>
-<button onclick="deleteBook(${index})">Hapus</button>
-</div>
-`;
-});
-}
-
-function addBook(){
-let title=document.getElementById("judulBuku").value;
-let desc=document.getElementById("deskripsiBuku").value;
-
-if(title===""||desc===""){
-alert("Isi semua data!");
-return;
-}
-
-books.push({title:title, desc:desc});
-renderBooks();
-document.getElementById("judulBuku").value="";
-document.getElementById("deskripsiBuku").value="";
-alert("Buku berhasil ditambahkan!");
-}
-
-function deleteBook(index){
-books.splice(index,1);
-renderBooks();
+    document.getElementById("loginPage").style.display="none";
+    document.getElementById("mainPage").style.display="block";
 }
 </script>
 
@@ -215,53 +246,134 @@ renderBooks();
 
 <!-- LOGIN -->
 <div class="login-page" id="loginPage">
-<div class="login-box">
-<h2>Login Admin</h2>
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-<button onclick="login()">Login</button>
-<p style="margin-top:10px;font-size:12px;">User: admin | Pass: 1234</p>
-</div>
+    <div class="login-container">
+        <h2>Login Perpustakaan</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
 </div>
 
 <!-- MAIN -->
 <div id="mainPage" style="display:none;">
 
-<div class="navbar">
-<a onclick="showSection('home')">Home</a>
-<a onclick="showSection('koleksi')">Koleksi</a>
-<a onclick="showSection('admin')">Admin</a>
-</div>
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+            Lentera Perpustakaan Tata Boga
+        </div>
+        <div>
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('koleksiPage')">Koleksi</a>
+            <a onclick="showPage('layananPage')">Layanan</a>
+            <a onclick="showPage('about')">About Us</a>
+        </div>
+    </div>
 
-<!-- HOME -->
-<div id="home" class="section active">
-<div class="container">
-<h2>🍰 Lentera Perpustakaan Tata Boga</h2>
-<p>Perpustakaan digital untuk mendukung siswa menjadi chef profesional.</p>
-</div>
-</div>
+    <!-- HOME (ASLI TETAP) -->
+    <div id="home" class="section home-bg">
+        <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
+        <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
 
-<!-- KOLEKSI -->
-<div id="koleksi" class="section">
-<div class="container">
-<h2>Koleksi Buku</h2>
-<div class="grid" id="bookList"></div>
-</div>
-</div>
+        <div class="koleksi-container">
+            <div class="koleksi">
+                <h4>Buku Resep Nusantara</h4>
+                <p>Resep tradisional Indonesia.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Teknik Dasar Memasak</h4>
+                <p>Panduan teknik memasak.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Manajemen Dapur</h4>
+                <p>Pengelolaan dapur profesional.</p>
+            </div>
+        </div>
 
-<!-- ADMIN -->
-<div id="admin" class="section">
-<div class="container">
-<h2>Tambah Buku</h2>
-<input type="text" id="judulBuku" placeholder="Judul Buku">
-<textarea id="deskripsiBuku" placeholder="Deskripsi Buku"></textarea>
-<button onclick="addBook()">Tambah Buku</button>
-</div>
-</div>
+        <div class="video-section">
+            <h2>Video Edukasi</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dBVdtmHcUOI" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/lY2yjAdbvdQ" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="footer">
-© 2026 Lentera Perpustakaan Tata Boga
-</div>
+    <!-- KOLEKSI BARU -->
+    <div id="koleksiPage" class="section" style="display:none;">
+        <h2>Halaman Koleksi Lengkap</h2>
+        <p>Berikut daftar koleksi buku yang tersedia di perpustakaan.</p>
+    </div>
+
+    <!-- LAYANAN BARU -->
+    <div id="layananPage" class="section" style="display:none;">
+        <h2>Layanan Perpustakaan</h2>
+        <p>Peminjaman Buku</p>
+        <p>Pengembalian Buku</p>
+        <p>Perpanjangan Masa Pinjam</p>
+        <p>Akses Video Edukasi</p>
+    </div>
+
+    <!-- ABOUT (100% ASLI PUNYA KAMU) -->
+    <div id="about" class="section" style="display:none;">
+        <div class="about-container">
+
+            <h2>About Us</h2>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+                    <h3>Curriculum Vitae</h3>
+                    <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
+                    <p><b>Email:</b> salsabillaok13@gmail.com</p>
+                    <p><b>No HP:</b> 081264089312</p>
+                    <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+
+                    <p><strong>CV:</strong></p>
+                    <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" 
+                       target="_blank" 
+                       class="cv-btn">
+                       Lihat CV
+                    </a>
+                </div>
+
+                <div class="about-card">
+                    <h3>Contact</h3>
+                    <p>📞 081264089312</p>
+                    <p>📧 salsabillaokt13@gmail.com</p>
+                    <p>📍 Jl. Pukat 1 </p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Instagram</h3>
+                    <a href="https://instagram.com" target="_blank" class="instagram-btn">
+                        Kunjungi Instagram
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="message-box">
+                <h3>Kirim Pesan</h3>
+                <input type="text" placeholder="Nama Anda">
+                <input type="email" placeholder="Email Anda">
+                <textarea rows="4" placeholder="Tulis pesan anda..."></textarea>
+                <button onclick="alert('Pesan berhasil dikirim!')">Kirim Pesan</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Lentera Perpustakaan Tata Boga | SMK Tata Boga
+    </div>
 
 </div>
 
