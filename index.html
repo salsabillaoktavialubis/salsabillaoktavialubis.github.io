@@ -11,15 +11,6 @@ body{
     background:#fdf6ec;
 }
 
-/* BACKGROUND HOME */
-.home-bg{
-    background:linear-gradient(rgba(253,246,236,0.9),
-              rgba(253,246,236,0.9)),
-              url('https://images.unsplash.com/photo-1556911220-bff31c812dba');
-    background-size:cover;
-    background-position:center;
-}
-
 /* LOGIN */
 .login-page{
     height:100vh;
@@ -80,29 +71,35 @@ body{
     cursor:pointer;
 }
 
+.navbar a:hover{
+    text-decoration:underline;
+}
+
 /* SECTION */
 .section{
     padding:60px;
     text-align:center;
+    display:none;
 }
 
-/* CARD STYLE */
-.about-container{
+/* CARD */
+.card-container{
     max-width:900px;
     margin:auto;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:30px;
+    margin-top:30px;
 }
 
-.about-card{
+.card{
     background:white;
     padding:25px;
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.about-card h3{
+.card h3{
     color:#2f4f6f;
 }
 
@@ -129,16 +126,25 @@ body{
 
 <script>
 function showPage(page){
-    const pages = ["home","about","koleksiPage","layananPage","profilPage","adminPage"];
+    const pages = ["home","koleksiPage","layananPage","profilPage","adminPage","about"];
+    
     pages.forEach(function(p){
-        document.getElementById(p).style.display="none";
+        const el = document.getElementById(p);
+        if(el){
+            el.style.display="none";
+        }
     });
-    document.getElementById(page).style.display="block";
+
+    const active = document.getElementById(page);
+    if(active){
+        active.style.display="block";
+    }
 }
 
 function login(){
     document.getElementById("loginPage").style.display="none";
     document.getElementById("mainPage").style.display="block";
+    showPage("home");
 }
 
 /* JAM DIGITAL */
@@ -147,34 +153,31 @@ function updateJam(){
     const jam = now.getHours();
     const menit = now.getMinutes();
     const detik = now.getSeconds();
+    const hari = now.getDay();
 
     const waktu = 
         (jam<10?"0":"")+jam + ":" +
         (menit<10?"0":"")+menit + ":" +
         (detik<10?"0":"")+detik;
 
-    if(document.getElementById("jamDigital")){
-        document.getElementById("jamDigital").innerHTML = waktu;
+    const jamEl = document.getElementById("jamDigital");
+    const statusEl = document.getElementById("statusBuka");
 
-        let statusText = "";
-        let statusClass = "";
+    if(jamEl && statusEl){
+        jamEl.innerHTML = waktu;
 
-        if(jam >= 8 && jam < 15 && now.getDay() >=1 && now.getDay() <=5){
-            statusText = "Perpustakaan Sedang BUKA";
-            statusClass = "buka";
-        } 
-        else if(jam >=8 && jam <12 && now.getDay() == 6){
-            statusText = "Perpustakaan Sedang BUKA";
-            statusClass = "buka";
-        } 
-        else {
-            statusText = "Perpustakaan Sedang TUTUP";
-            statusClass = "tutup";
+        if(jam >= 8 && jam < 15 && hari >=1 && hari <=5){
+            statusEl.innerHTML = "Perpustakaan Sedang BUKA";
+            statusEl.className = "buka";
         }
-
-        const statusElement = document.getElementById("statusBuka");
-        statusElement.innerHTML = statusText;
-        statusElement.className = statusClass;
+        else if(jam >=8 && jam <12 && hari == 6){
+            statusEl.innerHTML = "Perpustakaan Sedang BUKA";
+            statusEl.className = "buka";
+        }
+        else{
+            statusEl.innerHTML = "Perpustakaan Sedang TUTUP";
+            statusEl.className = "tutup";
+        }
     }
 }
 
@@ -212,35 +215,65 @@ setInterval(updateJam,1000);
     </div>
 </div>
 
-<!-- LAYANAN (JAM KUNJUNGAN) -->
-<div id="layananPage" class="section" style="display:none;">
+<!-- HOME -->
+<div id="home" class="section">
+    <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
+    <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
+</div>
+
+<!-- KOLEKSI -->
+<div id="koleksiPage" class="section">
+    <h2>Halaman Koleksi</h2>
+    <p>Daftar buku akan ditampilkan di sini.</p>
+</div>
+
+<!-- LAYANAN -->
+<div id="layananPage" class="section">
     <h2>Jam Kunjungan Perpustakaan</h2>
     <p>Berikut jadwal operasional Lentera Perpustakaan Tata Boga</p>
 
-    <div class="about-container">
+    <div class="card-container">
 
-        <div class="about-card">
+        <div class="card">
             <h3>Senin - Jumat</h3>
             <p>08.00 WIB - 15.00 WIB</p>
         </div>
 
-        <div class="about-card">
+        <div class="card">
             <h3>Sabtu</h3>
             <p>08.00 WIB - 12.00 WIB</p>
         </div>
 
-        <div class="about-card">
+        <div class="card">
             <h3>Minggu & Hari Libur</h3>
             <p>Tutup</p>
         </div>
 
-        <div class="about-card">
+        <div class="card">
             <h3>Waktu Sekarang</h3>
             <p id="jamDigital" style="font-size:22px;font-weight:bold;"></p>
             <p id="statusBuka"></p>
         </div>
 
     </div>
+</div>
+
+<!-- PROFIL -->
+<div id="profilPage" class="section">
+    <h2>Profil Perpustakaan</h2>
+    <p>Perpustakaan digital yang menyediakan referensi kuliner untuk siswa SMK Tata Boga.</p>
+</div>
+
+<!-- ADMIN -->
+<div id="adminPage" class="section">
+    <h2>Halaman Admin</h2>
+    <p>Fitur pengelolaan data akan dikembangkan.</p>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+    <h2>About Us</h2>
+    <p>Dikembangkan oleh Salsabilla Oktavia Lubis.</p>
 </div>
 
 <div class="footer">
