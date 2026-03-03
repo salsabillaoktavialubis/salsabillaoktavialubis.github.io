@@ -173,8 +173,7 @@ body{
     color:#2f4f6f;
 }
 
-.cv-btn,
-.instagram-btn{
+.cv-btn{
     display:inline-block;
     margin-top:10px;
     padding:8px 15px;
@@ -184,23 +183,16 @@ body{
     border-radius:8px;
 }
 
-/* PROFIL */
-.profil-container{
-    max-width:800px;
-    margin:auto;
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+.instagram-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:#2f4f6f;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    margin-top:10px;
 }
 
-.profil-container img{
-    width:150px;
-    border-radius:50%;
-    margin-bottom:20px;
-}
-
-/* MESSAGE */
 .message-box{
     margin-top:40px;
     text-align:left;
@@ -236,19 +228,11 @@ body{
 
 <script>
 function showPage(page){
-    const pages = ["home","about","koleksiPage","layananPage","profilPage"];
-    
+    const pages = ["home","about","koleksiPage","layananPage"];
     pages.forEach(function(p){
-        var element = document.getElementById(p);
-        if(element){
-            element.style.display="none";
-        }
+        document.getElementById(p).style.display="none";
     });
-
-    var activePage = document.getElementById(page);
-    if(activePage){
-        activePage.style.display="block";
-    }
+    document.getElementById(page).style.display="block";
 }
 
 function login(){
@@ -283,19 +267,107 @@ function login(){
             <a onclick="showPage('koleksiPage')">Koleksi</a>
             <a onclick="showPage('layananPage')">Layanan</a>
             <a onclick="showPage('about')">About Us</a>
-            <a onclick="showPage('profilPage')">Profil</a>
         </div>
     </div>
 
-    <!-- SEMUA BAGIAN LAMA KAMU TETAP ADA DI SINI (tidak diubah sedikit pun) -->
+    <!-- HOME (ASLI TETAP) -->
+    <div id="home" class="section home-bg">
+        <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
+        <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
 
-    <!-- PROFIL BARU -->
-    <div id="profilPage" class="section" style="display:none;">
-        <div class="profil-container">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-            <h3>Salsabilla Oktavia Lubis</h3>
-            <p>Siswa Tata Boga dengan minat dalam bidang kuliner, baking, dan manajemen dapur.</p>
-            <p>Website ini dibuat sebagai media informasi Perpustakaan Tata Boga.</p>
+        <div class="koleksi-container">
+            <div class="koleksi">
+                <h4>Buku Resep Nusantara</h4>
+                <p>Resep tradisional Indonesia.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Teknik Dasar Memasak</h4>
+                <p>Panduan teknik memasak.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Manajemen Dapur</h4>
+                <p>Pengelolaan dapur profesional.</p>
+            </div>
+        </div>
+
+        <div class="video-section">
+            <h2>Video Edukasi</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dBVdtmHcUOI" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/lY2yjAdbvdQ" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KOLEKSI BARU -->
+    <div id="koleksiPage" class="section" style="display:none;">
+        <h2>Halaman Koleksi Lengkap</h2>
+        <p>Berikut daftar koleksi buku yang tersedia di perpustakaan.</p>
+    </div>
+
+    <!-- LAYANAN BARU -->
+    <div id="layananPage" class="section" style="display:none;">
+        <h2>Layanan Perpustakaan</h2>
+        <p>Peminjaman Buku</p>
+        <p>Pengembalian Buku</p>
+        <p>Perpanjangan Masa Pinjam</p>
+        <p>Akses Video Edukasi</p>
+    </div>
+
+    <!-- ABOUT (100% ASLI PUNYA KAMU) -->
+    <div id="about" class="section" style="display:none;">
+        <div class="about-container">
+
+            <h2>About Us</h2>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+                    <h3>Curriculum Vitae</h3>
+                    <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
+                    <p><b>Email:</b> salsabillaok13@gmail.com</p>
+                    <p><b>No HP:</b> 081264089312</p>
+                    <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+
+                    <p><strong>CV:</strong></p>
+                    <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" 
+                       target="_blank" 
+                       class="cv-btn">
+                       Lihat CV
+                    </a>
+                </div>
+
+                <div class="about-card">
+                    <h3>Contact</h3>
+                    <p>📞 081264089312</p>
+                    <p>📧 salsabillaokt13@gmail.com</p>
+                    <p>📍 Jl. Pukat 1 </p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Instagram</h3>
+                    <a href="https://instagram.com" target="_blank" class="instagram-btn">
+                        Kunjungi Instagram
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="message-box">
+                <h3>Kirim Pesan</h3>
+                <input type="text" placeholder="Nama Anda">
+                <input type="email" placeholder="Email Anda">
+                <textarea rows="4" placeholder="Tulis pesan anda..."></textarea>
+                <button onclick="alert('Pesan berhasil dikirim!')">Kirim Pesan</button>
+            </div>
+
         </div>
     </div>
 
