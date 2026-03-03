@@ -114,6 +114,36 @@ body{
     transform:rotateY(360deg);
 }
 
+/* VIDEO */
+.video-section{
+    margin-top:60px;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.video-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.video-card:hover{
+    transform:translateY(-5px);
+}
+
+.video-card iframe{
+    width:100%;
+    height:200px;
+    border-radius:10px;
+}
+
 /* ABOUT */
 .about-container{
     max-width:1000px;
@@ -143,16 +173,47 @@ body{
     color:#2f4f6f;
 }
 
-/* JAM DIGITAL */
-.jam-box{
-    font-size:22px;
-    font-weight:bold;
+.cv-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#2f4f6f;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+.instagram-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:#2f4f6f;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
     margin-top:10px;
 }
 
-.status-buka{
+.message-box{
+    margin-top:40px;
+    text-align:left;
+}
+
+.message-box input,
+.message-box textarea{
+    width:100%;
+    padding:10px;
     margin-top:10px;
-    font-weight:bold;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.message-box button{
+    margin-top:15px;
+    padding:10px 20px;
+    background:#2f4f6f;
+    color:white;
+    border:none;
+    border-radius:8px;
 }
 
 /* FOOTER */
@@ -178,39 +239,6 @@ function login(){
     document.getElementById("loginPage").style.display="none";
     document.getElementById("mainPage").style.display="block";
 }
-
-/* JAM DIGITAL */
-function updateJam(){
-    const now = new Date();
-    const jam = now.getHours();
-    const menit = now.getMinutes();
-    const detik = now.getSeconds();
-    const hari = now.getDay();
-
-    const waktu =
-        (jam<10?"0":"")+jam + ":" +
-        (menit<10?"0":"")+menit + ":" +
-        (detik<10?"0":"")+detik;
-
-    document.getElementById("jamDigital").innerHTML = waktu;
-
-    let status = "";
-
-    if(jam >= 8 && jam < 15 && hari >=1 && hari <=5){
-        status = "Perpustakaan Sedang BUKA";
-        document.getElementById("statusBuka").style.color="green";
-    } else if(jam >=8 && jam <12 && hari == 6){
-        status = "Perpustakaan Sedang BUKA";
-        document.getElementById("statusBuka").style.color="green";
-    } else {
-        status = "Perpustakaan Sedang TUTUP";
-        document.getElementById("statusBuka").style.color="red";
-    }
-
-    document.getElementById("statusBuka").innerHTML = status;
-}
-
-setInterval(updateJam,1000);
 </script>
 
 </head>
@@ -244,38 +272,194 @@ setInterval(updateJam,1000);
         </div>
     </div>
 
-    <!-- LAYANAN + JAM -->
+    <!-- HOME -->
+    <div id="home" class="section home-bg">
+        <h2>Selamat Datang di Lentera Perpustakaan Tata Boga</h2>
+        <p>Sumber referensi buku dan video pembelajaran kuliner.</p>
+
+        <div class="koleksi-container">
+            <div class="koleksi">
+                <h4>Buku Resep Nusantara</h4>
+                <p>Resep tradisional Indonesia.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Teknik Dasar Memasak</h4>
+                <p>Panduan teknik memasak.</p>
+            </div>
+            <div class="koleksi">
+                <h4>Manajemen Dapur</h4>
+                <p>Pengelolaan dapur profesional.</p>
+            </div>
+        </div>
+
+        <div class="video-section">
+            <h2>Video Edukasi</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dBVdtmHcUOI" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/lY2yjAdbvdQ" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KOLEKSI LENGKAP -->
+    <div id="koleksiPage" class="section" style="display:none;">
+        <h2>Halaman Koleksi Lengkap</h2>
+        <p>Berikut 5 contoh buku resep yang tersedia di perpustakaan.</p>
+
+        <div class="koleksi-container">
+            <div class="koleksi">
+                <h4>Resep Masakan Nusantara</h4>
+                <p>Kumpulan resep tradisional dari berbagai daerah di Indonesia.</p>
+            </div>
+
+            <div class="koleksi">
+                <h4>Teknik Dasar Memasak Profesional</h4>
+                <p>Panduan teknik memasak untuk pemula hingga tingkat lanjut.</p>
+            </div>
+
+            <div class="koleksi">
+                <h4>100 Resep Kue dan Roti</h4>
+                <p>Aneka resep baking dari kue kering hingga roti modern.</p>
+            </div>
+
+            <div class="koleksi">
+                <h4>Manajemen Dapur Modern</h4>
+                <p>Membahas pengelolaan dapur profesional dan standar kebersihan.</p>
+            </div>
+
+            <div class="koleksi">
+                <h4>Kreasi Dessert Kekinian</h4>
+                <p>Inspirasi dessert modern yang cocok untuk usaha kuliner.</p>
+            </div>
+        </div>
+    </div>
+
+        <!-- LAYANAN -->
     <div id="layananPage" class="section" style="display:none;">
-        <h2>Jam Kunjungan Perpustakaan</h2>
+        <h2>Layanan Perpustakaan</h2>
+        <p>Peminjaman Buku</p>
+        <p>Pengembalian Buku</p>
+        <p>Perpanjangan Masa Pinjam</p>
+        <p>Akses Video Edukasi</p>
+    </div>
+
+    <!-- PROFIL -->
+    <div id="profilPage" class="section" style="display:none;">
+        <h2>Profil Perpustakaan</h2>
+        <p>Lentera Perpustakaan Tata Boga merupakan perpustakaan berbasis digital 
+           yang menyediakan referensi buku dan video pembelajaran di bidang kuliner.</p>
+
+        <div class="koleksi-container">
+            <div class="koleksi">
+                <h4>Visi</h4>
+                <p>Menjadi pusat literasi kuliner yang inovatif dan inspiratif.</p>
+            </div>
+
+            <div class="koleksi">
+                <h4>Misi</h4>
+                <p>Menyediakan sumber belajar berkualitas dan mudah diakses.</p>
+            </div>
+
+            <div class="koleksi">
+                <h4>Tujuan</h4>
+                <p>Mendukung siswa SMK Tata Boga dalam meningkatkan kompetensi.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div id="adminPage" class="section" style="display:none;">
+        <h2>Halaman Admin</h2>
+        <p>Kelola data perpustakaan di sini.</p>
 
         <div class="about-container">
 
             <div class="about-card">
-                <h3>Senin - Jumat</h3>
-                <p>08.00 WIB - 15.00 WIB</p>
+                <h3>Kelola Buku</h3>
+                <p>Tambah, edit, atau hapus koleksi buku.</p>
+                <button class="cv-btn" onclick="alert('Fitur dalam pengembangan')">
+                    Kelola Buku
+                </button>
             </div>
 
             <div class="about-card">
-                <h3>Sabtu</h3>
-                <p>08.00 WIB - 12.00 WIB</p>
+                <h3>Kelola Video</h3>
+                <p>Tambah atau hapus video edukasi.</p>
+                <button class="cv-btn" onclick="alert('Fitur dalam pengembangan')">
+                    Kelola Video
+                </button>
             </div>
 
             <div class="about-card">
-                <h3>Minggu & Libur Nasional</h3>
-                <p>Tutup</p>
+                <h3>Data Anggota</h3>
+                <p>Lihat daftar anggota perpustakaan.</p>
+                <button class="cv-btn" onclick="alert('Fitur dalam pengembangan')">
+                    Lihat Data
+                </button>
             </div>
 
-            <div class="about-card">
-                <h3>Jam Sekarang</h3>
-                <div id="jamDigital" class="jam-box"></div>
-                <div id="statusBuka" class="status-buka"></div>
+        </div>
+    </div>
+
+    <!-- ABOUT (ASLI PUNYA KAMU) -->
+    <div id="about" class="section" style="display:none;">
+        <div class="about-container">
+
+            <h2>About Us</h2>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+                    <h3>Curriculum Vitae</h3>
+                    <p><b>Nama:</b> Salsabilla Oktavia Lubis</p>
+                    <p><b>Email:</b> salsabillaok13@gmail.com</p>
+                    <p><b>No HP:</b> 081264089312</p>
+                    <p><b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+
+                    <p><strong>CV:</strong></p>
+                    <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" 
+                       target="_blank" 
+                       class="cv-btn">
+                       Lihat CV
+                    </a>
+                </div>
+
+                <div class="about-card">
+                    <h3>Contact</h3>
+                    <p>📞 081264089312</p>
+                    <p>📧 salsabillaokt13@gmail.com</p>
+                    <p>📍 Jl. Pukat 1 </p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Instagram</h3>
+                    <a href="https://instagram.com" target="_blank" class="instagram-btn">
+                        Kunjungi Instagram
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="message-box">
+                <h3>Kirim Pesan</h3>
+                <input type="text" placeholder="Nama Anda">
+                <input type="email" placeholder="Email Anda">
+                <textarea rows="4" placeholder="Tulis pesan anda..."></textarea>
+                <button onclick="alert('Pesan berhasil dikirim!')">Kirim Pesan</button>
             </div>
 
         </div>
     </div>
 
     <div class="footer">
-        © 2026 Lentera Perpustakaan Tata Boga
+        © 2026 Lentera Perpustakaan Tata Boga | SMK Tata Boga
     </div>
 
 </div>
