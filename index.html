@@ -21,7 +21,7 @@ background:#6d4c41;
 padding:15px;
 display:flex;
 justify-content:center;
-gap:15px;
+gap:10px;
 flex-wrap:wrap;
 }
 
@@ -29,7 +29,7 @@ flex-wrap:wrap;
 background:#8d6e63;
 color:white;
 border:none;
-padding:8px 20px;
+padding:8px 18px;
 border-radius:25px;
 cursor:pointer;
 transition:0.3s;
@@ -110,6 +110,8 @@ margin-top:30px;
 
 <div class="navbar">
 <button onclick="show('home')">Home</button>
+<button onclick="show('layanan')">Layanan</button>
+<button onclick="show('about')">About Us</button>
 <button onclick="show('daftar')">Daftar</button>
 <button onclick="show('admin')" id="adminBtn" style="display:none;">Admin</button>
 <button onclick="show('login')" id="loginBtn">Login</button>
@@ -120,7 +122,29 @@ margin-top:30px;
 <div id="home" class="section active">
 <div class="container">
 <h2>🍰 Perpustakaan Tata Boga</h2>
-<p>Perpustakaan bidang kuliner yang mendukung pembelajaran resep, teknik memasak, dan manajemen usaha boga.</p>
+<p>Pusat literasi kuliner untuk mendukung pembelajaran resep, teknik memasak, dan kewirausahaan boga.</p>
+</div>
+</div>
+
+<!-- LAYANAN -->
+<div id="layanan" class="section">
+<div class="container">
+<h2>Layanan Kami</h2>
+<p>📚 Peminjaman Buku Resep</p>
+<p>👩‍🍳 Referensi Teknik Memasak Profesional</p>
+<p>💼 Konsultasi Kewirausahaan Kuliner</p>
+<p>🎓 Bimbingan Tugas Praktik Siswa</p>
+</div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+<div class="container">
+<h2>About Us</h2>
+<p>Perpustakaan Tata Boga merupakan fasilitas pendukung pembelajaran siswa SMK
+yang menyediakan sumber referensi bidang kuliner dan manajemen usaha boga.</p>
+<p><b>Visi:</b> Menjadi pusat literasi kuliner unggulan.</p>
+<p><b>Misi:</b> Mendukung kreativitas dan profesionalisme siswa tata boga.</p>
 </div>
 </div>
 
