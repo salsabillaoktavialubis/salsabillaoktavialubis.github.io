@@ -3,16 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perpustakaan Tata Boga Premium</title>
+<title>Lentera Perpustakaan Tata Boga</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 
 body{
-background:linear-gradient(rgba(60,40,20,0.6),rgba(60,40,20,0.6)),
+background:linear-gradient(rgba(60,40,20,0.6), rgba(60,40,20,0.6)),
 url("https://images.unsplash.com/photo-1495521821757-a1efb6729352") no-repeat center center fixed;
 background-size:cover;
 color:#4e342e;
+}
+
+/* LOGIN */
+.login-page{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#3e2723;
+}
+
+.login-box{
+background:white;
+padding:40px;
+border-radius:20px;
+width:300px;
+text-align:center;
+}
+
+.login-box input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.login-box button{
+margin-top:15px;
+padding:10px;
+width:100%;
+background:#6d4c41;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
 }
 
 /* NAVBAR */
@@ -21,21 +57,21 @@ background:#6d4c41;
 padding:15px;
 display:flex;
 justify-content:center;
-gap:10px;
+gap:15px;
 flex-wrap:wrap;
 }
 
-.navbar button{
-background:#8d6e63;
+.navbar a{
 color:white;
-border:none;
+text-decoration:none;
 padding:8px 18px;
-border-radius:25px;
+background:#8d6e63;
+border-radius:20px;
 cursor:pointer;
 transition:0.3s;
 }
 
-.navbar button:hover{
+.navbar a:hover{
 background:#d7ccc8;
 color:#4e342e;
 }
@@ -44,27 +80,47 @@ color:#4e342e;
 .section{
 display:none;
 padding:60px 20px;
-animation:fade 0.5s ease-in-out;
+animation:fade 0.6s ease-in-out;
 }
 
 .active{display:block;}
 
 @keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
 background:rgba(255,248,240,0.95);
-padding:40px;
+padding:50px;
 border-radius:20px;
 box-shadow:0 15px 35px rgba(0,0,0,0.4);
-text-align:center;
 }
 
-input{
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+position:relative;
+}
+
+.card button{
+margin-top:10px;
+background:#b71c1c;
+}
+
+/* FORM */
+input, textarea{
 width:100%;
 padding:10px;
 margin-top:10px;
@@ -72,10 +128,9 @@ border-radius:8px;
 border:1px solid #ccc;
 }
 
-button.submit{
-margin-top:20px;
-width:100%;
-padding:12px;
+button{
+margin-top:15px;
+padding:10px;
 background:#6d4c41;
 color:white;
 border:none;
@@ -83,170 +138,132 @@ border-radius:10px;
 cursor:pointer;
 }
 
-button.submit:hover{background:#8d6e63;}
-
-.table{
-width:100%;
-margin-top:20px;
-border-collapse:collapse;
-}
-
-.table th,.table td{
-border:1px solid #ccc;
-padding:8px;
-font-size:14px;
-}
-
+/* FOOTER */
 .footer{
 text-align:center;
-padding:15px;
+padding:20px;
 background:#6d4c41;
 color:white;
-margin-top:30px;
 }
 </style>
+
+<script>
+let books = [
+{title:"Resep Nusantara", desc:"Kumpulan resep tradisional Indonesia."},
+{title:"Teknik Memasak Modern", desc:"Teknik plating & pengolahan profesional."},
+{title:"Manajemen Dapur", desc:"Pengelolaan dapur & bisnis kuliner."}
+];
+
+function login(){
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+if(user==="admin" && pass==="1234"){
+document.getElementById("loginPage").style.display="none";
+document.getElementById("mainPage").style.display="block";
+renderBooks();
+}else{
+alert("Username atau Password salah!");
+}
+}
+
+function showSection(id){
+document.querySelectorAll('.section').forEach(sec=>{
+sec.classList.remove('active');
+});
+document.getElementById(id).classList.add('active');
+}
+
+function renderBooks(){
+let container=document.getElementById("bookList");
+container.innerHTML="";
+books.forEach((book,index)=>{
+container.innerHTML+=`
+<div class="card">
+<h3>${book.title}</h3>
+<p>${book.desc}</p>
+<button onclick="deleteBook(${index})">Hapus</button>
+</div>
+`;
+});
+}
+
+function addBook(){
+let title=document.getElementById("judulBuku").value;
+let desc=document.getElementById("deskripsiBuku").value;
+
+if(title===""||desc===""){
+alert("Isi semua data!");
+return;
+}
+
+books.push({title:title, desc:desc});
+renderBooks();
+document.getElementById("judulBuku").value="";
+document.getElementById("deskripsiBuku").value="";
+alert("Buku berhasil ditambahkan!");
+}
+
+function deleteBook(index){
+books.splice(index,1);
+renderBooks();
+}
+</script>
+
 </head>
 <body>
 
+<!-- LOGIN -->
+<div class="login-page" id="loginPage">
+<div class="login-box">
+<h2>Login Admin</h2>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p style="margin-top:10px;font-size:12px;">User: admin | Pass: 1234</p>
+</div>
+</div>
+
+<!-- MAIN -->
+<div id="mainPage" style="display:none;">
+
 <div class="navbar">
-<button onclick="show('home')">Home</button>
-<button onclick="show('layanan')">Layanan</button>
-<button onclick="show('about')">About Us</button>
-<button onclick="show('daftar')">Daftar</button>
-<button onclick="show('admin')" id="adminBtn" style="display:none;">Admin</button>
-<button onclick="show('login')" id="loginBtn">Login</button>
-<button onclick="logout()" id="logoutBtn" style="display:none;">Logout</button>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('koleksi')">Koleksi</a>
+<a onclick="showSection('admin')">Admin</a>
 </div>
 
 <!-- HOME -->
 <div id="home" class="section active">
 <div class="container">
-<h2>🍰 Perpustakaan Tata Boga</h2>
-<p>Pusat literasi kuliner untuk mendukung pembelajaran resep, teknik memasak, dan kewirausahaan boga.</p>
+<h2>🍰 Lentera Perpustakaan Tata Boga</h2>
+<p>Perpustakaan digital untuk mendukung siswa menjadi chef profesional.</p>
 </div>
 </div>
 
-<!-- LAYANAN -->
-<div id="layanan" class="section">
+<!-- KOLEKSI -->
+<div id="koleksi" class="section">
 <div class="container">
-<h2>Layanan Kami</h2>
-<p>📚 Peminjaman Buku Resep</p>
-<p>👩‍🍳 Referensi Teknik Memasak Profesional</p>
-<p>💼 Konsultasi Kewirausahaan Kuliner</p>
-<p>🎓 Bimbingan Tugas Praktik Siswa</p>
-</div>
-</div>
-
-<!-- ABOUT -->
-<div id="about" class="section">
-<div class="container">
-<h2>About Us</h2>
-<p>Perpustakaan Tata Boga merupakan fasilitas pendukung pembelajaran siswa SMK
-yang menyediakan sumber referensi bidang kuliner dan manajemen usaha boga.</p>
-<p><b>Visi:</b> Menjadi pusat literasi kuliner unggulan.</p>
-<p><b>Misi:</b> Mendukung kreativitas dan profesionalisme siswa tata boga.</p>
-</div>
-</div>
-
-<!-- DAFTAR -->
-<div id="daftar" class="section">
-<div class="container">
-<h2>Form Pendaftaran Anggota</h2>
-<input type="text" id="nama" placeholder="Nama Lengkap">
-<input type="text" id="kelas" placeholder="Kelas">
-<input type="email" id="email" placeholder="Email">
-<button class="submit" onclick="daftar()">Daftar</button>
-</div>
-</div>
-
-<!-- LOGIN -->
-<div id="login" class="section">
-<div class="container">
-<h2>Login Admin</h2>
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-<button class="submit" onclick="login()">Login</button>
+<h2>Koleksi Buku</h2>
+<div class="grid" id="bookList"></div>
 </div>
 </div>
 
 <!-- ADMIN -->
 <div id="admin" class="section">
 <div class="container">
-<h2>Dashboard Admin</h2>
-<table class="table">
-<thead>
-<tr>
-<th>Nama</th>
-<th>Kelas</th>
-<th>Email</th>
-</tr>
-</thead>
-<tbody id="dataTable"></tbody>
-</table>
+<h2>Tambah Buku</h2>
+<input type="text" id="judulBuku" placeholder="Judul Buku">
+<textarea id="deskripsiBuku" placeholder="Deskripsi Buku"></textarea>
+<button onclick="addBook()">Tambah Buku</button>
 </div>
 </div>
 
-<div class="footer">© 2026 Perpustakaan Tata Boga Premium</div>
+<div class="footer">
+© 2026 Lentera Perpustakaan Tata Boga
+</div>
 
-<script>
-function show(id){
-document.querySelectorAll('.section').forEach(sec=>sec.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-}
-
-function daftar(){
-let nama=document.getElementById('nama').value;
-let kelas=document.getElementById('kelas').value;
-let email=document.getElementById('email').value;
-
-if(nama && kelas && email){
-let data=JSON.parse(localStorage.getItem('anggota'))||[];
-data.push({nama,kelas,email});
-localStorage.setItem('anggota',JSON.stringify(data));
-alert("Pendaftaran berhasil!");
-document.getElementById('nama').value="";
-document.getElementById('kelas').value="";
-document.getElementById('email').value="";
-}
-}
-
-function login(){
-let user=document.getElementById('username').value;
-let pass=document.getElementById('password').value;
-
-if(user==="admin" && pass==="1234"){
-alert("Login berhasil!");
-document.getElementById("loginBtn").style.display="none";
-document.getElementById("logoutBtn").style.display="inline-block";
-document.getElementById("adminBtn").style.display="inline-block";
-show("admin");
-loadData();
-}else{
-alert("Username atau password salah!");
-}
-}
-
-function logout(){
-alert("Logout berhasil");
-document.getElementById("loginBtn").style.display="inline-block";
-document.getElementById("logoutBtn").style.display="none";
-document.getElementById("adminBtn").style.display="none";
-show("home");
-}
-
-function loadData(){
-let data=JSON.parse(localStorage.getItem('anggota'))||[];
-let table=document.getElementById("dataTable");
-table.innerHTML="";
-data.forEach(item=>{
-table.innerHTML+=`<tr>
-<td>${item.nama}</td>
-<td>${item.kelas}</td>
-<td>${item.email}</td>
-</tr>`;
-});
-}
-</script>
+</div>
 
 </body>
 </html>
