@@ -1,116 +1,258 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Perpustakaan Tata Boga</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Perpustakaan Tata Boga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#fdfdfd;padding-top:90px}
-header{background:#8B0000;padding:15px 50px;color:white;display:flex;justify-content:space-between;position:fixed;width:100%;top:0;z-index:1000}
-nav a{color:white;margin-left:20px;text-decoration:none}
-.section{padding:80px 50px}
-h2{text-align:center;margin-bottom:20px}
-.cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-.card{width:250px;padding:15px;background:white;box-shadow:0 5px 15px rgba(0,0,0,0.1);border-radius:10px;text-align:center}
-.card img{width:100%;height:150px;object-fit:cover;border-radius:10px}
-input{padding:8px;margin:5px}
-button{padding:8px 12px;background:#8B0000;color:white;border:none;cursor:pointer}
-#search{display:block;margin:0 auto 20px auto;width:300px}
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body {
+            background:#fdfdfd;
+            padding-top:90px; /* biar tidak ketutup header */
+        }
+
+        header {
+            background:#8B0000;
+            padding:15px 50px;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            position:fixed;
+            width:100%;
+            top:0;
+            z-index:1000;
+            transition:0.3s;
+        }
+
+        header.scrolled {
+            background:#5c0000;
+            box-shadow:0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color:white;
+            margin-left:20px;
+            text-decoration:none;
+        }
+
+        .section {
+            padding:80px 50px;
+            opacity:0;
+            transform:translateY(50px);
+            transition:0.8s;
+        }
+
+        .section.show {
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        .cards {
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+
+        .card {
+            width:300px;
+            padding:20px;
+            background:white;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            border-radius:10px;
+            text-align:center;
+        }
+
+        footer {
+            background:#8B0000;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        #topBtn {
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            padding:10px 15px;
+            background:#8B0000;
+            color:white;
+            border:none;
+            border-radius:5px;
+            display:none;
+            cursor:pointer;
+        }
+
+        .admin-panel {
+            margin-top:20px;
+            text-align:center;
+        }
+
+        input {
+            padding:8px;
+            margin:5px;
+        }
+
+        button {
+            padding:8px 12px;
+            background:#8B0000;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        h2 {
+            text-align:center;
+            margin-bottom:20px;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-<h1>Perpustakaan Tata Boga</h1>
-<nav>
-<a href="#about">Tentang</a>
-<a href="#koleksi">Koleksi</a>
-<a href="#kontak">Kontak</a>
-<a href="#" onclick="login()">Login</a>
-</nav>
+    <h1>Perpustakaan Tata Boga</h1>
+    <nav>
+        <a href="tentang.html">Tentang</a>
+        <a href="layanan.html">Layanan</a>
+        <a href="koleksi.html">Koleksi</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#" onclick="login()">Login</a>
+    </nav>
 </header>
 
-<section class="section" id="about">
-<h2>Tentang Kami</h2>
-<p style="text-align:center">Perpustakaan Tata Boga menyediakan berbagai koleksi kuliner modern dan tradisional.</p>
+<!-- LANGSUNG KE ISI -->
+
+<section class="section show" id="about">
+    <h2>Tentang Kami</h2>
+    <p style="text-align:center;">
+        Perpustakaan Tata Boga menyediakan berbagai koleksi kuliner modern dan tradisional.
+    </p>
+</section>
+
+<section class="section" id="layanan">
+    <h2>Layanan</h2>
+    <div class="cards">
+        <div class="card"><h3>Peminjaman Buku</h3></div>
+        <div class="card"><h3>Ruang Baca</h3></div>
+        <div class="card"><h3>E-Library</h3></div>
+    </div>
 </section>
 
 <section class="section" id="koleksi">
-<h2>Koleksi Buku</h2>
+    <h2>Koleksi Buku</h2>
 
-<input type="text" id="search" placeholder="Cari buku..." onkeyup="cariBuku()">
+    <div class="admin-panel" id="adminPanel" style="display:none;">
+        <input type="text" id="judul" placeholder="Judul Buku">
+        <input type="text" id="kategori" placeholder="Kategori">
+        <button onclick="tambahBuku()">Tambah Buku</button>
+    </div>
 
-<div id="adminPanel" style="display:none;text-align:center">
-<input type="text" id="judul" placeholder="Judul Buku">
-<input type="text" id="kategori" placeholder="Kategori">
-<input type="text" id="gambar" placeholder="URL Gambar">
-<button onclick="tambahBuku()">Tambah</button>
-</div>
-
-<div class="cards" id="listBuku"></div>
+    <div class="cards" id="listBuku"></div>
 </section>
 
 <section class="section" id="kontak">
-<h2>Kontak</h2>
-<p style="text-align:center">Email: perpustakaan@tataboga.com</p>
+    <h2>Kontak</h2>
+    <p style="text-align:center;">Email: perpustakaan@tataboga.com</p>
 </section>
 
+<footer>
+    <p>© 2026 Perpustakaan Tata Boga</p>
+</footer>
+
+<button id="topBtn">↑</button>
+
 <script>
-function login(){
-let user=prompt("Username:");
-let pass=prompt("Password:");
-if(user==="admin"&&pass==="123"){
-document.getElementById("adminPanel").style.display="block";
-alert("Login berhasil");
-}else alert("Salah");
-}
+    // LOGIN
+    function login() {
+        let user = prompt("Username:");
+        let pass = prompt("Password:");
 
-let buku=JSON.parse(localStorage.getItem("buku"))||[];
+        if(user === "admin" && pass === "123") {
+            alert("Login berhasil!");
+            document.getElementById("adminPanel").style.display = "block";
+        } else {
+            alert("Username atau password salah!");
+        }
+    }
 
-function tampilkanBuku(data=buku){
-let list=document.getElementById("listBuku");
-list.innerHTML="";
+    // DATA BUKU
+    let buku = JSON.parse(localStorage.getItem("buku")) || [];
 
-data.forEach((b,i)=>{
-list.innerHTML+=`
-<div class="card">
-<img src="${b.gambar||'https://via.placeholder.com/250'}">
-<h3>${b.judul}</h3>
-<p>${b.kategori}</p>
-<button onclick="hapus(${i})">Hapus</button>
-</div>`;
-});
-}
+    function tampilkanBuku() {
+        let list = document.getElementById("listBuku");
+        list.innerHTML = "";
 
-function tambahBuku(){
-let judul=document.getElementById("judul").value;
-let kategori=document.getElementById("kategori").value;
-let gambar=document.getElementById("gambar").value;
+        buku.forEach((b, index) => {
+            list.innerHTML += `
+                <div class="card">
+                    <h3>${b.judul}</h3>
+                    <p>${b.kategori}</p>
+                    <button onclick="hapus(${index})">Hapus</button>
+                </div>
+            `;
+        });
+    }
 
-if(!judul||!kategori)return alert("Isi dulu");
+    function tambahBuku() {
+        let judul = document.getElementById("judul").value;
+        let kategori = document.getElementById("kategori").value;
 
-buku.push({judul,kategori,gambar});
-localStorage.setItem("buku",JSON.stringify(buku));
-tampilkanBuku();
-}
+        if(!judul || !kategori) {
+            alert("Isi semua data!");
+            return;
+        }
 
-function hapus(i){
-buku.splice(i,1);
-localStorage.setItem("buku",JSON.stringify(buku));
-tampilkanBuku();
-}
+        buku.push({judul, kategori});
+        localStorage.setItem("buku", JSON.stringify(buku));
 
-function cariBuku(){
-let keyword=document.getElementById("search").value.toLowerCase();
-let hasil=buku.filter(b=>b.judul.toLowerCase().includes(keyword));
-tampilkanBuku(hasil);
-}
+        tampilkanBuku();
+    }
 
-tampilkanBuku();
+    function hapus(index) {
+        buku.splice(index, 1);
+        localStorage.setItem("buku", JSON.stringify(buku));
+        tampilkanBuku();
+    }
+
+    tampilkanBuku();
+
+    // SCROLL EFFECT
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ANIMASI
+    const sections = document.querySelectorAll('.section');
+    window.addEventListener('scroll', () => {
+        sections.forEach(sec => {
+            const pos = sec.getBoundingClientRect().top;
+            if (pos < window.innerHeight - 100) {
+                sec.classList.add('show');
+            }
+        });
+    });
+
+    // BACK TO TOP
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener('scroll', () => {
+        topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    topBtn.onclick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 </script>
 
 </body>
