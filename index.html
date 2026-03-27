@@ -1,4 +1,256 @@
 <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Lentera Perpustakaan Tata Boga</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#fdf6ec;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#a0522d;
+padding:15px 40px;
+color:white;
+}
+
+.navbar ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+.navbar ul li{
+cursor:pointer;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+height:420px;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url("https://images.unsplash.com/photo-1556911220-bff31c812dba");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
+}
+
+/* SECTION */
+
+.section{
+display:none;
+padding:60px;
+text-align:center;
+}
+
+.active{
+display:block;
+}
+
+/* CARD */
+
+.koleksi{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.card{
+background:white;
+width:220px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+/* VIDEO */
+
+.video-container{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.video-box{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* LAYANAN (UPDATED) */
+
+.layanan{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.layanan .card{
+text-align:center;
+padding:25px;
+transition:0.3s;
+}
+
+.layanan .card:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.icon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* ADMIN */
+
+.admin-box{
+background:white;
+width:400px;
+margin:auto;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+text-align:left;
+}
+
+/* BUTTON CV */
+
+.cv-btn{
+display:inline-block;
+margin-top:8px;
+padding:8px 15px;
+background:#a0522d;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+.cv-btn:hover{
+background:#7a3c1f;
+}
+
+/* PROFIL BOX */
+
+.profil-container{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.profil-box{
+background:white;
+width:300px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+text-align:left;
+}
+
+.profil-box h3{
+margin-top:0;
+color:#a0522d;
+}
+
+/* JAM LAYANAN BULAT */
+
+.jam-area{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+margin-top:40px;
+}
+
+.jam-bulat{
+width:200px;
+height:200px;
+background:white;
+border-radius:50%;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.jam-bulat h4{
+margin:0;
+color:#a0522d;
+}
+
+.jam-bulat p{
+margin-top:10px;
+font-weight:bold;
+}
+
+.tutup{
+color:red;
+}
+
+/* CATATAN LAYANAN */
+
+.catatan-box{
+background:white;
+max-width:500px;
+margin:40px auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+text-align:left;
+}
+
+.catatan-box h4{
+margin-top:0;
+color:#a0522d;
+}
+
+/* FOOTER */
+
+footer{
+background:#a0522d;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h2>Lentera Tata Boga</h2>
 
 <ul>
 <li onclick="showPage('home')">Home</li>
@@ -12,6 +264,128 @@
 
 </div>
 
+<div id="home" class="section active">
+
+<div class="hero">
+<div>
+<h1>Perpustakaan Tata Boga</h1>
+<p>Sumber Pengetahuan Kuliner untuk Siswa</p>
+</div>
+</div>
+
+<div>
+
+<h2>Selamat Datang</h2>
+
+<p>
+Website Lentera Perpustakaan Tata Boga menyediakan berbagai koleksi
+buku tentang kuliner, pastry, bakery, dan teknik memasak
+untuk membantu siswa dalam belajar memasak.
+</p>
+
+<h2>Video Tutorial Memasak</h2>
+
+<div class="video-container">
+
+<div class="video-box">
+<h4>Tutorial Membuat Nasi Goreng</h4>
+<iframe width="300" height="200"
+src="https://www.youtube.com/embed/u54aQPzwbWc"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="video-box">
+<h4>Tutorial Membuat Omelet</h4>
+<iframe width="300" height="200"
+src="https://www.youtube.com/embed/-dWOmjAVZJU"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="video-box">
+<h4>Tutorial Membuat Pancake</h4>
+<iframe width="300" height="200"
+src="https://www.youtube.com/embed/7p_DeV_NQLo"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="profil" class="section">
+
+<h2>Profil Perpustakaan</h2>
+
+<div class="profil-container">
+
+<div class="profil-box">
+<h3>Tentang Perpustakaan</h3>
+<p>
+Perpustakaan Tata Boga merupakan pusat sumber belajar
+yang menyediakan berbagai koleksi buku kuliner seperti
+resep masakan, teknik memasak, pastry, dan bakery
+untuk mendukung proses pembelajaran siswa.
+</p>
+</div>
+
+<div class="profil-box">
+<h3>Visi</h3>
+<p>
+Menjadi pusat informasi dan sumber belajar di bidang
+tata boga yang inovatif, inspiratif, dan mudah diakses
+oleh seluruh siswa.
+</p>
+</div>
+
+<div class="profil-box">
+<h3>Misi</h3>
+<p>• Menyediakan koleksi buku kuliner yang lengkap.</p>
+<p>• Mendukung kegiatan belajar siswa.</p>
+<p>• Meningkatkan minat baca siswa.</p>
+<p>• Memanfaatkan teknologi melalui website perpustakaan.</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="koleksi" class="section">
+
+<h2>Koleksi Buku Tata Boga</h2>
+
+<div class="koleksi">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061">
+<h4>Resep Nusantara</h4>
+<p>Kumpulan resep tradisional Indonesia.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+<h4>Teknik Memasak</h4>
+<p>Panduan teknik memasak profesional.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<h4>Pastry & Bakery</h4>
+<p>Panduan membuat roti dan kue.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- LAYANAN SUDAH DIUPDATE -->
 <div id="layanan" class="section">
 
 <h2>Layanan Perpustakaan</h2>
@@ -19,22 +393,112 @@
 <div class="layanan">
 
 <div class="card">
-<h1>📚</h1>
+<div class="icon">📚</div>
 <h3>Peminjaman Buku</h3>
-<p>Siswa dapat meminjam buku selama 7 hari dengan sistem yang mudah.</p>
+<p>Siswa dapat meminjam buku selama 7 hari.</p>
 </div>
 
 <div class="card">
-<h1>🪑</h1>
+<div class="icon">🪑</div>
 <h3>Ruang Baca</h3>
-<p>Area membaca nyaman, tenang, dan mendukung konsentrasi belajar.</p>
+<p>Area membaca nyaman bagi siswa.</p>
 </div>
 
 <div class="card">
-<h1>💻</h1>
+<div class="icon">💻</div>
 <h3>E-Book</h3>
-<p>Akses koleksi buku digital kapan saja dan di mana saja.</p>
+<p>Akses buku digital tentang kuliner.</p>
 </div>
+
+<div class="card">
+<div class="icon">👨‍🍳</div>
+<h3>Kelas Memasak</h3>
+<p>Workshop dan praktik memasak untuk siswa.</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="jam" class="section">
+
+<h2>Jam Layanan Perpustakaan</h2>
+
+<div class="jam-area">
+
+<div class="jam-bulat">
+<h4>Senin - Kamis</h4>
+<p>08.00 - 15.00</p>
+</div>
+
+<div class="jam-bulat">
+<h4>Jumat</h4>
+<p>08.00 - 11.30</p>
+</div>
+
+<div class="jam-bulat">
+<h4>Sabtu</h4>
+<p>08.00 - 12.00</p>
+</div>
+
+<div class="jam-bulat">
+<h4>Minggu</h4>
+<p class="tutup">Tutup</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="kontak" class="section">
+
+<h2>Kontak Perpustakaan</h2>
+
+<p>Email : perpustakaan@email.com</p>
+<p>Telepon : 08123456789</p>
+<p>Alamat : SMK Tata Boga</p>
+
+</div>
+
+<div id="admin" class="section">
+
+<h2>Dashboard Admin</h2>
+
+<div class="admin-box">
+
+<h3>👩‍🍳 Profil Admin</h3>
+
+<p>👤 <strong>Nama:</strong> Salsabilla Oktavia Lubis</p>
+
+<p>📧 <strong>Email:</strong> 
+<a href="mailto:salsabillaok13@gmail.com">salsabillaok13@gmail.com</a>
+</p>
+
+<p>📱 <strong>No HP:</strong> 
+<a href="tel:081264089312">081264089312</a>
+</p>
+
+<p>🍳 <strong>Keahlian:</strong> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+
+<p>📄 <strong>CV:</strong></p>
+
+<a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE"
+target="_blank"
+class="cv-btn">
+📂 Lihat CV
+</a>
+
+<hr style="margin:20px 0;">
+
+<p><b>⚙️ Menu Admin:</b></p>
+
+<ul>
+<li>📚 Kelola Data Buku</li>
+<li>👥 Kelola Anggota</li>
+<li>📖 Data Peminjaman</li>
+<li>🔄 Data Pengembalian</li>
+<li>📊 Laporan Perpustakaan</li>
+</ul>
 
 </div>
 
