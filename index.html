@@ -6,6 +6,7 @@
 
 <style>
 
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -13,72 +14,57 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Poppins', sans-serif;
-background:#f4f6f9;
+font-family:Arial, sans-serif;
+background:#f5f5f5;
+color:#333;
 }
 
 /* NAVBAR */
-
 .navbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#ffffff;
-padding:15px 50px;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.navbar h2{
-color:#a0522d;
+background:#a0522d;
+padding:15px 30px;
+color:white;
 }
 
 .navbar ul{
 display:flex;
 list-style:none;
-gap:25px;
+gap:20px;
 }
 
-.navbar ul li{
+.navbar li{
 cursor:pointer;
-transition:0.3s;
 }
 
-.navbar ul li:hover{
-color:#a0522d;
+.navbar li:hover{
+text-decoration:underline;
 }
 
 /* HERO */
-
 .hero{
-height:400px;
-background:url("https://images.unsplash.com/photo-1556911220-bff31c812dba");
-background-size:cover;
-background-position:center;
+height:350px;
+background:url("https://images.unsplash.com/photo-1556911220-bff31c812dba") center/cover;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
 }
 
-.hero-box{
-background:rgba(255,255,255,0.9);
-padding:30px;
-border-radius:15px;
-text-align:center;
+.hero-text{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:10px;
 max-width:600px;
 }
 
-.hero-box h1{
-color:#a0522d;
-}
-
 /* SECTION */
-
 .section{
 display:none;
-padding:60px 20px;
+padding:50px 20px;
 text-align:center;
 }
 
@@ -86,27 +72,22 @@ text-align:center;
 display:block;
 }
 
-/* CARD */
-
-.card{
-background:white;
-border-radius:15px;
-padding:20px;
-width:230px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.koleksi, .layanan{
+/* GRID */
+.grid{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:25px;
+gap:20px;
 margin-top:30px;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:20px;
+width:230px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 .card img{
@@ -115,104 +96,65 @@ border-radius:10px;
 }
 
 /* VIDEO */
-
-.video-container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin-top:30px;
-}
-
 .video-box{
 background:white;
 padding:15px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* PROFIL */
-
-.profil-container{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-margin-top:30px;
-}
-
 .profil-box{
 background:white;
-padding:25px;
-border-radius:15px;
-width:300px;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
+padding:20px;
+border-radius:10px;
+width:280px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 text-align:left;
 }
 
 /* JAM */
-
-.jam-area{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-margin-top:30px;
-}
-
-.jam-bulat{
+.jam{
+background:white;
+padding:20px;
+border-radius:50%;
 width:180px;
 height:180px;
-border-radius:50%;
-background:#fff;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-.tutup{
-color:red;
-font-weight:bold;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* ADMIN */
-
 .admin-box{
 background:white;
-padding:30px;
-max-width:450px;
+padding:25px;
+max-width:400px;
 margin:auto;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 text-align:left;
 }
 
 /* BUTTON */
-
 .cv-btn{
 display:inline-block;
-padding:10px 15px;
+margin-top:10px;
+padding:8px 12px;
 background:#a0522d;
 color:white;
-border-radius:8px;
 text-decoration:none;
-margin-top:10px;
-}
-
-.cv-btn:hover{
-background:#7a3c1f;
+border-radius:5px;
 }
 
 /* FOOTER */
-
 footer{
 background:#a0522d;
 color:white;
 text-align:center;
-padding:20px;
-margin-top:40px;
+padding:15px;
 }
 
 </style>
@@ -220,6 +162,7 @@ margin-top:40px;
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
 <h2>Lentera Tata Boga</h2>
 <ul>
@@ -237,7 +180,7 @@ margin-top:40px;
 <div id="home" class="section active">
 
 <div class="hero">
-<div class="hero-box">
+<div class="hero-text">
 <h1>Selamat Datang di Perpustakaan Tata Boga</h1>
 <p>Website yang Menyediakan Berbagai Koleksi Buku tentang Kuliner, Pastry, Bakery, dan Teknik Memasak untuk Membantu Siswa dalam Belajar Memasak.</p>
 </div>
@@ -245,21 +188,21 @@ margin-top:40px;
 
 <h3>Video Tutorial Memasak</h3>
 
-<div class="video-container">
+<div class="grid">
 
 <div class="video-box">
 <h4>Tutorial Membuat Nasi Goreng</h4>
-<iframe width="300" height="200" src="https://www.youtube.com/embed/u54aQPzwbWc"></iframe>
+<iframe width="300" height="200" src="https://www.youtube.com/embed/u54aQPzwbWc" allowfullscreen></iframe>
 </div>
 
 <div class="video-box">
 <h4>Tutorial Membuat Omelet</h4>
-<iframe width="300" height="200" src="https://www.youtube.com/embed/-dWOmjAVZJU"></iframe>
+<iframe width="300" height="200" src="https://www.youtube.com/embed/-dWOmjAVZJU" allowfullscreen></iframe>
 </div>
 
 <div class="video-box">
 <h4>Tutorial Membuat Pancake</h4>
-<iframe width="300" height="200" src="https://www.youtube.com/embed/7p_DeV_NQLo"></iframe>
+<iframe width="300" height="200" src="https://www.youtube.com/embed/7p_DeV_NQLo" allowfullscreen></iframe>
 </div>
 
 </div>
@@ -269,7 +212,7 @@ margin-top:40px;
 <div id="profil" class="section">
 <h2>Profil Perpustakaan</h2>
 
-<div class="profil-container">
+<div class="grid">
 
 <div class="profil-box">
 <h3>Tentang Perpustakaan</h3>
@@ -296,7 +239,7 @@ margin-top:40px;
 <div id="koleksi" class="section">
 <h2>Koleksi Buku Tata Boga</h2>
 
-<div class="koleksi">
+<div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061">
@@ -323,7 +266,7 @@ margin-top:40px;
 <div id="layanan" class="section">
 <h2>Layanan Perpustakaan</h2>
 
-<div class="layanan">
+<div class="grid">
 
 <div class="card">
 <h3>📚 Peminjaman Buku</h3>
@@ -352,26 +295,26 @@ margin-top:40px;
 <div id="jam" class="section">
 <h2>Jam Layanan Perpustakaan</h2>
 
-<div class="jam-area">
+<div class="grid">
 
-<div class="jam-bulat">
+<div class="jam">
 <h4>Senin - Kamis</h4>
 <p>08.00 - 15.00</p>
 </div>
 
-<div class="jam-bulat">
+<div class="jam">
 <h4>Jumat</h4>
 <p>08.00 - 11.30</p>
 </div>
 
-<div class="jam-bulat">
+<div class="jam">
 <h4>Sabtu</h4>
 <p>08.00 - 12.00</p>
 </div>
 
-<div class="jam-bulat">
+<div class="jam">
 <h4>Minggu</h4>
-<p class="tutup">Tutup</p>
+<p style="color:red;">Tutup</p>
 </div>
 
 </div>
@@ -391,18 +334,17 @@ margin-top:40px;
 
 <div class="admin-box">
 
-<h3>👩‍🍳 Profil Admin</h3>
+<h3>Profil Admin</h3>
 
-<p>👤 <b>Nama:</b> Salsabilla Oktavia Lubis</p>
-<p>📧 <b>Email:</b> salsabillaok13@gmail.com</p>
-<p>📱 <b>No HP:</b> 081264089312</p>
-<p>🍳 <b>Keahlian:</b> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+<p>Nama: Salsabilla Oktavia Lubis</p>
+<p>Email: salsabillaok13@gmail.com</p>
+<p>No HP: 081264089312</p>
+<p>Keahlian: Cooking, Baking, Food Plating, Manajemen Dapur</p>
 
 <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank" class="cv-btn">Lihat CV</a>
 
 <hr>
 
-<p><b>Menu Admin:</b></p>
 <ul>
 <li>Kelola Data Buku</li>
 <li>Kelola Anggota</li>
@@ -421,7 +363,7 @@ margin-top:40px;
 <script>
 function showPage(page){
 let sections=document.querySelectorAll(".section");
-sections.forEach(s => s.classList.remove("active"));
+sections.forEach(sec => sec.classList.remove("active"));
 document.getElementById(page).classList.add("active");
 }
 </script>
