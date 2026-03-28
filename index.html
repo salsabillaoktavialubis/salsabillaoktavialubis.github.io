@@ -2,369 +2,180 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Lentera Perpustakaan Tata Boga</title>
+<title>Perpustakaan Tata Boga</title>
 
 <style>
-
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial, sans-serif;
-background:#f5f5f5;
-color:#333;
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #fdf6ec;
 }
 
 /* NAVBAR */
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#a0522d;
-padding:15px 30px;
-color:white;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #8B4513;
+    padding: 10px 30px;
 }
 
-.navbar ul{
-display:flex;
-list-style:none;
-gap:20px;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-.navbar li{
-cursor:pointer;
+.logo img {
+    width: 40px;
+    margin-right: 10px;
 }
 
-.navbar li:hover{
-text-decoration:underline;
+.logo h2 {
+    color: white;
+    margin: 0;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu li a:hover {
+    color: #ffd700;
+}
+
+/* HALAMAN */
+.page {
+    display: none;
+    padding: 40px;
+}
+
+.active {
+    display: block;
 }
 
 /* HERO */
-.hero{
-height:350px;
-background:url("https://images.unsplash.com/photo-1556911220-bff31c812dba") center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
-}
-
-.hero-text{
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:10px;
-max-width:600px;
-}
-
-/* SECTION */
-.section{
-display:none;
-padding:50px 20px;
-text-align:center;
-}
-
-.active{
-display:block;
-}
-
-/* GRID */
-.grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin-top:30px;
+.hero {
+    text-align: center;
+    padding: 100px;
+    background: #deb887;
+    border-radius: 10px;
 }
 
 /* CARD */
-.card{
-background:white;
-padding:20px;
-width:230px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+.card {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
-
-.card img{
-width:100%;
-border-radius:10px;
-}
-
-/* VIDEO */
-.video-box{
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* PROFIL */
-.profil-box{
-background:white;
-padding:20px;
-border-radius:10px;
-width:280px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-text-align:left;
-}
-
-/* JAM */
-.jam{
-background:white;
-padding:20px;
-border-radius:50%;
-width:180px;
-height:180px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* ADMIN */
-.admin-box{
-background:white;
-padding:25px;
-max-width:400px;
-margin:auto;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-text-align:left;
-}
-
-/* BUTTON */
-.cv-btn{
-display:inline-block;
-margin-top:10px;
-padding:8px 12px;
-background:#a0522d;
-color:white;
-text-decoration:none;
-border-radius:5px;
-}
-
-/* FOOTER */
-footer{
-background:#a0522d;
-color:white;
-text-align:center;
-padding:15px;
-}
-
 </style>
+
 </head>
 
 <body>
 
 <!-- NAVBAR -->
 <div class="navbar">
-<h2>Lentera Tata Boga</h2>
-<ul>
-<li onclick="showPage('home')">Home</li>
-<li onclick="showPage('profil')">Profil</li>
-<li onclick="showPage('koleksi')">Koleksi</li>
-<li onclick="showPage('layanan')">Layanan</li>
-<li onclick="showPage('jam')">Jam Layanan</li>
-<li onclick="showPage('kontak')">Kontak</li>
-<li onclick="showPage('admin')">Admin</li>
-</ul>
+    <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+        <h2>Lentera Tata Boga</h2>
+    </div>
+
+    <ul class="menu">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('koleksi')">Koleksi</a></li>
+        <li><a onclick="showPage('layanan')">Layanan</a></li>
+        <li><a onclick="showPage('profil')">Profil</a></li>
+        <li><a onclick="showPage('admin')">Admin</a></li>
+    </ul>
 </div>
 
 <!-- HOME -->
-<div id="home" class="section active">
-
-<div class="hero">
-<div class="hero-text">
-<h1>Selamat Datang di Perpustakaan Tata Boga</h1>
-<p>Website yang Menyediakan Berbagai Koleksi Buku tentang Kuliner, Pastry, Bakery, dan Teknik Memasak untuk Membantu Siswa dalam Belajar Memasak.</p>
-</div>
-</div>
-
-<h3>Video Tutorial Memasak</h3>
-
-<div class="grid">
-
-<div class="video-box">
-<h4>Tutorial Membuat Nasi Goreng</h4>
-<iframe width="300" height="200" src="https://www.youtube.com/embed/u54aQPzwbWc" allowfullscreen></iframe>
-</div>
-
-<div class="video-box">
-<h4>Tutorial Membuat Omelet</h4>
-<iframe width="300" height="200" src="https://www.youtube.com/embed/-dWOmjAVZJU" allowfullscreen></iframe>
-</div>
-
-<div class="video-box">
-<h4>Tutorial Membuat Pancake</h4>
-<iframe width="300" height="200" src="https://www.youtube.com/embed/7p_DeV_NQLo" allowfullscreen></iframe>
-</div>
-
-</div>
-</div>
-
-<!-- PROFIL -->
-<div id="profil" class="section">
-<h2>Profil Perpustakaan</h2>
-
-<div class="grid">
-
-<div class="profil-box">
-<h3>Tentang Perpustakaan</h3>
-<p>Perpustakaan Tata Boga merupakan pusat sumber belajar yang menyediakan berbagai koleksi buku kuliner seperti resep masakan, teknik memasak, pastry, dan bakery untuk mendukung proses pembelajaran siswa.</p>
-</div>
-
-<div class="profil-box">
-<h3>Visi</h3>
-<p>Menjadi pusat informasi dan sumber belajar di bidang tata boga yang inovatif, inspiratif, dan mudah diakses oleh seluruh siswa.</p>
-</div>
-
-<div class="profil-box">
-<h3>Misi</h3>
-<p>• Menyediakan koleksi buku kuliner yang lengkap.</p>
-<p>• Mendukung kegiatan belajar siswa.</p>
-<p>• Meningkatkan minat baca siswa.</p>
-<p>• Memanfaatkan teknologi melalui website perpustakaan.</p>
-</div>
-
-</div>
+<div id="home" class="page active">
+    <div class="hero">
+        <h1>Selamat Datang di Perpustakaan Tata Boga</h1>
+        <p>Sumber inspirasi kuliner & ilmu memasak terbaik</p>
+    </div>
 </div>
 
 <!-- KOLEKSI -->
-<div id="koleksi" class="section">
-<h2>Koleksi Buku Tata Boga</h2>
+<div id="koleksi" class="page">
+    <h1>Koleksi Buku</h1>
 
-<div class="grid">
+    <div class="card">
+        <h3>Resep Nusantara</h3>
+        <p>Kumpulan resep tradisional Indonesia</p>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061">
-<h4>Resep Nusantara</h4>
-<p>Kumpulan resep tradisional Indonesia.</p>
-</div>
+    <div class="card">
+        <h3>Pastry & Bakery</h3>
+        <p>Teknik membuat roti dan kue modern</p>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
-<h4>Teknik Memasak</h4>
-<p>Panduan teknik memasak profesional.</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
-<h4>Pastry & Bakery</h4>
-<p>Panduan membuat roti dan kue.</p>
-</div>
-
-</div>
+    <div class="card">
+        <h3>Masakan Internasional</h3>
+        <p>Resep dari berbagai negara</p>
+    </div>
 </div>
 
 <!-- LAYANAN -->
-<div id="layanan" class="section">
-<h2>Layanan Perpustakaan</h2>
+<div id="layanan" class="page">
+    <h1>Layanan Perpustakaan</h1>
 
-<div class="grid">
-
-<div class="card">
-<h3>📚 Peminjaman Buku</h3>
-<p>Siswa dapat meminjam buku selama 7 hari.</p>
+    <div class="card">Peminjaman Buku</div>
+    <div class="card">Ruang Baca Nyaman</div>
+    <div class="card">Konsultasi Kuliner</div>
 </div>
 
-<div class="card">
-<h3>🪑 Ruang Baca</h3>
-<p>Area membaca nyaman bagi siswa.</p>
-</div>
+<!-- PROFIL -->
+<div id="profil" class="page">
+    <h1>Profil Perpustakaan</h1>
 
-<div class="card">
-<h3>💻 E-Book</h3>
-<p>Akses buku digital tentang kuliner.</p>
-</div>
-
-<div class="card">
-<h3>👨‍🍳 Kelas Memasak</h3>
-<p>Workshop dan praktik memasak untuk siswa.</p>
-</div>
-
-</div>
-</div>
-
-<!-- JAM -->
-<div id="jam" class="section">
-<h2>Jam Layanan Perpustakaan</h2>
-
-<div class="grid">
-
-<div class="jam">
-<h4>Senin - Kamis</h4>
-<p>08.00 - 15.00</p>
-</div>
-
-<div class="jam">
-<h4>Jumat</h4>
-<p>08.00 - 11.30</p>
-</div>
-
-<div class="jam">
-<h4>Sabtu</h4>
-<p>08.00 - 12.00</p>
-</div>
-
-<div class="jam">
-<h4>Minggu</h4>
-<p style="color:red;">Tutup</p>
-</div>
-
-</div>
-</div>
-
-<!-- KONTAK -->
-<div id="kontak" class="section">
-<h2>Kontak Perpustakaan</h2>
-<p>Email : perpustakaan@email.com</p>
-<p>Telepon : 08123456789</p>
-<p>Alamat : SMK Tata Boga</p>
+    <div class="card">
+        <p>
+        Perpustakaan Lentera Tata Boga merupakan pusat informasi kuliner 
+        yang menyediakan berbagai referensi tentang masakan tradisional 
+        hingga modern untuk mendukung pembelajaran dan kreativitas.
+        </p>
+    </div>
 </div>
 
 <!-- ADMIN -->
-<div id="admin" class="section">
-<h2>Dashboard Admin</h2>
+<div id="admin" class="page">
+    <h1>Halaman Admin</h1>
 
-<div class="admin-box">
+    <div class="card">
+        <p>Kelola data buku, anggota, dan peminjaman di sini.</p>
+    </div>
 
-<h3>Profil Admin</h3>
-
-<p>Nama: Salsabilla Oktavia Lubis</p>
-<p>Email: salsabillaok13@gmail.com</p>
-<p>No HP: 081264089312</p>
-<p>Keahlian: Cooking, Baking, Food Plating, Manajemen Dapur</p>
-
-<a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank" class="cv-btn">Lihat CV</a>
-
-<hr>
-
-<ul>
-<li>Kelola Data Buku</li>
-<li>Kelola Anggota</li>
-<li>Data Peminjaman</li>
-<li>Data Pengembalian</li>
-<li>Laporan Perpustakaan</li>
-</ul>
-
+    <div class="card">
+        <h3>Contoh Data Admin</h3>
+        <p>Nama: Salsabilla Oktavia Lubis</p>
+        <p>Email: salsabillaok13@gmail.com</p>
+        <p>No HP: 081264089312</p>
+    </div>
 </div>
-</div>
-
-<footer>
-<p>© 2026 Lentera Perpustakaan Tata Boga</p>
-</footer>
 
 <script>
-function showPage(page){
-let sections=document.querySelectorAll(".section");
-sections.forEach(sec => sec.classList.remove("active"));
-document.getElementById(page).classList.add("active");
+function showPage(pageId) {
+    let pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+
+    document.getElementById(pageId).classList.add('active');
 }
 </script>
 
