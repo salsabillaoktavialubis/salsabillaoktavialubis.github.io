@@ -6,10 +6,16 @@
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial, sans-serif;
-background:#fdf6ec;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI', sans-serif;
+background:#f8f5f2;
+color:#333;
 }
 
 /* NAVBAR */
@@ -18,27 +24,39 @@ background:#fdf6ec;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#a0522d;
+background:linear-gradient(135deg,#a0522d,#7a3c1f);
 padding:15px 40px;
 color:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.navbar h2{
+letter-spacing:1px;
 }
 
 .navbar ul{
 display:flex;
 list-style:none;
-gap:20px;
+gap:25px;
 }
 
 .navbar ul li{
 cursor:pointer;
-font-weight:bold;
+font-weight:500;
+transition:0.3s;
+}
+
+.navbar ul li:hover{
+color:#ffd9b3;
 }
 
 /* HERO */
 
 .hero{
 height:420px;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
 url("https://images.unsplash.com/photo-1556911220-bff31c812dba");
 background-size:cover;
 background-position:center;
@@ -47,14 +65,31 @@ align-items:center;
 justify-content:center;
 color:white;
 text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.hero p{
+max-width:600px;
+margin:auto;
 }
 
 /* SECTION */
 
 .section{
 display:none;
-padding:60px;
+padding:60px 20px;
 text-align:center;
+animation:fade 0.5s ease;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 .active{
@@ -73,15 +108,21 @@ margin-top:30px;
 
 .card{
 background:white;
-width:220px;
+width:230px;
 padding:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
 }
 
 .card img{
 width:100%;
 border-radius:10px;
+margin-bottom:10px;
 }
 
 /* VIDEO */
@@ -97,11 +138,11 @@ margin-top:30px;
 .video-box{
 background:white;
 padding:15px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* LAYANAN (UPDATED) */
+/* LAYANAN */
 
 .layanan{
 display:grid;
@@ -111,14 +152,7 @@ margin-top:30px;
 }
 
 .layanan .card{
-text-align:center;
 padding:25px;
-transition:0.3s;
-}
-
-.layanan .card:hover{
-transform:translateY(-8px);
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
 }
 
 .icon{
@@ -130,32 +164,32 @@ margin-bottom:10px;
 
 .admin-box{
 background:white;
-width:400px;
+max-width:420px;
 margin:auto;
 padding:30px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-text-align:left;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+line-height:1.6;
 }
 
 /* BUTTON CV */
 
 .cv-btn{
 display:inline-block;
-margin-top:8px;
-padding:8px 15px;
+margin-top:10px;
+padding:10px 18px;
 background:#a0522d;
 color:white;
 text-decoration:none;
-border-radius:6px;
-font-weight:bold;
+border-radius:8px;
+transition:0.3s;
 }
 
 .cv-btn:hover{
 background:#7a3c1f;
 }
 
-/* PROFIL BOX */
+/* PROFIL */
 
 .profil-container{
 display:flex;
@@ -170,16 +204,16 @@ background:white;
 width:300px;
 padding:25px;
 border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.15);
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
 text-align:left;
 }
 
 .profil-box h3{
-margin-top:0;
 color:#a0522d;
+margin-bottom:10px;
 }
 
-/* JAM LAYANAN BULAT */
+/* JAM */
 
 .jam-area{
 display:flex;
@@ -194,53 +228,37 @@ width:200px;
 height:200px;
 background:white;
 border-radius:50%;
-box-shadow:0 6px 15px rgba(0,0,0,0.2);
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+transition:0.3s;
+}
+
+.jam-bulat:hover{
+transform:scale(1.05);
 }
 
 .jam-bulat h4{
-margin:0;
 color:#a0522d;
-}
-
-.jam-bulat p{
-margin-top:10px;
-font-weight:bold;
 }
 
 .tutup{
 color:red;
-}
-
-/* CATATAN LAYANAN */
-
-.catatan-box{
-background:white;
-max-width:500px;
-margin:40px auto;
-padding:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.15);
-text-align:left;
-}
-
-.catatan-box h4{
-margin-top:0;
-color:#a0522d;
+font-weight:bold;
 }
 
 /* FOOTER */
 
 footer{
-background:#a0522d;
+background:#7a3c1f;
 color:white;
 text-align:center;
 padding:20px;
+margin-top:40px;
 }
 
 </style>
@@ -249,9 +267,7 @@ padding:20px;
 <body>
 
 <div class="navbar">
-
 <h2>Lentera Tata Boga</h2>
-
 <ul>
 <li onclick="showPage('home')">Home</li>
 <li onclick="showPage('profil')">Profil</li>
@@ -261,7 +277,6 @@ padding:20px;
 <li onclick="showPage('kontak')">Kontak</li>
 <li onclick="showPage('admin')">Admin</li>
 </ul>
-
 </div>
 
 <div id="home" class="section active">
@@ -276,8 +291,6 @@ untuk Membantu Siswa dalam Belajar Memasak.</p>
 </div>
 
 <div>
-
-  
 <h3>Video Tutorial Memasak</h3>
 
 <div class="video-container">
@@ -287,8 +300,7 @@ untuk Membantu Siswa dalam Belajar Memasak.</p>
 <iframe width="300" height="200"
 src="https://www.youtube.com/embed/u54aQPzwbWc"
 frameborder="0"
-allowfullscreen>
-</iframe>
+allowfullscreen></iframe>
 </div>
 
 <div class="video-box">
@@ -296,8 +308,7 @@ allowfullscreen>
 <iframe width="300" height="200"
 src="https://www.youtube.com/embed/-dWOmjAVZJU"
 frameborder="0"
-allowfullscreen>
-</iframe>
+allowfullscreen></iframe>
 </div>
 
 <div class="video-box">
@@ -305,39 +316,31 @@ allowfullscreen>
 <iframe width="300" height="200"
 src="https://www.youtube.com/embed/7p_DeV_NQLo"
 frameborder="0"
-allowfullscreen>
-</iframe>
+allowfullscreen></iframe>
 </div>
 
 </div>
-
 </div>
-
 </div>
 
 <div id="profil" class="section">
-
 <h2>Profil Perpustakaan</h2>
 
 <div class="profil-container">
 
 <div class="profil-box">
 <h3>Tentang Perpustakaan</h3>
-<p>
-Perpustakaan Tata Boga merupakan pusat sumber belajar
+<p>Perpustakaan Tata Boga merupakan pusat sumber belajar
 yang menyediakan berbagai koleksi buku kuliner seperti
 resep masakan, teknik memasak, pastry, dan bakery
-untuk mendukung proses pembelajaran siswa.
-</p>
+untuk mendukung proses pembelajaran siswa.</p>
 </div>
 
 <div class="profil-box">
 <h3>Visi</h3>
-<p>
-Menjadi pusat informasi dan sumber belajar di bidang
+<p>Menjadi pusat informasi dan sumber belajar di bidang
 tata boga yang inovatif, inspiratif, dan mudah diakses
-oleh seluruh siswa.
-</p>
+oleh seluruh siswa.</p>
 </div>
 
 <div class="profil-box">
@@ -349,11 +352,9 @@ oleh seluruh siswa.
 </div>
 
 </div>
-
 </div>
 
 <div id="koleksi" class="section">
-
 <h2>Koleksi Buku Tata Boga</h2>
 
 <div class="koleksi">
@@ -377,12 +378,9 @@ oleh seluruh siswa.
 </div>
 
 </div>
-
 </div>
 
-<!-- LAYANAN SUDAH DIUPDATE -->
 <div id="layanan" class="section">
-
 <h2>Layanan Perpustakaan</h2>
 
 <div class="layanan">
@@ -412,11 +410,9 @@ oleh seluruh siswa.
 </div>
 
 </div>
-
 </div>
 
 <div id="jam" class="section">
-
 <h2>Jam Layanan Perpustakaan</h2>
 
 <div class="jam-area">
@@ -442,21 +438,17 @@ oleh seluruh siswa.
 </div>
 
 </div>
-
 </div>
 
 <div id="kontak" class="section">
-
 <h2>Kontak Perpustakaan</h2>
 
 <p>Email : perpustakaan@email.com</p>
 <p>Telepon : 08123456789</p>
 <p>Alamat : SMK Tata Boga</p>
-
 </div>
 
 <div id="admin" class="section">
-
 <h2>Dashboard Admin</h2>
 
 <div class="admin-box">
@@ -496,7 +488,6 @@ class="cv-btn">
 </ul>
 
 </div>
-
 </div>
 
 <footer>
@@ -504,19 +495,13 @@ class="cv-btn">
 </footer>
 
 <script>
-
 function showPage(page){
-
 let sections=document.querySelectorAll(".section");
-
 sections.forEach(function(section){
 section.classList.remove("active");
 });
-
 document.getElementById(page).classList.add("active");
-
 }
-
 </script>
 
 </body>
