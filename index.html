@@ -5,10 +5,16 @@
 <title>Perpustakaan Tata Boga</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: Arial;
-    background: #fdf6ec;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fdf6ec, #f5e1c8);
+    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -16,8 +22,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #8B4513;
-    padding: 10px 30px;
+    padding: 15px 40px;
+    background: rgba(139,69,19,0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
@@ -26,61 +36,137 @@ body {
 }
 
 .logo img {
-    width: 40px;
+    width: 45px;
     margin-right: 10px;
+    transition: 0.4s;
+}
+
+.logo img:hover {
+    transform: rotate(10deg) scale(1.1);
 }
 
 .logo h2 {
     color: white;
-    margin: 0;
 }
 
+/* MENU */
 .menu {
-    list-style: none;
     display: flex;
-    margin: 0;
+    list-style: none;
 }
 
 .menu li {
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
-.menu li a {
+.menu a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
 }
 
-.menu li a:hover {
-    color: #ffd700;
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ffd700;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
 }
 
-/* HALAMAN */
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* PAGE */
 .page {
     display: none;
-    padding: 40px;
+    padding: 50px;
+    animation: fade 0.5s ease;
 }
 
 .active {
     display: block;
 }
 
+/* ANIMATION */
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px;
-    background: #deb887;
-    border-radius: 10px;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    animation: slideDown 1s ease;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
 }
 
 /* CARD */
 .card {
-    background: white;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
     padding: 20px;
     margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #8B4513;
+    color: white;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #a0522d;
+    transform: scale(1.05);
+}
+
+/* ADMIN BOX */
+.admin-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
 }
 </style>
 
@@ -107,8 +193,9 @@ body {
 <!-- HOME -->
 <div id="home" class="page active">
     <div class="hero">
-        <h1>Selamat Datang di Perpustakaan Tata Boga</h1>
-        <p>Sumber inspirasi kuliner & ilmu memasak terbaik</p>
+        <h1>Perpustakaan Tata Boga</h1>
+        <p>Eksplorasi Dunia Kuliner dengan Mudah & Modern</p>
+        <a class="btn" onclick="showPage('koleksi')">Lihat Koleksi</a>
     </div>
 </div>
 
@@ -116,64 +203,61 @@ body {
 <div id="koleksi" class="page">
     <h1>Koleksi Buku</h1>
 
-    <div class="card">
-        <h3>Resep Nusantara</h3>
-        <p>Kumpulan resep tradisional Indonesia</p>
-    </div>
+    <div class="grid">
+        <div class="card">
+            <h3>Resep Nusantara</h3>
+            <p>Masakan tradisional Indonesia</p>
+        </div>
 
-    <div class="card">
-        <h3>Pastry & Bakery</h3>
-        <p>Teknik membuat roti dan kue modern</p>
-    </div>
+        <div class="card">
+            <h3>Pastry & Bakery</h3>
+            <p>Roti dan kue modern</p>
+        </div>
 
-    <div class="card">
-        <h3>Masakan Internasional</h3>
-        <p>Resep dari berbagai negara</p>
+        <div class="card">
+            <h3>Masakan Internasional</h3>
+            <p>Menu dari seluruh dunia</p>
+        </div>
     </div>
 </div>
 
 <!-- LAYANAN -->
 <div id="layanan" class="page">
-    <h1>Layanan Perpustakaan</h1>
+    <h1>Layanan</h1>
 
-    <div class="card">Peminjaman Buku</div>
-    <div class="card">Ruang Baca Nyaman</div>
-    <div class="card">Konsultasi Kuliner</div>
+    <div class="grid">
+        <div class="card">Peminjaman Buku</div>
+        <div class="card">Ruang Baca Nyaman</div>
+        <div class="card">Konsultasi Kuliner</div>
+    </div>
 </div>
 
 <!-- PROFIL -->
 <div id="profil" class="page">
-    <h1>Profil Perpustakaan</h1>
+    <h1>Profil</h1>
 
     <div class="card">
-        <p>
-        Perpustakaan Lentera Tata Boga merupakan pusat informasi kuliner 
-        yang menyediakan berbagai referensi tentang masakan tradisional 
-        hingga modern untuk mendukung pembelajaran dan kreativitas.
-        </p>
+        Perpustakaan ini menyediakan referensi kuliner lengkap dari tradisional hingga modern.
     </div>
 </div>
 
 <!-- ADMIN -->
 <div id="admin" class="page">
-    <h1>Halaman Admin</h1>
+    <h1>Login Admin</h1>
 
-    <div class="card">
-        <p>Kelola data buku, anggota, dan peminjaman di sini.</p>
-    </div>
-
-    <div class="card">
-        <h3>Contoh Data Admin</h3>
-        <p>Nama: Salsabilla Oktavia Lubis</p>
-        <p>Email: salsabillaok13@gmail.com</p>
-        <p>No HP: 081264089312</p>
+    <div class="card admin-box">
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button class="btn">Login</button>
     </div>
 </div>
 
 <script>
 function showPage(pageId) {
     let pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
+    pages.forEach(page => {
+        page.classList.remove('active');
+    });
 
     document.getElementById(pageId).classList.add('active');
 }
