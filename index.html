@@ -18,7 +18,6 @@ header {
     align-items: center;
     background: #0d47a1;
     padding: 12px 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* LOGO */
@@ -39,17 +38,10 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 20px;
-    transition: 0.3s;
+    cursor: pointer;
 }
 
-nav a:hover {
-    background: #b3e5fc;
-    color: #0d47a1;
-}
-
-/* CONTENT */
+/* SECTION */
 .section {
     display: none;
     padding: 40px;
@@ -67,11 +59,38 @@ nav a:hover {
     border-radius: 20px;
     width: 70%;
     margin: auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-h1 {
-    color: #0d47a1;
+/* SLIDER */
+.slider {
+    width: 80%;
+    height: 220px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+}
+
+.slide {
+    width: 100%;
+    flex: 0 0 100%;
+    padding: 40px;
+    color: white;
+}
+
+/* WARNA SLIDE */
+.slide:nth-child(1) {
+    background: linear-gradient(to right, #64b5f6, #0d47a1);
+}
+.slide:nth-child(2) {
+    background: linear-gradient(to right, #42a5f5, #1565c0);
+}
+.slide:nth-child(3) {
+    background: linear-gradient(to right, #1e88e5, #0d47a1);
 }
 
 /* LIST */
@@ -90,9 +109,9 @@ ul li {
 /* INPUT */
 input {
     padding: 10px;
+    margin: 5px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    width: 200px;
 }
 
 /* BUTTON */
@@ -102,45 +121,6 @@ button {
     border-radius: 20px;
     background: #0d47a1;
     color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #1565c0;
-}
-
-/* SLIDER */
-.slider {
-    width: 80%;
-    height: 200px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 20px;
-}
-
-.slides {
-    display: flex;
-    width: 300%;
-    transition: 0.5s;
-}
-
-.slide {
-    width: 100%;
-    flex-shrink: 0;
-    text-align: center;
-    padding: 40px;
-    color: white;
-}
-
-/* warna slide */
-.slide:nth-child(1) {
-    background: linear-gradient(to right, #64b5f6, #0d47a1);
-}
-.slide:nth-child(2) {
-    background: linear-gradient(to right, #42a5f5, #1565c0);
-}
-.slide:nth-child(3) {
-    background: linear-gradient(to right, #1e88e5, #0d47a1);
 }
 </style>
 
@@ -163,10 +143,9 @@ button:hover {
     </nav>
 </header>
 
-<!-- HOME (SUDAH DIPERBAIKI) -->
+<!-- HOME -->
 <div id="home" class="section active">
 
-    <!-- SLIDER UCAPAN -->
     <div class="slider">
         <div class="slides">
 
@@ -182,7 +161,7 @@ button:hover {
 
             <div class="slide">
                 <h1>🌟 Ayo Gemar Membaca</h1>
-                <p>Membaca membuka jendela dunia dan menambah ilmu 📖</p>
+                <p>Membaca membuka jendela dunia 📖</p>
             </div>
 
         </div>
@@ -190,30 +169,9 @@ button:hover {
 
     <br>
 
-    <!-- INFO -->
     <div class="card">
         <h2>🏫 Tentang Perpustakaan</h2>
-        <p>Perpustakaan Ceria SD adalah tempat belajar yang nyaman, aman, dan menyenangkan untuk semua siswa.</p>
-    </div>
-
-    <br>
-
-    <!-- FITUR -->
-    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-        <div class="card" style="width:200px;">
-            <h2>📚</h2>
-            <p><b>Koleksi Lengkap</b></p>
-        </div>
-
-        <div class="card" style="width:200px;">
-            <h2>🪑</h2>
-            <p><b>Ruang Nyaman</b></p>
-        </div>
-
-        <div class="card" style="width:200px;">
-            <h2>🎉</h2>
-            <p><b>Kegiatan Seru</b></p>
-        </div>
+        <p>Perpustakaan Ceria SD adalah tempat belajar yang nyaman dan menyenangkan untuk siswa.</p>
     </div>
 
 </div>
@@ -221,12 +179,11 @@ button:hover {
 <!-- KOLEKSI -->
 <div id="koleksi" class="section">
     <div class="card">
-        <h1>📖 Koleksi Buku</h1>
+        <h2>📚 Koleksi Buku</h2>
         <ul>
-            <li>📚 Buku Cerita Anak</li>
-            <li>📘 Buku Pelajaran</li>
-            <li>🦸 Komik Edukasi</li>
-            <li>🌍 Ensiklopedia</li>
+            <li>Buku Cerita Anak</li>
+            <li>Buku Pelajaran</li>
+            <li>Komik Edukasi</li>
         </ul>
     </div>
 </div>
@@ -234,12 +191,11 @@ button:hover {
 <!-- LAYANAN -->
 <div id="layanan" class="section">
     <div class="card">
-        <h1>✨ Layanan</h1>
+        <h2>✨ Layanan</h2>
         <ul>
-            <li>📥 Peminjaman Buku</li>
-            <li>📤 Pengembalian Buku</li>
-            <li>🪑 Ruang Baca</li>
-            <li>🎨 Kegiatan Literasi</li>
+            <li>Peminjaman Buku</li>
+            <li>Pengembalian Buku</li>
+            <li>Ruang Baca</li>
         </ul>
     </div>
 </div>
@@ -247,42 +203,35 @@ button:hover {
 <!-- PROFIL -->
 <div id="profil" class="section">
     <div class="card">
-        <h1>🏫 Profil</h1>
-        <p>Perpustakaan ini dibuat untuk membantu siswa SD belajar dengan cara yang menyenangkan dan interaktif.</p>
+        <h2>🏫 Profil</h2>
+        <p>Website perpustakaan untuk membantu siswa belajar dengan menyenangkan.</p>
     </div>
 </div>
 
 <!-- ADMIN -->
 <div id="admin" class="section">
     <div class="card">
-        <h1>🔐 Admin</h1>
-        <p>Login untuk mengelola data</p>
-
-        <input type="text" placeholder="Username"><br><br>
-        <input type="password" placeholder="Password"><br><br>
+        <h2>🔐 Login Admin</h2>
+        <input type="text" placeholder="Username"><br>
+        <input type="password" placeholder="Password"><br>
         <button>Login</button>
     </div>
 </div>
 
 <script>
-function showPage(pageId) {
-    let sections = document.querySelectorAll('.section');
-    sections.forEach(section => section.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
+function showPage(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
 }
 
-/* SLIDER FIX (ANTI ERROR) */
+/* SLIDER */
 let index = 0;
-
-window.onload = function() {
-    const slides = document.querySelector('.slides');
-
-    setInterval(() => {
-        index++;
-        if(index > 2) index = 0;
-        slides.style.transform = "translateX(" + (-index * 100) + "%)";
-    }, 3000);
-}
+setInterval(() => {
+    index++;
+    if(index > 2) index = 0;
+    document.querySelector('.slides').style.transform =
+        "translateX(-" + (index * 100) + "%)";
+}, 3000);
 </script>
 
 </body>
