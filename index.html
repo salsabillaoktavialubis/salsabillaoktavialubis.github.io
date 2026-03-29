@@ -87,16 +87,18 @@ nav a {
     width: 200px;
 }
 
-/* VIDEO */
+/* VIDEO (TANPA KOTAK) */
 .video-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .video-container iframe {
     border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* LIST */
@@ -181,25 +183,23 @@ button {
 
     <br><br>
 
-    <!-- VIDEO DI PALING BAWAH -->
-    <div class="card">
-        <h2>🎥 Video Edukasi</h2>
+    <!-- VIDEO TANPA KOTAK -->
+    <h2 style="color:white;">🎥 Video Edukasi</h2>
 
-        <div class="video-container">
+    <div class="video-container">
 
-            <iframe width="300" height="200"
-            src="https://www.youtube.com/embed/lt-hAsZ4bBE"
-            allowfullscreen></iframe>
+        <iframe width="300" height="200"
+        src="https://www.youtube.com/embed/lt-hAsZ4bBE"
+        allowfullscreen></iframe>
 
-            <iframe width="300" height="200"
-            src="https://www.youtube.com/embed/UA-eSMgV8bU"
-            allowfullscreen></iframe>
+        <iframe width="300" height="200"
+        src="https://www.youtube.com/embed/UA-eSMgV8bU"
+        allowfullscreen></iframe>
 
-            <iframe width="300" height="200"
-            src="https://www.youtube.com/embed/PnkBIKrRVhI"
-            allowfullscreen></iframe>
+        <iframe width="300" height="200"
+        src="https://www.youtube.com/embed/PnkBIKrRVhI"
+        allowfullscreen></iframe>
 
-        </div>
     </div>
 
 </div>
