@@ -20,7 +20,6 @@ header {
     padding: 12px 25px;
 }
 
-/* LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -32,7 +31,6 @@ header {
     margin-right: 10px;
 }
 
-/* NAV */
 nav a {
     margin: 10px;
     text-decoration: none;
@@ -52,7 +50,7 @@ nav a {
     display: block;
 }
 
-/* HERO */
+/* HOME */
 .hero {
     background: linear-gradient(to right, #64b5f6, #0d47a1);
     color: white;
@@ -62,7 +60,6 @@ nav a {
     margin: auto;
 }
 
-/* CARD */
 .card {
     background: #e3f2fd;
     padding: 25px;
@@ -71,62 +68,103 @@ nav a {
     margin: auto;
 }
 
-/* FITUR */
 .fitur {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
     flex-wrap: wrap;
 }
 
-.fitur .box {
+.box {
     background: #bbdefb;
     padding: 20px;
     border-radius: 15px;
     width: 200px;
 }
 
-/* VIDEO (TANPA KOTAK) */
+/* VIDEO */
 .video-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 15px;
 }
 
 .video-container iframe {
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* LIST */
-ul {
-    list-style: none;
-    padding: 0;
+/* KOLEKSI */
+.koleksi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
 }
 
-ul li {
-    background: #bbdefb;
-    margin: 10px;
+.buku {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.buku img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.buku p {
     padding: 10px;
-    border-radius: 10px;
+    font-weight: bold;
 }
 
-/* INPUT */
+.buku:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* SEARCH */
+#searchInput {
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+    width: 250px;
+}
+
+/* POPUP */
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+#popupContent {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+}
+
+/* ADMIN */
 input {
     padding: 10px;
     margin: 5px;
     border-radius: 10px;
-    border: 1px solid #ccc;
 }
 
-/* BUTTON */
 button {
     padding: 10px 20px;
-    border: none;
     border-radius: 20px;
+    border: none;
     background: #0d47a1;
     color: white;
 }
@@ -153,93 +191,124 @@ button {
 
 <!-- HOME -->
 <div id="home" class="section active">
-
     <div class="hero">
         <h1>🎉 Selamat Datang di Perpustakaan SD Taman Ceria</h1>
-        <p>Terima kasih telah berkunjung di website perpustakaan kami 💙</p>
+        <p>Terima kasih telah berkunjung di website ini 💙</p>
     </div>
 
     <br>
 
     <div class="card">
         <h2>🏫 Tentang Perpustakaan</h2>
-        <p>Perpustakaan Ceria SD adalah tempat belajar yang nyaman, aman, dan menyenangkan untuk semua siswa.</p>
+        <p>Perpustakaan ini membantu siswa belajar dengan menyenangkan.</p>
     </div>
 
     <div class="fitur">
-        <div class="box">
-            <h3>📚</h3>
-            <p>Koleksi Lengkap</p>
-        </div>
-        <div class="box">
-            <h3>🪑</h3>
-            <p>Ruang Nyaman</p>
-        </div>
-        <div class="box">
-            <h3>🎉</h3>
-            <p>Kegiatan Seru</p>
-        </div>
+        <div class="box">📚 Koleksi</div>
+        <div class="box">🪑 Nyaman</div>
+        <div class="box">🎉 Seru</div>
     </div>
 
     <br><br>
 
-    <!-- VIDEO TANPA KOTAK -->
     <h2 style="color:white;">🎥 Video Edukasi</h2>
-
     <div class="video-container">
-
-        <iframe width="300" height="200"
-        src="https://www.youtube.com/embed/lt-hAsZ4bBE"
-        allowfullscreen></iframe>
-
-        <iframe width="300" height="200"
-        src="https://www.youtube.com/embed/UA-eSMgV8bU"
-        allowfullscreen></iframe>
-
-        <iframe width="300" height="200"
-        src="https://www.youtube.com/embed/PnkBIKrRVhI"
-        allowfullscreen></iframe>
-
+        <iframe width="300" height="200" src="https://www.youtube.com/embed/lt-hAsZ4bBE" allowfullscreen></iframe>
+        <iframe width="300" height="200" src="https://www.youtube.com/embed/UA-eSMgV8bU" allowfullscreen></iframe>
+        <iframe width="300" height="200" src="https://www.youtube.com/embed/PnkBIKrRVhI" allowfullscreen></iframe>
     </div>
-
 </div>
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="section">
-    <div class="card">
-        <h2>📚 Koleksi Buku</h2>
-        <ul>
-            <li>Buku Cerita Anak</li>
-            <li>Buku Pelajaran</li>
-            <li>Komik Edukasi</li>
-        </ul>
+    <h2 style="color:white;">📚 Koleksi Buku</h2>
+
+    <input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()">
+
+    <div class="koleksi-grid">
+
+        <div class="buku" onclick="showDetail('Buku Cerita 1','Buku cerita anak seru')">
+            <img src="https://source.unsplash.com/200x300/?children-book">
+            <p>Buku Cerita 1</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Buku Cerita 2','Petualangan anak')">
+            <img src="https://source.unsplash.com/200x300/?storybook">
+            <p>Buku Cerita 2</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Buku Cerita 3','Kisah persahabatan')">
+            <img src="https://source.unsplash.com/200x300/?kids-reading">
+            <p>Buku Cerita 3</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Komik Anak','Komik lucu')">
+            <img src="https://source.unsplash.com/200x300/?comic-book">
+            <p>Komik Anak</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Buku Pelajaran','Materi sekolah')">
+            <img src="https://source.unsplash.com/200x300/?education-book">
+            <p>Buku Pelajaran</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Dongeng','Cerita moral')">
+            <img src="https://source.unsplash.com/200x300/?fairytale">
+            <p>Dongeng</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Ensiklopedia','Pengetahuan umum')">
+            <img src="https://source.unsplash.com/200x300/?library-book">
+            <p>Ensiklopedia</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Cerita Anak','Cerita menarik')">
+            <img src="https://source.unsplash.com/200x300/?kids-story">
+            <p>Cerita Anak</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Buku Sekolah','Buku SD')">
+            <img src="https://source.unsplash.com/200x300/?school-book">
+            <p>Buku Sekolah</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Buku Belajar','Latihan belajar')">
+            <img src="https://source.unsplash.com/200x300/?learning-book">
+            <p>Buku Belajar</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- POPUP -->
+<div id="popup">
+    <div id="popupContent">
+        <h3 id="judulBuku"></h3>
+        <p id="deskripsiBuku"></p>
+        <button onclick="closePopup()">Tutup</button>
     </div>
 </div>
 
 <!-- LAYANAN -->
 <div id="layanan" class="section">
     <div class="card">
-        <h2>✨ Layanan</h2>
-        <ul>
-            <li>Peminjaman Buku</li>
-            <li>Pengembalian Buku</li>
-            <li>Ruang Baca</li>
-        </ul>
+        <h2>Layanan</h2>
+        <p>Peminjaman, Pengembalian, Ruang baca</p>
     </div>
 </div>
 
 <!-- PROFIL -->
 <div id="profil" class="section">
     <div class="card">
-        <h2>🏫 Profil</h2>
-        <p>Website perpustakaan untuk membantu siswa belajar dengan menyenangkan.</p>
+        <h2>Profil</h2>
+        <p>Website perpustakaan SD</p>
     </div>
 </div>
 
 <!-- ADMIN -->
 <div id="admin" class="section">
     <div class="card">
-        <h2>🔐 Login Admin</h2>
+        <h2>Login</h2>
         <input type="text" placeholder="Username"><br>
         <input type="password" placeholder="Password"><br>
         <button>Login</button>
@@ -247,9 +316,31 @@ button {
 </div>
 
 <script>
-function showPage(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+function showPage(id){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+}
+
+// SEARCH
+function searchBuku(){
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let buku = document.querySelectorAll(".buku");
+
+    buku.forEach(item=>{
+        let text = item.innerText.toLowerCase();
+        item.style.display = text.includes(input) ? "block" : "none";
+    });
+}
+
+// POPUP
+function showDetail(judul,deskripsi){
+    document.getElementById("judulBuku").innerText = judul;
+    document.getElementById("deskripsiBuku").innerText = deskripsi;
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
 }
 </script>
 
