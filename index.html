@@ -71,19 +71,6 @@ nav a {
     margin: auto;
 }
 
-/* VIDEO */
-.video-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.video-container iframe {
-    border-radius: 15px;
-}
-
 /* FITUR */
 .fitur {
     display: flex;
@@ -98,6 +85,18 @@ nav a {
     padding: 20px;
     border-radius: 15px;
     width: 200px;
+}
+
+/* VIDEO */
+.video-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.video-container iframe {
+    border-radius: 15px;
 }
 
 /* LIST */
@@ -160,28 +159,6 @@ button {
 
     <br>
 
-    <!-- VIDEO -->
-    <div class="video-container">
-
-        <iframe width="300" height="200"
-        src="https://www.youtube.com/embed/lt-hAsZ4bBE"
-        title="Video 1"
-        allowfullscreen></iframe>
-
-        <iframe width="300" height="200"
-        src="https://www.youtube.com/embed/UA-eSMgV8bU"
-        title="Video 2"
-        allowfullscreen></iframe>
-
-        <iframe width="300" height="200"
-        src="https://www.youtube.com/embed/PnkBIKrRVhI"
-        title="Video 3"
-        allowfullscreen></iframe>
-
-    </div>
-
-    <br>
-
     <div class="card">
         <h2>🏫 Tentang Perpustakaan</h2>
         <p>Perpustakaan Ceria SD adalah tempat belajar yang nyaman, aman, dan menyenangkan untuk semua siswa.</p>
@@ -199,6 +176,29 @@ button {
         <div class="box">
             <h3>🎉</h3>
             <p>Kegiatan Seru</p>
+        </div>
+    </div>
+
+    <br><br>
+
+    <!-- VIDEO DI PALING BAWAH -->
+    <div class="card">
+        <h2>🎥 Video Edukasi</h2>
+
+        <div class="video-container">
+
+            <iframe width="300" height="200"
+            src="https://www.youtube.com/embed/lt-hAsZ4bBE"
+            allowfullscreen></iframe>
+
+            <iframe width="300" height="200"
+            src="https://www.youtube.com/embed/UA-eSMgV8bU"
+            allowfullscreen></iframe>
+
+            <iframe width="300" height="200"
+            src="https://www.youtube.com/embed/PnkBIKrRVhI"
+            allowfullscreen></iframe>
+
         </div>
     </div>
 
