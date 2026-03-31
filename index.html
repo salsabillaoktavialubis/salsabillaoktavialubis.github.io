@@ -198,15 +198,10 @@ button {
     text-align: left;
 }
 
-.about-text h2 {
-    margin-bottom: 15px;
-}
-
 .about-text p {
     line-height: 1.6;
 }
 </style>
-
 </head>
 
 <body>
@@ -231,113 +226,102 @@ button {
 <div id="home" class="section active">
     <div class="hero">
         <h1>🎉 Selamat Datang di Perpustakaan SD Taman Ceria</h1>
-        <p>Terima kasih telah berkunjung di website ini 💙</p>
-    </div>
-
-    <div class="card">
-        <h2>🏫 Tentang Perpustakaan</h2>
-        <p>Perpustakaan ini membantu siswa belajar dengan menyenangkan.</p>
-    </div>
-
-    <div class="fitur">
-        <div class="box">📚 Koleksi</div>
-        <div class="box">🪑 Nyaman</div>
-        <div class="box">🎉 Seru</div>
-    </div>
-
-    <h2 style="color:white; margin-top:40px;">🎥 Video Edukasi</h2>
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/lt-hAsZ4bBE" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/UA-eSMgV8bU" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/PnkBIKrRVhI" allowfullscreen></iframe>
     </div>
 </div>
 
-<!-- KOLEKSI -->
+<!-- KOLEKSI (SEMUA BUKU BALIK) -->
 <div id="koleksi" class="section">
-    <h2 style="color:white;">📚 Koleksi Buku</h2>
+<h2 style="color:white;">📚 Koleksi Buku</h2>
 
-    <input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()">
+<input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()">
 
-    <div class="koleksi-grid">
-        <!-- (SEMUA BUKU KAMU TETAP ADA DI SINI, TIDAK DIHAPUS) -->
-    </div>
+<div class="koleksi-grid">
+
+<div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
+<p>Petualangan Si Kancil</p>
 </div>
 
-<!-- POPUP -->
-<div id="popup">
-    <div id="popupContent">
-        <h3 id="judulBuku"></h3>
-        <p id="deskripsiBuku"></p>
-        <button onclick="closePopup()">Tutup</button>
-    </div>
+<div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')">
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+<p>Belajar Membaca Cepat</p>
 </div>
 
-<!-- LAYANAN -->
-<div id="layanan" class="section">
-    <div class="card">
-        <h2>Layanan</h2>
-        <p>Peminjaman, Pengembalian, Ruang baca</p>
-    </div>
+<div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung.')">
+<img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d">
+<p>Matematika Itu Mudah</p>
 </div>
 
-<!-- PROFIL -->
+<div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Cerita sebelum tidur.')">
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+<p>Dongeng Sebelum Tidur</p>
+</div>
+
+<div class="buku" onclick="showDetail('Aku Anak Pintar','Motivasi anak.')">
+<img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe">
+<p>Aku Anak Pintar</p>
+</div>
+
+<div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum.')">
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
+<p>Ensiklopedia Mini</p>
+</div>
+
+<div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu.')">
+<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
+<p>Komik Lucu Sekolah</p>
+</div>
+
+<div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains.')">
+<img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d">
+<p>Belajar Sains Seru</p>
+</div>
+
+<div class="buku" onclick="showDetail('Cerita Nabi untuk Anak','Kisah nabi.')">
+<img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c">
+<p>Cerita Nabi untuk Anak</p>
+</div>
+
+<div class="buku" onclick="showDetail('Aku Suka Membaca','Minat baca.')">
+<img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e">
+<p>Aku Suka Membaca</p>
+</div>
+
+</div>
+</div>
+
+<!-- PROFIL TETAP -->
 <div id="profil" class="section">
-    <div class="card"><h2>📖 Profil</h2><p>Isi profil perpustakaan</p></div>
-    <div class="card"><h2>🎯 Visi</h2><p>Isi visi</p></div>
-    <div class="card"><h2>🚀 Misi</h2><p>Isi misi</p></div>
+<div class="card"><h2>📖 Profil</h2><p>ISI PROFIL KAMU</p></div>
+<div class="card"><h2>🎯 Visi</h2><p>ISI VISI</p></div>
+<div class="card"><h2>🚀 Misi</h2><p>ISI MISI</p></div>
 </div>
 
 <!-- ABOUT US -->
 <div id="about" class="section">
-    <div class="about-container">
-        <img src="foto.jpg" class="about-img">
-        <div class="about-text">
-            <h2>👩‍🎓 About Me</h2>
-            <p>
-            Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi. 
-            Website ini saya rancang sebagai ruang representasi diri sekaligus media personal 
-            branding untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu 
-            perpustakaan dengan inovasi digital.
-            </p>
-        </div>
-    </div>
+<div class="about-container">
+
+<img src="foto.jpg" class="about-img">
+
+<div class="about-text">
+<h2>👩‍🎓 About Me</h2>
+<p>Isi tentang diri kamu di sini...</p>
 </div>
 
-<!-- ADMIN -->
-<div id="admin" class="section">
-    <div class="card">
-        <h2>Login</h2>
-        <input type="text" placeholder="Username"><br>
-        <input type="password" placeholder="Password"><br>
-        <button>Login</button>
-    </div>
+</div>
 </div>
 
 <script>
 function showPage(id){
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 
 function searchBuku(){
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let buku = document.querySelectorAll(".buku");
-
-    buku.forEach(item=>{
-        let text = item.innerText.toLowerCase();
-        item.style.display = text.includes(input) ? "" : "none";
-    });
-}
-
-function showDetail(judul,deskripsi){
-    document.getElementById("judulBuku").innerText = judul;
-    document.getElementById("deskripsiBuku").innerText = deskripsi;
-    document.getElementById("popup").style.display = "flex";
-}
-
-function closePopup(){
-    document.getElementById("popup").style.display = "none";
+let input=document.getElementById("searchInput").value.toLowerCase();
+document.querySelectorAll(".buku").forEach(item=>{
+item.style.display=item.innerText.toLowerCase().includes(input)?"":"none";
+});
 }
 </script>
 
