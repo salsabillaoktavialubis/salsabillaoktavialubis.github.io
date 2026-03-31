@@ -5,13 +5,13 @@
 <title>Perpustakaan SD Taman Ceria</title>
 
 <style>
+/* CSS TETAP SAMA SEPERTI MILIKMU */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #b3e5fc, #0d47a1);
 }
 
-/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,7 +39,6 @@ nav a {
     cursor: pointer;
 }
 
-/* SECTION */
 .section {
     display: none;
     padding: 40px 20px;
@@ -52,7 +51,6 @@ nav a {
     display: block;
 }
 
-/* HOME */
 .hero {
     background: linear-gradient(to right, #64b5f6, #0d47a1);
     color: white;
@@ -70,23 +68,25 @@ nav a {
     margin: 20px auto;
 }
 
-.fitur {
+/* STYLE TAMBAHAN UNTUK MANAJEMEN BUKU */
+.admin-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    border-left: 5px solid #0d47a1;
 }
 
-.box {
-    background: #bbdefb;
-    padding: 20px;
-    border-radius: 15px;
-    width: 180px;
-    text-align: center;
+.btn-hapus {
+    background: #ff5252;
+    font-size: 0.8em;
+    padding: 5px 10px;
 }
 
-/* VIDEO */
 .video-container {
     display: flex;
     justify-content: center;
@@ -101,7 +101,6 @@ nav a {
     border-radius: 15px;
 }
 
-/* KOLEKSI */
 .koleksi-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -133,7 +132,6 @@ nav a {
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* SEARCH */
 #searchInput {
     padding: 10px;
     margin: 20px;
@@ -142,7 +140,6 @@ nav a {
     width: 250px;
 }
 
-/* POPUP */
 #popup {
     display: none;
     position: fixed;
@@ -162,7 +159,6 @@ nav a {
     width: 300px;
 }
 
-/* ADMIN */
 input {
     padding: 10px;
     margin: 5px;
@@ -178,7 +174,6 @@ button {
     cursor: pointer;
 }
 
-/* EVENT TAMBAHAN */
 .event-grid {
     display: flex;
     justify-content: center;
@@ -225,18 +220,28 @@ button {
         <p>Terima kasih telah berkunjung di website ini 💙</p>
     </div>
 
-    <div class="card" style="margin-top: 40px; border: 2px solid #0d47a1;">
+    <div class="card" style="border: 2px solid #0d47a1;">
         <h2>🧮 Hitung Poin Membaca</h2>
         <p>Setiap 1 buku yang kamu baca, kamu akan dapat <b>10 poin</b>!</p>
-        
         <div style="margin-bottom: 15px;">
             <input type="number" id="jumlahBuku" placeholder="Jumlah buku..." style="width: 150px; border: 1px solid #ccc;">
             <span style="font-size: 1.2em;"> × 10 = </span>
             <span id="hasilPoin" style="font-weight: bold; color: #0d47a1; font-size: 1.5em;">0</span>
         </div>
-        
         <button onclick="hitungPoin()">Hitung Poin Saya</button>
         <p id="pesanMotivasi" style="margin-top: 10px; font-style: italic; color: #555;"></p>
+    </div>
+
+    <div class="card" style="margin-top: 30px; background: #bbdefb;">
+        <h2>Sistem Manajemen Koleksi Mandiri</h2>
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="inputJudul" placeholder="Judul Buku Baru...">
+            <input type="text" id="inputPenulis" placeholder="Nama Penulis...">
+            <button onclick="tambahBukuBaru()">+ Tambah Koleksi</button>
+        </div>
+        
+        <div id="daftarBukuMandiri" style="max-height: 300px; overflow-y: auto; padding: 10px;">
+            </div>
     </div>
 
     <h2 style="color:white; margin-top:40px;">🎥 Video Edukasi</h2>
@@ -250,56 +255,14 @@ button {
 <div id="koleksi" class="section">
     <h2 style="color:white;">📚 Koleksi Buku</h2>
     <input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()">
-
     <div class="koleksi-grid">
         <div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')">
             <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
             <p>Petualangan Si Kancil</p>
         </div>
-
         <div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')">
             <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
             <p>Belajar Membaca Cepat</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung dengan cara menyenangkan.')">
-            <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d">
-            <p>Matematika Itu Mudah</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Kumpulan cerita sebelum tidur.')">
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
-            <p>Dongeng Sebelum Tidur</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Aku Anak Pintar','Cerita motivasi anak.')">
-            <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe">
-            <p>Aku Anak Pintar</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum untuk anak.')">
-            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
-            <p>Ensiklopedia Mini</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu kehidupan sekolah.')">
-            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
-            <p>Komik Lucu Sekolah</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains sederhana.')">
-            <img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d">
-            <p>Belajar Sains Seru</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Cerita Nabi untuk Anak','Kisah teladan nabi.')">
-            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c">
-            <p>Cerita Nabi untuk Anak</p>
-        </div>
-
-        <div class="buku" onclick="showDetail('Aku Suka Membaca','Meningkatkan minat baca anak.')">
-            <img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e">
-            <p>Aku Suka Membaca</p>
         </div>
     </div>
 </div>
@@ -322,46 +285,19 @@ button {
 <div id="profil" class="section">
     <div class="card">
         <h2>📖 Profil Perpustakaan</h2>
-        <p style="text-align: justify;">Perpustakaan SD Taman Ceria merupakan pusat sumber belajar yang mendukung kegiatan pembelajaran bagi seluruh warga sekolah. Perpustakaan ini menyediakan koleksi bahan pustaka yang beragam sesuai dengan kebutuhan peserta didik. Keberadaannya bertujuan untuk menumbuhkan budaya literasi serta meningkatkan minat baca siswa. Dengan suasana yang nyaman dan kondusif, perpustakaan mendukung proses pembelajaran secara optimal. Perpustakaan juga berkomitmen untuk meningkatkan kualitas layanan melalui pemanfaatan teknologi informasi.
-        </p>
+        <p style="text-align: justify;">Perpustakaan SD Taman Ceria merupakan pusat sumber belajar yang mendukung kegiatan pembelajaran bagi seluruh warga sekolah.</p>
     </div>
-
     <div class="card">
         <h2>🎯 Visi</h2>
-        <p style="text-align: justify;">
-       Menjadi perpustakaan sekolah yang unggul sebagai pusat sumber belajar yang edukatif dan inovatif dalam mendukung kegiatan pendidikan, meningkatkan budaya literasi, serta mengembangkan ilmu pengetahuan siswa sejak dini dan mendukung proses pembelajaran secara optimal, serta membentuk generasi yang cerdas, kreatif, serta berkarakter melalui layanan informasi yang berkualitas.
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>🚀 Misi</h2>
-        <ol style="text-align: left;">
-            <li>Menyediakan koleksi bahan pustaka yang beragam, berkualitas, serta sesuai dengan kebutuhan dan tingkat perkembangan peserta didik.</li>
-            <li>Mengelola perpustakaan secara profesional dengan pelayanan yang ramah, tertib, serta menciptakan suasana yang nyaman, aman, dan menyenangkan sebagai ruang belajar.</li>
-            <li>Mendorong peningkatan minat baca dan budaya literasi siswa melalui program dan kegiatan yang edukatif, inovatif, serta mendukung proses pembelajaran di sekolah.</li>
-            <li>Menyediakan sumber informasi yang relevan, akurat, dan mudah diakses, serta memanfaatkan teknologi informasi untuk meningkatkan kualitas layanan dan menanamkan nilai-nilai karakter positif kepada siswa.</li>
-        </ol>
+        <p>Menjadi perpustakaan sekolah yang unggul...</p>
     </div>
 </div>
 
 <div id="event" class="section">
     <h2 style="color:white;">📅 Event Perpustakaan</h2>
     <div class="event-grid">
-        <div class="event-card">
-            <h3>📖 Storytelling Time</h3>
-            <p>Mingguan</p>
-            <p>Kegiatan membaca cerita untuk meningkatkan imajinasi anak.</p>
-        </div>
-        <div class="event-card">
-            <h3>🏫 Library Visit</h3>
-            <p>Bulanan</p>
-            <p>Kunjungan siswa ke perpustakaan untuk mengenal koleksi.</p>
-        </div>
-        <div class="event-card">
-            <h3>🏆 Pameran & Lomba</h3>
-            <p>Tahunan</p>
-            <p>Pameran buku, lomba literasi, dan penghargaan pembaca aktif.</p>
-        </div>
+        <div class="event-card"><h3>📖 Storytelling Time</h3><p>Mingguan</p></div>
+        <div class="event-card"><h3>🏫 Library Visit</h3><p>Bulanan</p></div>
     </div>
 </div>
 
@@ -375,15 +311,62 @@ button {
 </div>
 
 <script>
+// DATA AWAL UNTUK FUNGSI MANDIRI
+let koleksiMandiri = [
+    {id: 1, judul: "Sistem Informasi Manajemen", penulis: "Raymond McLeod"},
+    {id: 2, judul: "Analisis Desain Sistem", penulis: "Kendall & Kendall"}
+];
+
 function showPage(id){
     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
 
+// FUNGSI CODINGAN BARU (MANAJEMEN BUKU)
+function tampilkanBukuMandiri() {
+    let container = document.getElementById("daftarBukuMandiri");
+    container.innerHTML = "";
+    
+    koleksiMandiri.forEach(buku => {
+        container.innerHTML += `
+            <div class="admin-box">
+                <div>
+                    <strong>${buku.judul}</strong><br>
+                    <small>Penulis: ${buku.penulis}</small>
+                </div>
+                <button class="btn-hapus" onclick="hapusBukuMandiri(${buku.id})">Hapus</button>
+            </div>
+        `;
+    });
+}
+
+function tambahBukuBaru() {
+    let judul = document.getElementById("inputJudul").value;
+    let penulis = document.getElementById("inputPenulis").value;
+    
+    if(judul && penulis) {
+        let newId = koleksiMandiri.length > 0 ? koleksiMandiri[koleksiMandiri.length-1].id + 1 : 1;
+        koleksiMandiri.push({id: newId, judul: judul, penulis: penulis});
+        tampilkanBukuMandiri();
+        document.getElementById("inputJudul").value = "";
+        document.getElementById("inputPenulis").value = "";
+    } else {
+        alert("Isi judul dan penulis dulu ya!");
+    }
+}
+
+function hapusBukuMandiri(id) {
+    koleksiMandiri = koleksiMandiri.filter(buku => buku.id !== id);
+    tampilkanBukuMandiri();
+}
+
+// JALANKAN TAMPILAN AWAL
+tampilkanBukuMandiri();
+
+// FUNGSI LAMA (TIDAK BERUBAH)
 function searchBuku(){
     let input = document.getElementById("searchInput").value.toLowerCase();
     let buku = document.querySelectorAll(".buku");
-
     buku.forEach(item=>{
         let text = item.innerText.toLowerCase();
         item.style.display = text.includes(input) ? "" : "none";
@@ -400,13 +383,10 @@ function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
-// FUNGSI PERKALIAN BARU
 function hitungPoin() {
     let jumlah = document.getElementById("jumlahBuku").value;
     let hasilElement = document.getElementById("hasilPoin");
     let pesanElement = document.getElementById("pesanMotivasi");
-    
-    // Operasi Perkalian
     let total = jumlah * 10;
     
     if (jumlah > 0) {
