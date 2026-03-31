@@ -147,11 +147,10 @@ nav a {
 }
 
 /* ADMIN */
-input, select {
+input {
     padding: 10px;
     margin: 5px;
     border-radius: 10px;
-    border: 1px solid #ccc;
 }
 
 button {
@@ -163,7 +162,7 @@ button {
     cursor: pointer;
 }
 
-/* EVENT */
+/* EVENT TAMBAHAN */
 .event-grid {
     display: flex;
     justify-content: center;
@@ -177,6 +176,11 @@ button {
     width: 250px;
     padding: 20px;
     transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 </style>
 </head>
@@ -210,25 +214,17 @@ button {
         <p>Perpustakaan ini membantu siswa belajar dengan menyenangkan.</p>
     </div>
 
-    <div class="card" style="border: 2px solid #0d47a1;">
+    <div class="card" style="margin-top: 40px; border: 2px solid #0d47a1;">
         <h2>🧮 Hitung Poin Membaca</h2>
-        <p>Tiap 1 buku = 10 poin.</p>
-        <input type="number" id="jumlahBuku" placeholder="Jumlah buku..." style="width: 120px;">
-        <span style="font-weight: bold;"> × 10 = </span>
-        <span id="hasilPoin" style="color: #0d47a1; font-weight: bold;">0</span><br><br>
-        <button onclick="hitungPoin()">Cek Poin</button>
-    </div>
-
-    <div class="card" style="border: 2px solid #ff9800;">
-        <h2>📅 Cek Jatah Pinjam Buku</h2>
-        <p>Pilih tipe kartu anggotamu untuk tahu berapa lama boleh pinjam:</p>
-        <select id="tipeKartu">
-            <option value="reguler">Kartu Reguler</option>
-            <option value="hebat">Kartu Hebat</option>
-            <option value="super">Kartu Super</option>
-        </select>
-        <button onclick="prosesCekPinjam()">Lihat Hasil</button>
-        <h3 id="hasilWaktu" style="color: #e65100; margin-top: 15px;"></h3>
+        <p>Ayo hitung poinmu! Setiap 1 buku yang dibaca = <b>10 poin</b>.</p>
+        
+        <div style="margin-bottom: 15px;">
+            <input type="number" id="jumlahBuku" placeholder="Jumlah buku..." style="width: 150px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+            <span style="font-size: 1.2em; font-weight: bold;"> × 10 = </span>
+            <span id="hasilPoin" style="font-weight: bold; color: #0d47a1; font-size: 1.5em;">0</span>
+        </div>
+        
+        <button onclick="hitungPoin()">Cek Poin Saya</button>
     </div>
 
     <h2 style="color:white; margin-top:40px;">🎥 Video Edukasi</h2>
@@ -242,14 +238,58 @@ button {
 <div id="koleksi" class="section">
     <h2 style="color:white;">📚 Koleksi Buku</h2>
     <input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()">
+
     <div class="koleksi-grid">
-        <div class="buku" onclick="showDetail('Petualangan Si Kancil','Dongeng kancil.')">
-            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794"><p>Petualangan Si Kancil</p>
+        <div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
+            <p>Petualangan Si Kancil</p>
         </div>
-        <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar hitung.')">
-            <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d"><p>Matematika Itu Mudah</p>
+
+        <div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+            <p>Belajar Membaca Cepat</p>
         </div>
+
+        <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung dengan cara menyenangkan.')">
+            <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d">
+            <p>Matematika Itu Mudah</p>
         </div>
+
+        <div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Kumpulan cerita sebelum tidur.')">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+            <p>Dongeng Sebelum Tidur</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Aku Anak Pintar','Cerita motivasi anak.')">
+            <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe">
+            <p>Aku Anak Pintar</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum untuk anak.')">
+            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
+            <p>Ensiklopedia Mini</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu kehidupan sekolah.')">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
+            <p>Komik Lucu Sekolah</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains sederhana.')">
+            <img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d">
+            <p>Belajar Sains Seru</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Cerita Nabi untuk Anak','Kisah teladan nabi.')">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c">
+            <p>Cerita Nabi untuk Anak</p>
+        </div>
+
+        <div class="buku" onclick="showDetail('Aku Suka Membaca','Meningkatkan minat baca anak.')">
+            <img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e">
+            <p>Aku Suka Membaca</p>
+        </div>
+    </div>
 </div>
 
 <div id="popup">
@@ -257,6 +297,45 @@ button {
         <h3 id="judulBuku"></h3>
         <p id="deskripsiBuku"></p>
         <button onclick="closePopup()">Tutup</button>
+    </div>
+</div>
+
+<div id="layanan" class="section">
+    <div class="card">
+        <h2>Layanan</h2>
+        <p>Peminjaman, Pengembalian, Ruang baca</p>
+    </div>
+</div>
+
+<div id="profil" class="section">
+    <div class="card">
+        <h2>📖 Profil Perpustakaan</h2>
+        <p style="text-align: justify;">
+        Perpustakaan SD Taman Ceria merupakan pusat sumber belajar yang mendukung kegiatan pembelajaran bagi seluruh warga sekolah.
+        </p>
+    </div>
+</div>
+
+<div id="event" class="section">
+    <h2 style="color:white;">📅 Event Perpustakaan</h2>
+    <div class="event-grid">
+        <div class="event-card">
+            <h3>📖 Storytelling Time</h3>
+            <p>Mingguan</p>
+        </div>
+        <div class="event-card">
+            <h3>🏫 Library Visit</h3>
+            <p>Bulanan</p>
+        </div>
+    </div>
+</div>
+
+<div id="admin" class="section">
+    <div class="card">
+        <h2>Login Admin</h2>
+        <input type="text" placeholder="Username"><br>
+        <input type="password" placeholder="Password"><br>
+        <button>Login</button>
     </div>
 </div>
 
@@ -268,8 +347,11 @@ function showPage(id){
 
 function searchBuku(){
     let input = document.getElementById("searchInput").value.toLowerCase();
-    document.querySelectorAll(".buku").forEach(item=>{
-        item.style.display = item.innerText.toLowerCase().includes(input) ? "" : "none";
+    let buku = document.querySelectorAll(".buku");
+
+    buku.forEach(item=>{
+        let text = item.innerText.toLowerCase();
+        item.style.display = text.includes(input) ? "" : "none";
     });
 }
 
@@ -283,33 +365,15 @@ function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
-// FUNGSI 1: PERKALIAN
+// FUNGSI PERKALIAN
 function hitungPoin() {
     let jumlah = document.getElementById("jumlahBuku").value;
-    document.getElementById("hasilPoin").innerText = (jumlah * 10) + " Poin";
-}
-
-// FUNGSI 2: FUNGSI BUATAN SENDIRI (MENGGUNAKAN PARAMETER)
-function hitungLamaPinjam(kategori) {
-    let hari;
-    if (kategori === "reguler") {
-        hari = 3;
-    } else if (kategori === "hebat") {
-        hari = 7;
-    } else if (kategori === "super") {
-        hari = 14;
+    let total = jumlah * 10;
+    if (jumlah > 0) {
+        document.getElementById("hasilPoin").innerText = total + " Poin";
     } else {
-        hari = 0;
+        alert("Masukkan jumlah buku ya!");
     }
-    return hari;
-}
-
-// Fungsi untuk menampilkan hasil ke layar
-function prosesCekPinjam() {
-    let kartu = document.getElementById("tipeKartu").value;
-    // Memanggil fungsi buatan sendiri
-    let durasi = hitungLamaPinjam(kartu);
-    document.getElementById("hasilWaktu").innerText = "Kamu boleh pinjam selama " + durasi + " hari!";
 }
 </script>
 
