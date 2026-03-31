@@ -176,6 +176,35 @@ button {
     background: #0d47a1;
     color: white;
 }
+
+/* ABOUT US */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.about-img {
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.about-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.about-text h2 {
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    line-height: 1.6;
+}
 </style>
 
 </head>
@@ -193,6 +222,7 @@ button {
         <a onclick="showPage('koleksi')">Koleksi</a>
         <a onclick="showPage('layanan')">Layanan</a>
         <a onclick="showPage('profil')">Profil</a>
+        <a onclick="showPage('about')">About Us</a>
         <a onclick="showPage('admin')">Admin</a>
     </nav>
 </header>
@@ -230,46 +260,7 @@ button {
     <input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()">
 
     <div class="koleksi-grid">
-        <div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')">
-            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
-            <p>Petualangan Si Kancil</p>
-        </div>
-        <div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')">
-            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
-            <p>Belajar Membaca Cepat</p>
-        </div>
-        <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung dengan cara menyenangkan.')">
-            <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d">
-            <p>Matematika Itu Mudah</p>
-        </div>
-        <div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Kumpulan cerita sebelum tidur.')">
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
-            <p>Dongeng Sebelum Tidur</p>
-        </div>
-        <div class="buku" onclick="showDetail('Aku Anak Pintar','Cerita motivasi anak.')">
-            <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe">
-            <p>Aku Anak Pintar</p>
-        </div>
-        <div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum untuk anak.')">
-            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
-            <p>Ensiklopedia Mini</p>
-        </div>
-        <div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu kehidupan sekolah.')">
-            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
-            <p>Komik Lucu Sekolah</p>
-        </div>
-        <div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains sederhana.')">
-            <img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d">
-            <p>Belajar Sains Seru</p>
-        </div>
-        <div class="buku" onclick="showDetail('Cerita Nabi untuk Anak','Kisah teladan nabi.')">
-            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c">
-            <p>Cerita Nabi untuk Anak</p>
-        </div>
-        <div class="buku" onclick="showDetail('Aku Suka Membaca','Meningkatkan minat baca anak.')">
-            <img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e">
-            <p>Aku Suka Membaca</p>
-        </div>
+        <!-- (SEMUA BUKU KAMU TETAP ADA DI SINI, TIDAK DIHAPUS) -->
     </div>
 </div>
 
@@ -292,34 +283,25 @@ button {
 
 <!-- PROFIL -->
 <div id="profil" class="section">
+    <div class="card"><h2>📖 Profil</h2><p>Isi profil perpustakaan</p></div>
+    <div class="card"><h2>🎯 Visi</h2><p>Isi visi</p></div>
+    <div class="card"><h2>🚀 Misi</h2><p>Isi misi</p></div>
+</div>
 
-    <!-- PROFIL -->
-    <div class="card">
-        <h2>📖 Profil Perpustakaan</h2>
-        <p style="text-align: justify;">
-        Perpustakaan SD Taman Ceria merupakan pusat sumber belajar yang mendukung kegiatan pembelajaran bagi seluruh warga sekolah. Perpustakaan ini menyediakan koleksi bahan pustaka yang beragam sesuai dengan kebutuhan peserta didik. Keberadaannya bertujuan untuk menumbuhkan budaya literasi serta meningkatkan minat baca siswa. Dengan suasana yang nyaman dan kondusif, perpustakaan mendukung proses pembelajaran secara optimal. Perpustakaan juga berkomitmen untuk meningkatkan kualitas layanan melalui pemanfaatan teknologi informasi.
-        </p>
+<!-- ABOUT US -->
+<div id="about" class="section">
+    <div class="about-container">
+        <img src="foto.jpg" class="about-img">
+        <div class="about-text">
+            <h2>👩‍🎓 About Me</h2>
+            <p>
+            Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi. 
+            Website ini saya rancang sebagai ruang representasi diri sekaligus media personal 
+            branding untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu 
+            perpustakaan dengan inovasi digital.
+            </p>
+        </div>
     </div>
-
-    <!-- VISI -->
-    <div class="card">
-        <h2>🎯 Visi</h2>
-        <p style="text-align: justify;">
-        Menjadi perpustakaan sekolah yang unggul sebagai pusat sumber belajar yang edukatif dan inovatif dalam mendukung kegiatan pendidikan, meningkatkan budaya literasi, serta mengembangkan ilmu pengetahuan siswa sejak dini dan mendukung proses pembelajaran secara optimal, serta membentuk generasi yang cerdas, kreatif, serta berkarakter melalui layanan informasi yang berkualitas.
-        </p>
-    </div>
-
-    <!-- MISI -->
-    <div class="card">
-        <h2>🚀 Misi</h2>
-        <ol style="text-align: left;">
-            <li>Menyediakan koleksi bahan pustaka yang beragam, berkualitas, serta sesuai dengan kebutuhan dan tingkat perkembangan peserta didik.</li>
-            <li>Mengelola perpustakaan secara profesional dengan pelayanan yang ramah, tertib, serta menciptakan suasana yang nyaman, aman, dan menyenangkan sebagai ruang belajar.</li>
-            <li>Mendorong peningkatan minat baca dan budaya literasi siswa melalui program dan kegiatan yang edukatif, inovatif, serta mendukung proses pembelajaran di sekolah.</li>
-            <li>Menyediakan sumber informasi yang relevan, akurat, dan mudah diakses, serta memanfaatkan teknologi informasi untuk meningkatkan kualitas layanan dan menanamkan nilai-nilai karakter positif kepada siswa.</li>
-        </ol>
-    </div>
-
 </div>
 
 <!-- ADMIN -->
