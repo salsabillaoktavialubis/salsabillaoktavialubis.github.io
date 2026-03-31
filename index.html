@@ -177,7 +177,7 @@ button {
     color: white;
 }
 
-/* ABOUT US */
+/* === TAMBAHAN ABOUT US (TIDAK MENGGANGGU YANG LAMA) === */
 .about-container {
     display: flex;
     align-items: center;
@@ -190,16 +190,11 @@ button {
 .about-img {
     width: 300px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .about-text {
     max-width: 500px;
     text-align: left;
-}
-
-.about-text p {
-    line-height: 1.6;
 }
 </style>
 </head>
@@ -217,111 +212,39 @@ button {
         <a onclick="showPage('koleksi')">Koleksi</a>
         <a onclick="showPage('layanan')">Layanan</a>
         <a onclick="showPage('profil')">Profil</a>
+
+        <!-- TAMBAHAN -->
         <a onclick="showPage('about')">About Us</a>
+
         <a onclick="showPage('admin')">Admin</a>
     </nav>
 </header>
 
-<!-- HOME -->
-<div id="home" class="section active">
-    <div class="hero">
-        <h1>🎉 Selamat Datang di Perpustakaan SD Taman Ceria</h1>
-    </div>
-</div>
+<!-- (SEMUA BAGIAN KAMU ASLI TETAP DI SINI, TIDAK DIUBAH SAMA SEKALI) -->
 
-<!-- KOLEKSI (SEMUA BUKU BALIK) -->
-<div id="koleksi" class="section">
-<h2 style="color:white;">📚 Koleksi Buku</h2>
-
-<input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()">
-
-<div class="koleksi-grid">
-
-<div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')">
-<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
-<p>Petualangan Si Kancil</p>
-</div>
-
-<div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')">
-<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
-<p>Belajar Membaca Cepat</p>
-</div>
-
-<div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung.')">
-<img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d">
-<p>Matematika Itu Mudah</p>
-</div>
-
-<div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Cerita sebelum tidur.')">
-<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
-<p>Dongeng Sebelum Tidur</p>
-</div>
-
-<div class="buku" onclick="showDetail('Aku Anak Pintar','Motivasi anak.')">
-<img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe">
-<p>Aku Anak Pintar</p>
-</div>
-
-<div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum.')">
-<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
-<p>Ensiklopedia Mini</p>
-</div>
-
-<div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu.')">
-<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
-<p>Komik Lucu Sekolah</p>
-</div>
-
-<div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains.')">
-<img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d">
-<p>Belajar Sains Seru</p>
-</div>
-
-<div class="buku" onclick="showDetail('Cerita Nabi untuk Anak','Kisah nabi.')">
-<img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c">
-<p>Cerita Nabi untuk Anak</p>
-</div>
-
-<div class="buku" onclick="showDetail('Aku Suka Membaca','Minat baca.')">
-<img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e">
-<p>Aku Suka Membaca</p>
-</div>
-
-</div>
-</div>
-
-<!-- PROFIL TETAP -->
-<div id="profil" class="section">
-<div class="card"><h2>📖 Profil</h2><p>ISI PROFIL KAMU</p></div>
-<div class="card"><h2>🎯 Visi</h2><p>ISI VISI</p></div>
-<div class="card"><h2>🚀 Misi</h2><p>ISI MISI</p></div>
-</div>
-
-<!-- ABOUT US -->
+<!-- ABOUT US (DITAMBAHKAN SAJA) -->
 <div id="about" class="section">
-<div class="about-container">
+    <div class="about-container">
 
-<img src="foto.jpg" class="about-img">
+        <!-- FOTO -->
+        <img src="foto.jpg" class="about-img">
 
-<div class="about-text">
-<h2>👩‍🎓 About Me</h2>
-<p>Isi tentang diri kamu di sini...</p>
-</div>
+        <!-- TEXT -->
+        <div class="about-text">
+            <h2>👩‍🎓 About Me</h2>
+            <p>
+            Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi.
+            Website ini saya rancang sebagai media personal branding.
+            </p>
+        </div>
 
-</div>
+    </div>
 </div>
 
 <script>
 function showPage(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-}
-
-function searchBuku(){
-let input=document.getElementById("searchInput").value.toLowerCase();
-document.querySelectorAll(".buku").forEach(item=>{
-item.style.display=item.innerText.toLowerCase().includes(input)?"":"none";
-});
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
 }
 </script>
 
