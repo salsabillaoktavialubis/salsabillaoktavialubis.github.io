@@ -70,22 +70,6 @@ nav a {
     margin: 20px auto;
 }
 
-.fitur {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.box {
-    background: #bbdefb;
-    padding: 20px;
-    border-radius: 15px;
-    width: 180px;
-    text-align: center;
-}
-
 /* VIDEO */
 .video-container {
     display: flex;
@@ -230,24 +214,17 @@ button {
         <p>Perpustakaan ini membantu siswa belajar dengan menyenangkan.</p>
     </div>
 
-    <div class="fitur">
-        <div class="box">📚 Koleksi</div>
-        <div class="box">🪑 Nyaman</div>
-        <div class="box">🎉 Seru</div>
-    </div>
-
     <div class="card" style="margin-top: 40px; border: 2px solid #0d47a1;">
         <h2>🧮 Hitung Poin Membaca</h2>
-        <p>Setiap 1 buku yang kamu baca, kamu akan dapat <b>10 poin</b>!</p>
+        <p>Ayo hitung poinmu! Setiap 1 buku yang dibaca = <b>10 poin</b>.</p>
         
         <div style="margin-bottom: 15px;">
-            <input type="number" id="jumlahBuku" placeholder="Jumlah buku..." style="width: 150px; border: 1px solid #ccc;">
-            <span style="font-size: 1.2em;"> × 10 = </span>
+            <input type="number" id="jumlahBuku" placeholder="Jumlah buku..." style="width: 150px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+            <span style="font-size: 1.2em; font-weight: bold;"> × 10 = </span>
             <span id="hasilPoin" style="font-weight: bold; color: #0d47a1; font-size: 1.5em;">0</span>
         </div>
         
-        <button onclick="hitungPoin()">Hitung Poin Saya</button>
-        <p id="pesanMotivasi" style="margin-top: 10px; font-style: italic; color: #555;"></p>
+        <button onclick="hitungPoin()">Cek Poin Saya</button>
     </div>
 
     <h2 style="color:white; margin-top:40px;">🎥 Video Edukasi</h2>
@@ -334,25 +311,8 @@ button {
     <div class="card">
         <h2>📖 Profil Perpustakaan</h2>
         <p style="text-align: justify;">
-        Perpustakaan SD Taman Ceria merupakan pusat sumber belajar yang mendukung kegiatan pembelajaran bagi seluruh warga sekolah. Perpustakaan ini menyediakan koleksi bahan pustaka yang beragam sesuai dengan kebutuhan peserta didik.
+        Perpustakaan SD Taman Ceria merupakan pusat sumber belajar yang mendukung kegiatan pembelajaran bagi seluruh warga sekolah.
         </p>
-    </div>
-
-    <div class="card">
-        <h2>🎯 Visi</h2>
-        <p style="text-align: justify;">
-        Menjadi perpustakaan sekolah yang unggul sebagai pusat sumber belajar yang edukatif dan inovatif...
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>🚀 Misi</h2>
-        <ol style="text-align: left;">
-            <li>Menyediakan koleksi bahan pustaka yang beragam dan berkualitas.</li>
-            <li>Mengelola perpustakaan secara profesional dan ramah.</li>
-            <li>Mendorong peningkatan minat baca dan budaya literasi.</li>
-            <li>Memanfaatkan teknologi informasi untuk layanan informasi.</li>
-        </ol>
     </div>
 </div>
 
@@ -362,24 +322,17 @@ button {
         <div class="event-card">
             <h3>📖 Storytelling Time</h3>
             <p>Mingguan</p>
-            <p>Kegiatan membaca cerita untuk meningkatkan imajinasi anak.</p>
         </div>
         <div class="event-card">
             <h3>🏫 Library Visit</h3>
             <p>Bulanan</p>
-            <p>Kunjungan siswa ke perpustakaan untuk mengenal koleksi.</p>
-        </div>
-        <div class="event-card">
-            <h3>🏆 Pameran & Lomba</h3>
-            <p>Tahunan</p>
-            <p>Pameran buku, lomba literasi, dan penghargaan pembaca aktif.</p>
         </div>
     </div>
 </div>
 
 <div id="admin" class="section">
     <div class="card">
-        <h2>Login</h2>
+        <h2>Login Admin</h2>
         <input type="text" placeholder="Username"><br>
         <input type="password" placeholder="Password"><br>
         <button>Login</button>
@@ -412,22 +365,14 @@ function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
-// FUNGSI PERKALIAN BARU
+// FUNGSI PERKALIAN
 function hitungPoin() {
     let jumlah = document.getElementById("jumlahBuku").value;
-    let hasilElement = document.getElementById("hasilPoin");
-    let pesanElement = document.getElementById("pesanMotivasi");
-    
-    // Operasi Perkalian
     let total = jumlah * 10;
-    
     if (jumlah > 0) {
-        hasilElement.innerText = total;
-        pesanElement.innerText = "Wah hebat! Kamu mendapatkan " + total + " poin untuk tabungan literasimu. Ayo baca lagi! 🌟";
+        document.getElementById("hasilPoin").innerText = total + " Poin";
     } else {
-        alert("Masukkan jumlah buku yang kamu baca dulu ya!");
-        hasilElement.innerText = "0";
-        pesanElement.innerText = "";
+        alert("Masukkan jumlah buku ya!");
     }
 }
 </script>
