@@ -5,7 +5,7 @@
 <title>Perpustakaan SD Taman Ceria</title>
 
 <style>
-/* --- CSS ASLI MILIKMU (UTUH) --- */
+/* --- CSS ASLI MILIKMU --- */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -82,10 +82,25 @@ nav a {
 }
 .admin-box {
     background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px;
-    display: flex; justify-content: space-between; align-items: center; text-align: left;
+    display: flex; flex-direction: column; align-items: flex-start; text-align: left;
     border-left: 5px solid #0d47a1;
 }
+.admin-item {
+    display: flex; justify-content: space-between; align-items: center; width: 100%;
+}
 #main-app { display: none; }
+
+/* Tombol CV */
+.cv-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
 
 /* --- CSS ASLI LAINNYA --- */
 .video-container {
@@ -149,6 +164,7 @@ button {
             <a onclick="showPage('layanan')">Layanan</a>
             <a onclick="showPage('profil')">Profil</a>
             <a onclick="showPage('event')">Event</a>
+            <a onclick="showPage('admin')" style="background: #ffc107; color: black; padding: 5px 10px; border-radius: 10px;">Admin</a>
             <a onclick="logout()" style="color:#ff5252">Logout</a>
         </nav>
     </header>
@@ -235,6 +251,23 @@ button {
             <div class="event-card"><h3>🏆 Pameran & Lomba</h3><p>Tahunan</p><p>Pameran buku, lomba literasi, dan penghargaan pembaca aktif.</p></div>
         </div>
     </div>
+
+    <div id="admin" class="section">
+        <h2 style="color:white;">Dashboard Admin</h2>
+        <div class="card" style="text-align: left;">
+            <div class="admin-box">
+                <h3>Profil Admin</h3>
+                <p><strong>Nama:</strong> Salsabilla Oktavia Lubis</p>
+                <p><strong>Email:</strong> salsabillaok13@gmail.com</p>
+                <p><strong>No HP:</strong> 081264089312</p>
+                <p><strong>Keahlian:</strong> Cooking, Baking, Food Plating, Manajemen Dapur</p>
+                <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank" class="cv-btn">Lihat CV</a>
+            </div>
+            <hr>
+            <p style="font-size: 0.9em; color: #555;">Gunakan menu navigasi di atas untuk kembali ke halaman utama.</p>
+        </div>
+    </div>
+
 </div>
 
 <div id="popup"><div id="popupContent"><h3 id="judulBuku"></h3><p id="deskripsiBuku"></p><button onclick="closePopup()">Tutup</button></div></div>
@@ -256,22 +289,22 @@ function aksiLogin() {
 }
 function logout() { location.reload(); }
 
-// --- LOGIKA MANAJEMEN ---
+// --- LOGIKA MANAJEMEN KOLEKSI ---
 let koleksiSaku = JSON.parse(localStorage.getItem('koleksiSaku')) || [];
 function tampilkanBukuSaku() {
     let div = document.getElementById("listBukuSaku"); div.innerHTML = "";
     koleksiSaku.forEach((b, i) => {
-        div.innerHTML += `<div class="admin-box"><div><strong>${b.judul}</strong><br><small>${b.penulis}</small></div><button onclick="hapusBukuSaku(${i})" style="background:#ff5252">Hapus</button></div>`;
+        div.innerHTML += `<div class="admin-box"><div class="admin-item"><div><strong>${b.judul}</strong><br><small>${b.penulis}</small></div><button onclick="hapusBukuSaku(${i})" style="background:#ff5252; padding: 5px 10px;">Hapus</button></div></div>`;
     });
 }
 function tambahBukuSaku() {
     let j = document.getElementById("bookTitle").value; let p = document.getElementById("bookAuthor").value;
-    if(j && p) { koleksiSaku.push({judul:j, penulis:p}); localStorage.setItem('koleksiSaku', JSON.stringify(koleksiSaku)); tampilkanBukuSaku(); }
+    if(j && p) { koleksiSaku.push({judul:j, penulis:p}); localStorage.setItem('koleksiSaku', JSON.stringify(koleksiSaku)); tampilkanBukuSaku(); document.getElementById("bookTitle").value=""; document.getElementById("bookAuthor").value=""; }
 }
 function hapusBukuSaku(i) { koleksiSaku.splice(i, 1); localStorage.setItem('koleksiSaku', JSON.stringify(koleksiSaku)); tampilkanBukuSaku(); }
 tampilkanBukuSaku();
 
-// --- LOGIKA ASLI ---
+// --- LOGIKA HALAMAN & FITUR ---
 function showPage(id){ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
 function searchBuku(){
     let input = document.getElementById("searchInput").value.toLowerCase();
