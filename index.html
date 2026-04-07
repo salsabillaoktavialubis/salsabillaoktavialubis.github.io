@@ -90,7 +90,6 @@ nav a {
 }
 #main-app { display: none; }
 
-/* Tombol CV */
 .cv-btn {
     display: inline-block;
     margin-top: 10px;
@@ -102,7 +101,6 @@ nav a {
     font-weight: bold;
 }
 
-/* --- CSS ASLI LAINNYA --- */
 .video-container {
     display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;
 }
@@ -135,59 +133,85 @@ button {
 
 <body>
 
-<!-- (SEMUA BAGIAN ATAS TIDAK DIUBAH SAMA SEKALI) -->
+<!-- LOGIN -->
+<div id="auth-overlay">
+    <div id="login-form" class="auth-card">
+        <h2>🔑 Masuk</h2>
+        <input type="text" id="userIn" placeholder="Username">
+        <input type="password" id="passIn" placeholder="Password">
+        <button onclick="aksiLogin()">Login</button>
+        <p><a href="#" onclick="pindahKeDaftar()">Daftar</a></p>
+    </div>
+    <div id="register-form" class="auth-card" style="display:none;">
+        <h2>📝 Daftar</h2>
+        <input type="text" id="userReg" placeholder="Username">
+        <input type="password" id="passReg" placeholder="Password">
+        <button onclick="aksiDaftar()">Daftar</button>
+        <p><a href="#" onclick="pindahKeLogin()">Login</a></p>
+    </div>
+</div>
 
 <div id="main-app">
 
-<!-- (NAV dll tetap sama) -->
-
-    <div id="layanan" class="section">
-        <h2 style="color:white;">📌 Layanan Perpustakaan</h2>
-
-        <div class="video-container">
-
-            <div class="card" style="max-width:250px;">
-                <h3>📚 Peminjaman Buku</h3>
-                <p>Siswa dapat meminjam maksimal 3 buku selama 7 hari.</p>
-                <button onclick="alert('Silakan datang ke perpustakaan 😊')">Pinjam</button>
-            </div>
-
-            <div class="card" style="max-width:250px;">
-                <h3>🔄 Pengembalian Buku</h3>
-                <p>Kembalikan buku tepat waktu agar tidak terkena denda.</p>
-                <button onclick="alert('Jangan lupa kembalikan ya ⏰')">Kembalikan</button>
-            </div>
-
-            <div class="card" style="max-width:250px;">
-                <h3>📖 Ruang Baca</h3>
-                <p>Tempat nyaman untuk membaca dan belajar.</p>
-                <button onclick="alert('Selamat membaca 📚')">Masuk</button>
-            </div>
-
-            <div class="card" style="max-width:250px;">
-                <h3>💻 Layanan Digital</h3>
-                <p>Akses e-book dan materi online.</p>
-                <button onclick="alert('Segera tersedia 🚀')">Akses</button>
-            </div>
-
-            <div class="card" style="max-width:250px;">
-                <h3>👩‍🏫 Bimbingan Belajar</h3>
-                <p>Bantuan belajar dari pustakawan.</p>
-                <button onclick="alert('Silakan bertanya 😊')">Tanya</button>
-            </div>
-
-            <div class="card" style="max-width:250px;">
-                <h3>🏆 Program Literasi</h3>
-                <p>Kegiatan membaca & lomba menarik.</p>
-                <button onclick="alert('Ayo ikut! 🎉')">Ikuti</button>
-            </div>
-
-        </div>
+<header>
+    <div class="logo">
+        <img src="logo.png">
+        <h2>Perpustakaan SD Taman Ceria</h2>
     </div>
+    <nav>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('koleksi')">Koleksi</a>
+        <a onclick="showPage('layanan')">Layanan</a>
+        <a onclick="showPage('profil')">Profil</a>
+        <a onclick="showPage('event')">Event</a>
+        <a onclick="showPage('admin')">Admin</a>
+        <a onclick="logout()">Logout</a>
+    </nav>
+</header>
 
-<!-- (SEMUA BAGIAN BAWAH TETAP SAMA PERSIS) -->
+<!-- ✅ LAYANAN (SUDAH DIPERBAIKI) -->
+<div id="layanan" class="section">
+    <h2 style="color:white;">📌 Layanan Perpustakaan</h2>
+
+    <div class="video-container">
+
+        <div class="card" style="max-width:250px;">
+            <h3>📚 Peminjaman Buku</h3>
+            <p>Maksimal 3 buku selama 7 hari.</p>
+            <button onclick="alert('Silakan pinjam di perpustakaan 😊')">Pinjam</button>
+        </div>
+
+        <div class="card" style="max-width:250px;">
+            <h3>🔄 Pengembalian Buku</h3>
+            <p>Kembalikan tepat waktu.</p>
+            <button onclick="alert('Jangan lupa ya ⏰')">Kembalikan</button>
+        </div>
+
+        <div class="card" style="max-width:250px;">
+            <h3>📖 Ruang Baca</h3>
+            <p>Tempat nyaman untuk belajar.</p>
+            <button onclick="alert('Selamat membaca 📚')">Masuk</button>
+        </div>
+
+        <div class="card" style="max-width:250px;">
+            <h3>💻 Digital</h3>
+            <p>Akses e-book.</p>
+            <button onclick="alert('Segera hadir 🚀')">Akses</button>
+        </div>
+
+    </div>
+</div>
 
 </div>
+
+<script>
+function pindahKeDaftar(){document.getElementById('login-form').style.display='none';document.getElementById('register-form').style.display='block';}
+function pindahKeLogin(){document.getElementById('register-form').style.display='none';document.getElementById('login-form').style.display='block';}
+function aksiDaftar(){localStorage.setItem('userPerpus',userReg.value);localStorage.setItem('passPerpus',passReg.value);alert("Berhasil");}
+function aksiLogin(){if(userIn.value===localStorage.getItem('userPerpus')){auth-overlay.style.display='none';main-app.style.display='block';}}
+function logout(){location.reload();}
+function showPage(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+</script>
 
 </body>
 </html>
