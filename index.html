@@ -12,7 +12,6 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
-    /* Background dengan pola halus agar suasana SD lebih terasa */
     background-color: #f0f8ff;
     background-image: radial-gradient(#d1e9ff 1px, transparent 1px);
     background-size: 20px 20px;
@@ -89,7 +88,6 @@ nav a.nav-active {
 
 .active { display: block; }
 
-/* Hero Section */
 .hero {
     background: linear-gradient(135deg, #1e88e5, #1565c0);
     color: white;
@@ -101,7 +99,6 @@ nav a.nav-active {
 
 .hero h1 { font-size: 1.8rem; margin-bottom: 10px; }
 
-/* Desain Kartu yang lebih bersih */
 .card {
     background: white;
     padding: 25px;
@@ -114,7 +111,6 @@ nav a.nav-active {
 
 .card h2 { color: #0d47a1; margin-top: 0; font-size: 1.3rem; }
 
-/* Login/Register Overlay */
 #auth-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -129,7 +125,6 @@ nav a.nav-active {
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* Form Styling */
 input { 
     padding: 12px; margin: 8px 0; border-radius: 12px; 
     border: 2px solid #e3f2fd; width: 90%; 
@@ -146,7 +141,6 @@ button {
 
 button:active { transform: translateY(3px); box-shadow: none; }
 
-/* Event Cards */
 .event-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -165,19 +159,45 @@ button:active { transform: translateY(3px); box-shadow: none; }
     border-radius: 10px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px;
 }
 
-/* Koleksi Grid */
+/* --- PERBAIKAN KHUSUS GRID KOLEKSI --- */
 .koleksi-grid { 
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-    gap: 15px; margin-top: 25px; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    gap: 15px; 
+    margin-top: 25px; 
 }
 
 .buku { 
-    background: white; border-radius: 18px; overflow: hidden; 
-    transition: 0.3s; cursor: pointer; border: 1px solid #eee;
+    background: white; 
+    border-radius: 18px; 
+    overflow: hidden; 
+    transition: 0.3s; 
+    cursor: pointer; 
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Agar kotak sama tinggi */
 }
 
-.buku:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
-.buku p { font-size: 0.85rem; padding: 10px; color: #0d47a1; }
+.buku:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1); 
+}
+
+.buku img {
+    width: 100%;
+    height: 160px; /* Ukuran gambar dikunci agar sejajar */
+    object-fit: cover; /* Mencegah gambar gepeng/pecah */
+}
+
+.buku p { 
+    font-size: 0.85rem; 
+    padding: 10px; 
+    color: #0d47a1; 
+    margin: 0; 
+    font-weight: 600;
+    flex-grow: 1; /* Menyeimbangkan posisi teks */
+}
 
 .video-container iframe {
     border-radius: 20px; border: 4px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -279,16 +299,41 @@ button:active { transform: translateY(3px); box-shadow: none; }
 
     <div id="koleksi" class="section">
         <h2 style="color:#0d47a1;">📚 Cari Buku Favoritmu</h2>
-        <input type="text" id="searchInput" placeholder="🔍 Ketik judul buku di sini..." onkeyup="searchBuku()" style="width: 80%; max-width: 400px; border-radius: 20px; border: 2px solid #0d47a1;">
+        <input type="text" id="searchInput" placeholder="🔍 Ketik judul buku di sini..." onkeyup="searchBuku()" style="width: 80%; max-width: 400px; border-radius: 20px; border: 2px solid #0d47a1; margin-bottom: 20px;">
+        
         <div class="koleksi-grid">
-            <div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794"><p>Si Kancil</p></div>
-            <div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"><p>Membaca Cepat</p></div>
-            <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung dengan cara menyenangkan.')"><img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d"><p>Matematika</p></div>
-            <div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Kumpulan cerita sebelum tidur.')"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba"><p>Dongeng</p></div>
-            <div class="buku" onclick="showDetail('Aku Anak Pintar','Cerita motivasi anak.')"><img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe"><p>Anak Pintar</p></div>
-            <div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum untuk anak.')"><img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d"><p>Ensiklopedia</p></div>
-            <div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu kehidupan sekolah.')"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"><p>Komik Sekolah</p></div>
-            <div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains sederhana.')"><img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d"><p>Sains Seru</p></div>
+            <div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
+                <p>Si Kancil</p>
+            </div>
+            <div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+                <p>Membaca Cepat</p>
+            </div>
+            <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung dengan cara menyenangkan.')">
+                <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d">
+                <p>Matematika</p>
+            </div>
+            <div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Kumpulan cerita sebelum tidur.')">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+                <p>Dongeng</p>
+            </div>
+            <div class="buku" onclick="showDetail('Aku Anak Pintar','Cerita motivasi anak.')">
+                <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe">
+                <p>Anak Pintar</p>
+            </div>
+            <div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum untuk anak.')">
+                <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
+                <p>Ensiklopedia</p>
+            </div>
+            <div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu kehidupan sekolah.')">
+                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
+                <p>Komik Sekolah</p>
+            </div>
+            <div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains sederhana.')">
+                <img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d">
+                <p>Sains Seru</p>
+            </div>
         </div>
     </div>
 
