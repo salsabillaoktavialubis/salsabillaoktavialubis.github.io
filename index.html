@@ -5,23 +5,21 @@
 <title>Perpustakaan SD Taman Ceria</title>
 
 <style>
-/* --- CSS DIUBAH UNTUK WARNA YANG LEBIH CERIA & RAMAH ANAK --- */
+/* --- TEMA WARNA CREAM & COKSU --- */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    /* Background menggunakan warna hijau mint segar yang lembut */
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    color: #2e7d32;
+    background-color: #FFFDD0; /* Cream Muda */
+    color: #5D4037; /* Cokelat Gelap untuk teks */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Warna Hijau Tua yang profesional tapi lembut */
-    background: #43a047;
+    background: #8D6E63; /* Cokelat Susu (Coksu) */
     padding: 12px 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .logo {
@@ -38,15 +36,12 @@ header {
 nav a {
     margin: 10px;
     text-decoration: none;
-    color: white;
+    color: #FFF8E1;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #fff9c4; /* Kuning pucat saat hover */
-}
+nav a:hover { color: #D7CCC8; }
 
 .section {
     display: none;
@@ -56,64 +51,59 @@ nav a:hover {
     margin: auto;
 }
 
-.active {
-    display: block;
-}
+.active { display: block; }
 
 .hero {
-    /* Gradasi Hijau ke Kuning yang ceria */
-    background: linear-gradient(to right, #66bb6a, #ffa726);
+    background: linear-gradient(to right, #A1887F, #8D6E63);
     color: white;
     padding: 50px 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     max-width: 800px;
     margin: 20px auto;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .card {
-    background: white;
+    background: #FAF9F6; /* Off White / Cream */
     padding: 25px;
-    border-radius: 25px;
+    border-radius: 20px;
     max-width: 700px;
     margin: 20px auto;
-    border: 2px dashed #a5d6a7; /* Border putus-putus khas anak sekolah */
+    border: 1px solid #D7CCC8;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* --- CSS TAMBAHAN UNTUK LOGIN & MANAJEMEN --- */
+/* --- AUTH & ADMIN --- */
 #auth-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom right, #43a047, #ffb74d);
+    background: #D7CCC8; /* Coksu Terang */
     display: flex; justify-content: center; align-items: center;
     z-index: 10000;
 }
 .auth-card {
-    background: white; padding: 40px; border-radius: 30px;
-    text-align: center; width: 340px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    background: white; padding: 30px; border-radius: 20px;
+    text-align: center; width: 320px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 .admin-box {
-    background: #f1f8e9; padding: 15px; border-radius: 15px; margin-bottom: 10px;
+    background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px;
     display: flex; flex-direction: column; align-items: flex-start; text-align: left;
-    border-left: 5px solid #43a047;
+    border-left: 5px solid #8D6E63;
 }
-.admin-item {
-    display: flex; justify-content: space-between; align-items: center; width: 100%;
-}
+.admin-item { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 #main-app { display: none; }
 
 .cv-btn {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 15px;
-    background: #fb8c00;
+    background: #6D4C41;
     color: white;
     text-decoration: none;
     border-radius: 10px;
     font-weight: bold;
 }
 
-/* --- CSS UNTUK EVENT --- */
+/* --- EVENT & KOLEKSI --- */
 .event-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -125,61 +115,50 @@ nav a:hover {
     border-radius: 20px;
     padding: 25px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-.event-card-new:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-.event-card-new h3 {
-    color: #2e7d32;
-    margin: 0 0 10px 0;
 }
 .event-time {
-    background: #fff3e0;
-    color: #ef6c00;
+    background: #EFEBE9;
+    color: #5D4037;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.8em;
     font-weight: bold;
-    margin-bottom: 15px;
     display: inline-block;
+    margin-bottom: 10px;
 }
 .event-btn {
-    background: #43a047;
+    background: #8D6E63;
     color: white;
     border: none;
     padding: 10px;
     border-radius: 15px;
-    font-weight: bold;
     cursor: pointer;
+    width: 100%;
 }
 
-/* --- KOLEKSI --- */
+.koleksi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;
+}
 .buku {
-    background: white; border-radius: 20px; overflow: hidden; transition: 0.3s; cursor: pointer;
-    border: 1px solid #e0e0e0;
+    background: white; border-radius: 15px; overflow: hidden; transition: 0.3s; cursor: pointer;
+    border: 1px solid #D7CCC8;
 }
-.buku p { padding: 10px; font-weight: bold; color: #2e7d32; }
-.buku:hover { transform: scale(1.05); border-color: #43a047; }
+.buku img { width: 100%; height: 180px; object-fit: cover; }
+.buku p { padding: 10px; font-weight: bold; font-size: 0.9em; }
+.buku:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-#searchInput { padding: 12px; margin: 20px; border-radius: 20px; border: 2px solid #a5d6a7; width: 300px; outline: none; }
-
+/* --- INPUT & POPUP --- */
+input { padding: 10px; margin: 5px; border-radius: 10px; border: 1px solid #D7CCC8; background: #FFF; }
 button {
-    padding: 10px 25px; border-radius: 25px; border: none;
-    background: #43a047; color: white; cursor: pointer; font-weight: bold; transition: 0.3s;
+    padding: 10px 20px; border-radius: 20px; border: none;
+    background: #6D4C41; color: white; cursor: pointer;
 }
-button:hover { background: #2e7d32; transform: scale(1.05); }
-
-/* --- VIDEO --- */
-.video-container iframe {
-    border: 5px solid white; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+#popup {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 20000;
 }
-
-#popupContent { background: white; padding: 30px; border-radius: 25px; width: 320px; text-align: center; }
+#popupContent { background: white; padding: 25px; border-radius: 20px; width: 300px; text-align: center; }
 </style>
 </head>
 
@@ -187,19 +166,18 @@ button:hover { background: #2e7d32; transform: scale(1.05); }
 
 <div id="auth-overlay">
     <div id="login-form" class="auth-card">
-        <h2 style="color: #43a047;">🌳 Halo Pustakawan!</h2>
-        <p>Silakan masuk ke perpustakaan</p>
-        <input type="text" id="userIn" placeholder="Username" style="width: 80%;">
-        <input type="password" id="passIn" placeholder="Password" style="width: 80%;">
-        <button onclick="aksiLogin()" style="width: 90%; margin-top:20px; font-size: 1.1em;">Ayo Masuk!</button>
-        <p style="font-size: 0.8em; margin-top: 15px;">Belum punya akun? <a href="#" onclick="pindahKeDaftar()" style="color: #ef6c00; font-weight: bold;">Daftar Disini</a></p>
+        <h2>🔑 Masuk</h2>
+        <input type="text" id="userIn" placeholder="Username">
+        <input type="password" id="passIn" placeholder="Password">
+        <button onclick="aksiLogin()" style="width: 100%; margin-top:10px;">Login</button>
+        <p style="font-size: 0.8em;">Belum punya akun? <a href="#" onclick="pindahKeDaftar()">Daftar Disini</a></p>
     </div>
     <div id="register-form" class="auth-card" style="display:none;">
-        <h2 style="color: #43a047;">📝 Buat Akun Baru</h2>
-        <input type="text" id="userReg" placeholder="Username Baru" style="width: 80%;">
-        <input type="password" id="passReg" placeholder="Password Baru" style="width: 80%;">
-        <button onclick="aksiDaftar()" style="width: 90%; margin-top:20px; background:#ffa726;">Daftar Sekarang</button>
-        <p style="font-size: 0.8em; margin-top: 15px;">Sudah punya akun? <a href="#" onclick="pindahKeLogin()" style="color: #43a047; font-weight: bold;">Login</a></p>
+        <h2>📝 Daftar Akun</h2>
+        <input type="text" id="userReg" placeholder="Username Baru">
+        <input type="password" id="passReg" placeholder="Password Baru">
+        <button onclick="aksiDaftar()" style="width: 100%; margin-top:10px; background:#8D6E63;">Daftar</button>
+        <p style="font-size: 0.8em;">Sudah punya akun? <a href="#" onclick="pindahKeLogin()">Login</a></p>
     </div>
 </div>
 
@@ -207,7 +185,7 @@ button:hover { background: #2e7d32; transform: scale(1.05); }
     <header>
         <div class="logo">
             <img src="logo.png">
-            <h2 style="font-size: 1.4em;">Perpustakaan SD Taman Ceria</h2>
+            <h2>SD Taman Ceria</h2>
         </div>
         <nav>
             <a onclick="showPage('home')">Home</a>
@@ -215,175 +193,131 @@ button:hover { background: #2e7d32; transform: scale(1.05); }
             <a onclick="showPage('layanan')">Layanan</a>
             <a onclick="showPage('profil')">Profil</a>
             <a onclick="showPage('event')">Event</a>
-            <a onclick="showPage('admin')" style="background: #ffb74d; color: #5d4037; padding: 8px 15px; border-radius: 15px;">Admin</a>
-            <a onclick="logout()" style="color:#ffcdd2; margin-left: 20px;">Keluar</a>
+            <a onclick="showPage('admin')" style="background: #D7CCC8; color: #5D4037; padding: 5px 10px; border-radius: 10px;">Admin</a>
+            <a onclick="logout()" style="color:#FFCCBC; margin-left: 10px;">Logout</a>
         </nav>
     </header>
 
     <div id="home" class="section active">
         <div class="hero">
-            <h1>🌟 Selamat Datang, <span id="displayUser"></span>!</h1>
-            <p>Ayo jelajahi dunia lewat buku di sekolah kita tercinta 📚✨</p>
+            <h1>📖 Selamat Datang, <span id="displayUser"></span>!</h1>
+            <p>Ayo temukan keajaiban di setiap halaman buku.</p>
         </div>
 
-        <div class="card" style="border-color: #ffb74d;">
-            <h2 style="color: #ef6c00;">🧮 Hitung Poin Membaca</h2>
-            <p>Setiap 1 buku yang kamu baca, kamu akan dapat <b>10 poin</b>!</p>
-            <div style="margin-bottom: 15px;">
-                <input type="number" id="jumlahBuku" placeholder="Berapa buku?" style="width: 150px; border: 2px solid #ffa726;">
-                <span id="hasilPoin" style="font-weight: bold; color: #ef6c00; font-size: 1.8em; margin-left: 10px;"> 0</span>
-            </div>
-            <button onclick="hitungPoin()" style="background: #ffa726;">Cek Poin Saya</button>
-            <p id="pesanMotivasi" style="margin-top: 10px; font-style: italic; color: #e65100;"></p>
+        <div class="card">
+            <h2>🧮 Hitung Poin Membaca</h2>
+            <p>Dapatkan <b>10 poin</b> setiap baca 1 buku!</p>
+            <input type="number" id="jumlahBuku" placeholder="Jumlah buku..." style="width: 150px;">
+            <span id="hasilPoin" style="font-weight: bold; color: #6D4C41; font-size: 1.5em;"> 0</span><br><br>
+            <button onclick="hitungPoin()">Hitung Poin</button>
+            <p id="pesanMotivasi" style="margin-top: 10px; font-style: italic;"></p>
         </div>
 
-        <div class="card" style="background: #f1f8e9;">
-            <h2 style="color: #43a047;">📚 Tambah Koleksi Pribadi</h2>
+        <div class="card" style="background: #EFEBE9;">
+            <h2>📚 Koleksi Saku</h2>
             <input type="text" id="bookTitle" placeholder="Judul Buku...">
             <input type="text" id="bookAuthor" placeholder="Penulis...">
             <button onclick="tambahBukuSaku()">Simpan</button>
             <div id="listBukuSaku" style="margin-top: 20px;"></div>
         </div>
 
-        <h2 style="color: #2e7d32; margin-top:40px;">🎥 Video Edukasi Seru</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/lt-hAsZ4bBE" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/UA-eSMgV8bU" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/PnkBIKrRVhI" allowfullscreen></iframe>
+        <div class="video-container" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
+            <iframe width="300" height="180" src="https://www.youtube.com/embed/lt-hAsZ4bBE" style="border-radius: 15px; border:none;"></iframe>
+            <iframe width="300" height="180" src="https://www.youtube.com/embed/UA-eSMgV8bU" style="border-radius: 15px; border:none;"></iframe>
         </div>
     </div>
 
     <div id="koleksi" class="section">
-        <h2 style="color:#2e7d32;">📚 Koleksi Buku Pilihan</h2>
-        <input type="text" id="searchInput" placeholder="🔍 Cari judul buku di sini..." onkeyup="searchBuku()">
+        <h2>📚 Cari Koleksi</h2>
+        <input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()" style="width: 80%; max-width: 400px; margin-bottom: 20px;">
         <div class="koleksi-grid">
-            <div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794"><p>Petualangan Si Kancil</p></div>
-            <div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"><p>Belajar Membaca Cepat</p></div>
-            <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung dengan cara menyenangkan.')"><img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d"><p>Matematika Itu Mudah</p></div>
-            <div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Kumpulan cerita sebelum tidur.')"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba"><p>Dongeng Sebelum Tidur</p></div>
-            <div class="buku" onclick="showDetail('Aku Anak Pintar','Cerita motivasi anak.')"><img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe"><p>Aku Anak Pintar</p></div>
-            <div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum untuk anak.')"><img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d"><p>Ensiklopedia Mini</p></div>
-            <div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu kehidupan sekolah.')"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"><p>Komik Lucu Sekolah</p></div>
-            <div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains sederhana.')"><img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d"><p>Belajar Sains Seru</p></div>
-            <div class="buku" onclick="showDetail('Cerita Nabi untuk Anak','Kisah teladan nabi.')"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c"><p>Cerita Nabi untuk Anak</p></div>
-            <div class="buku" onclick="showDetail('Aku Suka Membaca','Meningkatkan minat baca anak.')"><img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e"><p>Aku Suka Membaca</p></div>
+            <div class="buku" onclick="showDetail('Petualangan Si Kancil','Dongeng klasik Indonesia.')"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794"><p>Petualangan Si Kancil</p></div>
+            <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar angka jadi seru.')"><img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d"><p>Matematika Mudah</p></div>
+            <div class="buku" onclick="showDetail('Ensiklopedia Mini','Ilmu pengetahuan untuk anak.')"><img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d"><p>Ensiklopedia Mini</p></div>
+            <div class="buku" onclick="showDetail('Aku Suka Membaca','Meningkatkan minat baca.')"><img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e"><p>Aku Suka Membaca</p></div>
         </div>
     </div>
 
     <div id="layanan" class="section">
-        <h2 style="color:#2e7d32;">✨ Layanan Perpustakaan ✨</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top:20px;">
-            <div class="card" style="margin:0;">
-                <h3>📚 Peminjaman</h3>
-                <p>Pinjam buku maksimal 3 buku untuk dibawa pulang.</p>
-                <button onclick="alert('Silakan hubungi petugas untuk meminjam buku 😊')">Pinjam Buku</button>
-            </div>
-            <div class="card" style="margin:0;">
-                <h3>🔄 Pengembalian</h3>
-                <p>Kembalikan tepat waktu agar teman lain bisa baca.</p>
-                <button onclick="alert('Kembalikan ke kotak pengembalian ya! ⏰')">Kembalikan</button>
-            </div>
-            <div class="card" style="margin:0;">
-                <h3>📖 Ruang Baca</h3>
-                <p>Tempat paling nyaman untuk membaca buku.</p>
-                <button onclick="alert('Sstt.. Harap tenang di dalam ya! 🤫')">Masuk Ruang</button>
-            </div>
-            <div class="card" style="margin:0;">
-                <h3>🕒 Jam Operasional</h3>
-                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9em; color: #2e7d32;">
-                    <tr><td>Senin - Jumat</td><td>: 08.00 - 15.00</td></tr>
-                    <tr><td>Sabtu</td><td>: 08.00 - 12.00</td></tr>
-                    <tr><td>Minggu</td><td>: Tutup</td></tr>
-                </table>
+        <h2>✨ Layanan Kami</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; margin-top:20px;">
+            <div class="card" style="margin:0;"><h3>📚 Pinjam</h3><p>Maks 3 buku.</p></div>
+            <div class="card" style="margin:0;"><h3>🔄 Kembali</h3><p>Tepat waktu ya.</p></div>
+            <div class="card" style="margin:0;"><h3>🕒 Jadwal</h3>
+                <p style="font-size: 0.8em; text-align: left;">Sen-Jum: 08-15<br>Sabtu: 08-12</p>
             </div>
         </div>
     </div>
 
     <div id="profil" class="section">
         <div class="card">
-            <h2 style="color: #43a047;">📖 Tentang Perpustakaan Kami</h2>
-            <p style="text-align: justify;">Perpustakaan SD Taman Ceria adalah rumah bagi ribuan cerita dan ilmu pengetahuan. Kami ingin setiap siswa menjadi anak yang cerdas dan gemar membaca sejak dini. Dengan suasana yang ceria dan koleksi yang lengkap, kami siap menemani belajar kalian!</p>
-        </div>
-        <div class="card">
-            <h2 style="color: #43a047;">🎯 Visi Kami</h2>
-            <p>"Membentuk generasi cerdas, berkarakter, dan cinta literasi melalui pelayanan perpustakaan yang inovatif dan menyenangkan."</p>
+            <h2>📖 Visi & Misi</h2>
+            <p>Menjadi pusat literasi yang edukatif dan menyenangkan bagi siswa SD Taman Ceria.</p>
         </div>
     </div>
 
     <div id="event" class="section">
-        <h1 style="color:#2e7d32; margin-bottom: 10px;">📅 Agenda Seru Kita</h1>
-        <p style="color:#2e7d32; opacity: 0.8; margin-bottom: 30px;">Catat tanggalnya dan ikuti kegiatannya!</p>
-
+        <h2>📅 Agenda Mendatang</h2>
         <div class="event-container">
             <div class="event-card-new">
-                <h3>📖 Petualangan Dongeng</h3>
-                <span class="event-time">Jumat | 10:00 WIB</span>
-                <p>Dengarkan kisah ajaib yang dibacakan oleh kakak pustakawan.</p>
-                <button class="event-btn" onclick="alert('Sampai jumpa di hari Jumat! 😊')">Ikuti</button>
+                <span class="event-time">Jumat | 10:00</span>
+                <h3>Petualangan Dongeng</h3>
+                <p>Kisah seru bersama Pustakawan.</p>
+                <button class="event-btn">Ikuti</button>
             </div>
             <div class="event-card-new">
-                <h3>🏆 Raja & Ratu Baca</h3>
                 <span class="event-time">Event Bulanan</span>
-                <p>Baca 5 buku sebulan dan dapatkan mahkota serta hadiah!</p>
-                <button class="event-btn" style="background: #ffa726;" onclick="alert('Daftar di meja depan ya! 💪')">Daftar</button>
-            </div>
-            <div class="event-card-new">
-                <h3>🎨 Gambar Sampul</h3>
-                <span class="event-time">Sabtu Ceria</span>
-                <p>Mari belajar menggambar dan menghias sampul buku favoritmu.</p>
-                <button class="event-btn" onclick="alert('Bawa alat gambarmu ya! 🎨')">Gabung</button>
+                <h3>Tantangan Membaca</h3>
+                <p>Baca 5 buku dan dapatkan hadiah.</p>
+                <button class="event-btn">Daftar</button>
             </div>
         </div>
     </div>
 
     <div id="admin" class="section">
-        <h2 style="color:#2e7d32;">Dashboard Admin</h2>
+        <h2>Dashboard Admin</h2>
         <div class="card" style="text-align: left;">
             <div class="admin-box">
-                <h3>Profil Admin</h3>
+                <h3>Informasi Admin</h3>
                 <p><strong>Nama:</strong> Salsabilla Oktavia Lubis</p>
                 <p><strong>Email:</strong> salsabillaok13@gmail.com</p>
-                <p><strong>Keahlian:</strong> Manajemen Perpustakaan & Edukasi</p>
-                <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank" class="cv-btn">Lihat CV Lengkap</a>
+                <p><strong>Keahlian:</strong> Manajemen Dapur & Perpustakaan</p>
+                <a href="https://drive.google.com/drive/folders/1foxSvTkdAC9_uROXseR49T6KYU6bR2IE" target="_blank" class="cv-btn">Buka CV</a>
             </div>
-            <hr style="border: 1px solid #f1f8e9;">
-            <p style="font-size: 0.9em; color: #757575;">Selamat bertugas, Salsabilla! Jaga semangat literasi anak-anak.</p>
         </div>
     </div>
-
 </div>
 
-<div id="popup" style="z-index: 10001;">
+<div id="popup">
     <div id="popupContent">
-        <h3 id="judulBuku" style="color: #43a047;"></h3>
+        <h3 id="judulBuku"></h3>
         <p id="deskripsiBuku"></p>
-        <button onclick="closePopup()" style="background: #e53935;">Tutup</button>
+        <button onclick="closePopup()">Tutup</button>
     </div>
 </div>
 
 <script>
-// --- LOGIKA AUTH ---
+// SEMUA LOGIKA ASLI KAMU
 function pindahKeDaftar() { document.getElementById('login-form').style.display='none'; document.getElementById('register-form').style.display='block'; }
 function pindahKeLogin() { document.getElementById('register-form').style.display='none'; document.getElementById('login-form').style.display='block'; }
 function aksiDaftar() {
     let u = document.getElementById('userReg').value; let p = document.getElementById('passReg').value;
-    if(u && p) { localStorage.setItem('userPerpus', u); localStorage.setItem('passPerpus', p); alert("Berhasil Terdaftar! Ayo Login."); pindahKeLogin(); }
+    if(u && p) { localStorage.setItem('userPerpus', u); localStorage.setItem('passPerpus', p); alert("Berhasil! Silakan Login."); pindahKeLogin(); }
 }
 function aksiLogin() {
     let u = document.getElementById('userIn').value; let p = document.getElementById('passIn').value;
     if(u === localStorage.getItem('userPerpus') && p === localStorage.getItem('passPerpus') && u) {
         document.getElementById('auth-overlay').style.display='none'; document.getElementById('main-app').style.display='block';
         document.getElementById('displayUser').innerText = u;
-    } else { alert("Maaf, Username atau Password salah 😔"); }
+    } else { alert("User tidak ditemukan atau salah!"); }
 }
 function logout() { location.reload(); }
 
-// --- KOLEKSI PRIBADI ---
 let koleksiSaku = JSON.parse(localStorage.getItem('koleksiSaku')) || [];
 function tampilkanBukuSaku() {
     let div = document.getElementById("listBukuSaku"); div.innerHTML = "";
     koleksiSaku.forEach((b, i) => {
-        div.innerHTML += `<div class="admin-box" style="border-left-color: #ffa726;"><div class="admin-item"><div><strong>${b.judul}</strong><br><small>${b.penulis}</small></div><button onclick="hapusBukuSaku(${i})" style="background:#ef5350; padding: 5px 10px; font-size: 0.8em;">Hapus</button></div></div>`;
+        div.innerHTML += `<div class="admin-box"><div class="admin-item"><div><strong>${b.judul}</strong><br><small>${b.penulis}</small></div><button onclick="hapusBukuSaku(${i})" style="background:#A1887F; padding: 5px 10px;">Hapus</button></div></div>`;
     });
 }
 function tambahBukuSaku() {
@@ -393,7 +327,6 @@ function tambahBukuSaku() {
 function hapusBukuSaku(i) { koleksiSaku.splice(i, 1); localStorage.setItem('koleksiSaku', JSON.stringify(koleksiSaku)); tampilkanBukuSaku(); }
 tampilkanBukuSaku();
 
-// --- HALAMAN ---
 function showPage(id){ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
 function searchBuku(){
     let input = document.getElementById("searchInput").value.toLowerCase();
@@ -404,7 +337,7 @@ function closePopup(){ document.getElementById("popup").style.display="none"; }
 function hitungPoin() {
     let n = document.getElementById("jumlahBuku").value;
     document.getElementById("hasilPoin").innerText = n * 10;
-    document.getElementById("pesanMotivasi").innerText = n > 0 ? "Hebat! Teruslah membaca ya! 🌟" : "";
+    document.getElementById("pesanMotivasi").innerText = n > 0 ? "Wah hebat! Semangat membaca! 🌟" : "";
 }
 </script>
 </body>
