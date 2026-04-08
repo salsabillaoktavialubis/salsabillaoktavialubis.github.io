@@ -261,41 +261,48 @@ button:active { transform: translateY(3px); box-shadow: none; }
     </header>
 
     <div id="home" class="section active">
-        <div class="hero">
-            <h1>🎉 Selamat Datang, <span id="displayUser"></span>!</h1>
-            <p>Mari jelajahi dunia lewat buku di Perpustakaan SD Taman Ceria 💙</p>
-        </div>
+    <div class="hero" style="margin-bottom: 40px;">
+        <h1>🎉 Selamat Datang, <span id="displayUser"></span>!</h1>
+        <p>Mari jelajahi dunia lewat buku di Perpustakaan SD Taman Ceria 💙</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 50px;">
         
-        <div class="card">
+        <div class="card" style="margin: 0; display: flex; flex-direction: column; justify-content: center;">
             <h2>🧮 Hitung Poin Membaca</h2>
-            <p style="color: #666;">Wah, sudah baca berapa buku hari ini?</p>
-            <div style="background: #f0f7ff; padding: 15px; border-radius: 15px; display: inline-block;">
-                <input type="number" id="jumlahBuku" placeholder="0" style="width: 80px; text-align: center; margin: 0;">
-                <span id="hasilPoin" style="font-weight: 700; color: #0d47a1; font-size: 1.8rem; margin-left: 15px;">0</span>
+            <p style="color: #666; margin-bottom: 20px;">Wah, sudah baca berapa buku hari ini?</p>
+            <div style="background: #f0f7ff; padding: 20px; border-radius: 20px; display: inline-block; border: 2px dashed #bbdefb;">
+                <input type="number" id="jumlahBuku" placeholder="0" style="width: 80px; text-align: center; margin: 0; font-size: 1.2rem; font-weight: bold;">
+                <span id="hasilPoin" style="font-weight: 700; color: #0d47a1; font-size: 2rem; margin-left: 15px;">0</span>
                 <span style="font-weight: 600;"> Poin</span>
             </div>
-            <br><br>
-            <button onclick="hitungPoin()">Hitung Poin Saya</button>
-            <p id="pesanMotivasi" style="margin-top: 15px; font-weight: 600; color: #1e88e5;"></p>
+            <br>
+            <button onclick="hitungPoin()" style="width: 100%;">Hitung Poin Saya</button>
+            <p id="pesanMotivasi" style="margin-top: 15px; font-weight: 600; color: #1e88e5; height: 20px;"></p>
         </div>
 
-        <div class="card" style="background: #fffde7; border: 1px solid #fff59d;">
+        <div class="card" style="margin: 0; background: #fffde7; border: 1px solid #fff59d; display: flex; flex-direction: column;">
             <h2 style="color: #f57f17;">📚 Buku Saku Pribadi</h2>
-            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                <input type="text" id="bookTitle" placeholder="Judul Buku..." style="width: 200px;">
-                <input type="text" id="bookAuthor" placeholder="Penulis..." style="width: 150px;">
-                <button onclick="tambahBukuSaku()" style="background:#f57f17; color:white; box-shadow: 0 4px 0 #bc6412;">Simpan</button>
+            <p style="color: #8d6e63; font-size: 0.9rem; margin-bottom: 15px;">Catat buku yang ingin atau sudah kamu baca!</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <input type="text" id="bookTitle" placeholder="Judul Buku..." style="width: 100%; box-sizing: border-box;">
+                <input type="text" id="bookAuthor" placeholder="Penulis..." style="width: 100%; box-sizing: border-box;">
+                <button onclick="tambahBukuSaku()" style="background:#f57f17; color:white; box-shadow: 0 4px 0 #bc6412; width: 100%;">Simpan ke Saku</button>
             </div>
-            <div id="listBukuSaku" style="margin-top: 20px;"></div>
+            <div id="listBukuSaku" style="margin-top: 20px; max-height: 200px; overflow-y: auto; padding-right: 5px;"></div>
         </div>
 
-        <h2 style="margin-top:40px; color: #0d47a1;">🎥 Video Seru Untukmu</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/lt-hAsZ4bBE" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/UA-eSMgV8bU" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/PnkBIKrRVhI" allowfullscreen></iframe>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h2 style="color: #0d47a1; margin-bottom: 20px;">🎥 Video Seru Untukmu</h2>
+        <div class="video-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <iframe src="https://www.youtube.com/embed/lt-hAsZ4bBE" allowfullscreen style="margin: 0;"></iframe>
+            <iframe src="https://www.youtube.com/embed/UA-eSMgV8bU" allowfullscreen style="margin: 0;"></iframe>
+            <iframe src="https://www.youtube.com/embed/PnkBIKrRVhI" allowfullscreen style="margin: 0;"></iframe>
         </div>
     </div>
+</div>
 
     <div id="koleksi" class="section">
         <h2 style="color:#0d47a1;">📚 Cari Buku Favoritmu</h2>
