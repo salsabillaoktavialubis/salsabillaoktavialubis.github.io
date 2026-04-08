@@ -165,42 +165,22 @@ button:active { transform: translateY(3px); box-shadow: none; }
     border-radius: 10px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px;
 }
 
-/* Koleksi Grid */
-.koleksi-grid { 
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-    gap: 15px; margin-top: 25px; 
-}
-
-.buku { 
-    background: white; border-radius: 18px; overflow: hidden; 
-    transition: 0.3s; cursor: pointer; border: 1px solid #eee;
-}
-
-.buku:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
-.buku p { font-size: 0.85rem; padding: 10px; color: #0d47a1; }
-
-.video-container iframe {
-    border-radius: 20px; border: 4px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    margin: 10px; width: 300px; height: 180px;
-}
-
-.admin-box {
-    background: #f8fbff; padding: 15px; border-radius: 15px; 
-    margin-bottom: 10px; border-left: 6px solid #0d47a1;
-}
-
-.map-item {
-    background: white; padding: 20px; border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
-    text-align: left; border: 1px solid #e1f5fe;
-}
-
-.map-item:hover { background: #e3f2fd; transform: scale(1.02); }
-
-#popupContent { border-radius: 25px; padding: 30px; }
-
-</style>
-</head>
+<div id="koleksi" class="section">
+        <h2 style="color:white;">📚 Koleksi Buku</h2>
+        <input type="text" id="searchInput" placeholder="🔍 Cari buku..." onkeyup="searchBuku()" style="padding: 10px; border-radius: 10px; width: 250px;">
+        <div class="koleksi-grid">
+            <div class="buku" onclick="showDetail('Petualangan Si Kancil','Cerita dongeng tentang kecerdikan si kancil.')"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794"><p>Petualangan Si Kancil</p></div>
+            <div class="buku" onclick="showDetail('Belajar Membaca Cepat','Panduan membaca untuk anak SD.')"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"><p>Belajar Membaca Cepat</p></div>
+            <div class="buku" onclick="showDetail('Matematika Itu Mudah','Belajar berhitung dengan cara menyenangkan.')"><img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d"><p>Matematika Itu Mudah</p></div>
+            <div class="buku" onclick="showDetail('Dongeng Sebelum Tidur','Kumpulan cerita sebelum tidur.')"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba"><p>Dongeng Sebelum Tidur</p></div>
+            <div class="buku" onclick="showDetail('Aku Anak Pintar','Cerita motivasi anak.')"><img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe"><p>Aku Anak Pintar</p></div>
+            <div class="buku" onclick="showDetail('Ensiklopedia Mini','Pengetahuan umum untuk anak.')"><img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d"><p>Ensiklopedia Mini</p></div>
+            <div class="buku" onclick="showDetail('Komik Lucu Sekolah','Cerita lucu kehidupan sekolah.')"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"><p>Komik Lucu Sekolah</p></div>
+            <div class="buku" onclick="showDetail('Belajar Sains Seru','Eksperimen sains sederhana.')"><img src="https://images.unsplash.com/photo-1581090700227-4c4b1a8a0d2d"><p>Belajar Sains Seru</p></div>
+            <div class="buku" onclick="showDetail('Cerita Nabi untuk Anak','Kisah teladan nabi.')"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c"><p>Cerita Nabi untuk Anak</p></div>
+            <div class="buku" onclick="showDetail('Aku Suka Membaca','Meningkatkan minat baca anak.')"><img src="https://images.unsplash.com/photo-1528209392022-4a1f1c6e6f6e"><p>Aku Suka Membaca</p></div>
+        </div>
+    </div>
 
 <body>
 
